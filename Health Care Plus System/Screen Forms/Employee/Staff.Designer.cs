@@ -42,6 +42,7 @@
             // 
             this.StaffDataGridview.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.StaffDataGridview.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.StaffDataGridview.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.StaffDataGridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.StaffDataGridview.Location = new System.Drawing.Point(10, 157);
             this.StaffDataGridview.Name = "StaffDataGridview";

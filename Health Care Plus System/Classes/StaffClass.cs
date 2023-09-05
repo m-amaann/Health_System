@@ -25,14 +25,14 @@ namespace Health_Care_Plus_System.Screen_Forms.Employee
         public string ContactNo { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
-        public Image ProfileImg { get; set; }
+        public string ProfileImg { get; set; }
 
         public StaffClass()
         {
 
         }
 
-        public void LoadStaffRecord()
+        public bool LoadStaffRecord()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -62,19 +62,10 @@ namespace Health_Care_Plus_System.Screen_Forms.Employee
                                 ContactNo = reader["ContactNo"].ToString();
                                 Email = reader["Email"].ToString();
                                 Address = reader["Address"].ToString();
+                                ProfileImg = reader["ProfileImg"].ToString();
 
-                                if (reader["ProfileImg"] != DBNull.Value)
-                                {
-                                    byte[] imageData = (byte[])reader["ProfileImg"];
-                                    using (MemoryStream ms = new MemoryStream(imageData))
-                                    {
-                                        ProfileImg = Image.FromStream(ms);
-                                    }
-                                }
-                                else
-                                {
-                                    ProfileImg = null;
-                                }
+
+                                return true;
                             }
                         }
                     }
@@ -84,8 +75,13 @@ namespace Health_Care_Plus_System.Screen_Forms.Employee
                     MessageBox.Show("An error occurred while loading staff data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            return false;
         }
 
+
+
+
+        // Add Staff Method
         public bool AddStaffRecord()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -111,22 +107,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Employee
                         command.Parameters.AddWithValue("@ContactNo", ContactNo);
                         command.Parameters.AddWithValue("@Email", Email);
                         command.Parameters.AddWithValue("@Address", Address);
-
-                        if (ProfileImg != null)
-                        {
-                            using (MemoryStream ms = new MemoryStream())
-                            {
-                                ProfileImg.Save(ms, ProfileImg.RawFormat);
-                                byte[] imageData = ms.ToArray();
-                                command.Parameters.AddWithValue("@ProfileImg", imageData);
-                            }
-                        }
-                        else
-                        {
-                            command.Parameters.AddWithValue("@ProfileImg", DBNull.Value);
-                        }
-
-
+                        command.Parameters.AddWithValue("@ProfileImg", ProfileImg);
 
 
                         int rowsAffected = command.ExecuteNonQuery();
@@ -180,21 +161,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Employee
                         command.Parameters.AddWithValue("@Email", Email);
                         command.Parameters.AddWithValue("@Address", Address);
                         command.Parameters.AddWithValue("@StaffID", StaffID);
-
-
-                        if (ProfileImg != null)
-                        {
-                            using (MemoryStream ms = new MemoryStream())
-                            {
-                                ProfileImg.Save(ms, ProfileImg.RawFormat);
-                                byte[] imageData = ms.ToArray();
-                                command.Parameters.AddWithValue("@ProfileImg", imageData);
-                            }
-                        }
-                        else
-                        {
-                            command.Parameters.AddWithValue("@ProfileImg", DBNull.Value);
-                        }
+                        command.Parameters.AddWithValue("@ProfileImg", ProfileImg);
 
 
 
@@ -251,11 +218,12 @@ namespace Health_Care_Plus_System.Screen_Forms.Employee
 
 
 
+        //SEARCH Method
         public List<StaffClass> SearchStaffRecord(string searchQuery)
         {
             List<StaffClass> searchResults = new List<StaffClass>();
 
-            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.DBConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
@@ -285,22 +253,9 @@ namespace Health_Care_Plus_System.Screen_Forms.Employee
                                     Shift = reader["Shift"].ToString(),
                                     ContactNo = reader["ContactNo"].ToString(),
                                     Email = reader["Email"].ToString(),
-                                    Address = reader["Address"].ToString()
-                                };
-
-                                // Check if the field is DBNull before attempting to convert to byte[]
-                                if (reader["ProfileImg"] != DBNull.Value && reader["ProfileImg"] is byte[])
-                                {
-                                    byte[] imageData = (byte[])reader["ProfileImg"];
-                                    using (MemoryStream ms = new MemoryStream(imageData))
-                                    {
-                                        staff.ProfileImg = Image.FromStream(ms);
-                                    }
-                                }
-                                else
-                                {
-                                    staff.ProfileImg = null;
-                                }
+                                    Address = reader["Address"].ToString(),
+                                    ProfileImg = reader["ProfileImg"].ToString()
+                                };                        
 
                                 searchResults.Add(staff);
                             }
@@ -314,6 +269,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Employee
             }
 
             return searchResults;
-        }                                      
+        }
+
     }
 }

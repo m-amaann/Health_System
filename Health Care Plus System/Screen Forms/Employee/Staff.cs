@@ -14,14 +14,14 @@ namespace Health_Care_Plus_System.Screen_Forms.Employee
 {
     public partial class Staff : Form
     {
-        //Connection import link
+        //Connection link
         private string connectionString = (Properties.Settings.Default.DBConnectionString);
+
+        private StaffClass staff = new StaffClass();
 
         public Staff()
         {
-            InitializeComponent();
-
-            LoadStaffRecords(); // display the datagridview
+            InitializeComponent();       
         }
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -66,10 +66,9 @@ namespace Health_Care_Plus_System.Screen_Forms.Employee
         private void SearchTextBox_TextChanged(object sender, EventArgs e)
         {
             string searchQuery = SearchTextBox.Text.Trim();
-            StaffClass staffClass = new StaffClass();
-            List<StaffClass> searchResults = staffClass.SearchStaffRecord(searchQuery);
+            List<StaffClass> searchResults = staff.SearchStaffRecord(searchQuery);
 
-            StaffDataGridview.DataSource = searchResults;
+            StaffDataGridview.DataSource = searchResults; // This is search result in display Datagridview
         }
 
         
@@ -98,6 +97,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Employee
             }
         }
 
+
         private void UpdateStaff_FormClosed(object sender, FormClosedEventArgs e)
         {
 
@@ -107,17 +107,17 @@ namespace Health_Care_Plus_System.Screen_Forms.Employee
 
         private void Staff_Load(object sender, EventArgs e)
         {
-
+            LoadStaffRecords();
         }
 
         private void LoadStaffRecords()
         {
             string searchQuery = SearchTextBox.Text.Trim();
-            StaffClass staffClass = new StaffClass();
-            List<StaffClass> searchResults = staffClass.SearchStaffRecord(searchQuery);
+            List<StaffClass> searchResults = staff.SearchStaffRecord(searchQuery);
 
-            // search results in  DataGridView
+            //  search results to the DataGridView
             StaffDataGridview.DataSource = searchResults;
+
         }
 
 

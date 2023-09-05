@@ -334,11 +334,11 @@
             this.AddButton.ForeColor = System.Drawing.Color.White;
             this.AddButton.Image = ((System.Drawing.Image)(resources.GetObject("AddButton.Image")));
             this.AddButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.AddButton.Location = new System.Drawing.Point(856, 623);
+            this.AddButton.Location = new System.Drawing.Point(869, 623);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(138, 46);
+            this.AddButton.Size = new System.Drawing.Size(113, 42);
             this.AddButton.TabIndex = 101;
-            this.AddButton.Text = "SAVE";
+            this.AddButton.Text = "  SAVE";
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // SalaryTextbox
