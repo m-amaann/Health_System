@@ -57,6 +57,12 @@
     <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
     </Reference>
+    <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.WinForms.0.9.7.1\lib\net45\LiveCharts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.SqlServer.ExpressionTask, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -264,8 +270,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AppointmentClass.cs" />
+    <Compile Include="Classes\DashboardCount.cs" />
+    <Compile Include="Classes\DoctorClass.cs" />
     <Compile Include="Classes\PatientClass.cs" />
+    <Compile Include="Classes\Resources.cs" />
     <Compile Include="Classes\StaffClass.cs" />
+    <Compile Include="Screen Forms\Appointment\UpdateAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen Forms\Appointment\UpdateAppointment.Designer.cs">
+      <DependentUpon>UpdateAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen Forms\Doctor\DoctorProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen Forms\Doctor\DoctorProfile.Designer.cs">
+      <DependentUpon>DoctorProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screen Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -376,8 +398,26 @@
     <Compile Include="Screen Forms\Patient\UpdatePatient.Designer.cs">
       <DependentUpon>UpdatePatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screen Forms\Resources\AddResource.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen Forms\Resources\AddResource.Designer.cs">
+      <DependentUpon>AddResource.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen Forms\Resources\ResourcesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen Forms\Resources\ResourcesForm.Designer.cs">
+      <DependentUpon>ResourcesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SessAuthManager.cs" />
     <Compile Include="Classes\userRole.cs" />
+    <EmbeddedResource Include="Screen Forms\Appointment\UpdateAppointment.resx">
+      <DependentUpon>UpdateAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen Forms\Doctor\DoctorProfile.resx">
+      <DependentUpon>DoctorProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screen Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -433,6 +473,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screen Forms\Patient\UpdatePatient.resx">
       <DependentUpon>UpdatePatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen Forms\Resources\AddResource.resx">
+      <DependentUpon>AddResource.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen Forms\Resources\ResourcesForm.resx">
+      <DependentUpon>ResourcesForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

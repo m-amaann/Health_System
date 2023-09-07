@@ -1,6 +1,6 @@
-﻿namespace Health_Care_Plus_System.Screen_Forms.Employee
+﻿namespace Health_Care_Plus_System.Screen_Forms.Resources
 {
-    partial class Staff
+    partial class ResourcesForm
     {
         /// <summary>
         /// Required designer variable.
@@ -42,15 +42,15 @@
             // 
             this.StaffDataGridview.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.StaffDataGridview.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.StaffDataGridview.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.StaffDataGridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.StaffDataGridview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.StaffDataGridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.StaffDataGridview.Location = new System.Drawing.Point(10, 155);
+            this.StaffDataGridview.Location = new System.Drawing.Point(12, 162);
             this.StaffDataGridview.Name = "StaffDataGridview";
             this.StaffDataGridview.RowHeadersWidth = 51;
             this.StaffDataGridview.RowTemplate.Height = 24;
             this.StaffDataGridview.Size = new System.Drawing.Size(970, 523);
-            this.StaffDataGridview.TabIndex = 41;
-            this.StaffDataGridview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
+            this.StaffDataGridview.TabIndex = 48;
             // 
             // DeleteButton
             // 
@@ -66,12 +66,11 @@
             this.DeleteButton.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.DeleteButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.DeleteButton.ImageSize = new System.Drawing.Size(15, 15);
-            this.DeleteButton.Location = new System.Drawing.Point(871, 88);
+            this.DeleteButton.Location = new System.Drawing.Point(873, 95);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(100, 39);
-            this.DeleteButton.TabIndex = 40;
+            this.DeleteButton.TabIndex = 47;
             this.DeleteButton.Text = "DELETE";
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // label2
             // 
@@ -79,11 +78,11 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label2.Location = new System.Drawing.Point(411, 12);
+            this.label2.Location = new System.Drawing.Point(413, 19);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(236, 27);
-            this.label2.TabIndex = 39;
-            this.label2.Text = "Manage Employees";
+            this.label2.Size = new System.Drawing.Size(284, 34);
+            this.label2.TabIndex = 46;
+            this.label2.Text = "Manage Resources";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // SearchBtn
@@ -102,10 +101,10 @@
             this.SearchBtn.ForeColor = System.Drawing.SystemColors.Highlight;
             this.SearchBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.SearchBtn.ImageSize = new System.Drawing.Size(17, 17);
-            this.SearchBtn.Location = new System.Drawing.Point(290, 84);
+            this.SearchBtn.Location = new System.Drawing.Point(292, 91);
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(96, 43);
-            this.SearchBtn.TabIndex = 38;
+            this.SearchBtn.TabIndex = 45;
             this.SearchBtn.Text = "Search";
             // 
             // SearchTextBox
@@ -122,7 +121,7 @@
             this.SearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.SearchTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.SearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SearchTextBox.Location = new System.Drawing.Point(27, 84);
+            this.SearchTextBox.Location = new System.Drawing.Point(29, 91);
             this.SearchTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.SearchTextBox.Name = "SearchTextBox";
             this.SearchTextBox.PasswordChar = '\0';
@@ -130,8 +129,7 @@
             this.SearchTextBox.PlaceholderText = "Enter Search....";
             this.SearchTextBox.SelectedText = "";
             this.SearchTextBox.Size = new System.Drawing.Size(258, 43);
-            this.SearchTextBox.TabIndex = 37;
-            this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
+            this.SearchTextBox.TabIndex = 44;
             // 
             // Addbutton
             // 
@@ -148,10 +146,10 @@
             this.Addbutton.ForeColor = System.Drawing.Color.White;
             this.Addbutton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Addbutton.ImageSize = new System.Drawing.Size(17, 17);
-            this.Addbutton.Location = new System.Drawing.Point(649, 88);
+            this.Addbutton.Location = new System.Drawing.Point(649, 95);
             this.Addbutton.Name = "Addbutton";
-            this.Addbutton.Size = new System.Drawing.Size(100, 39);
-            this.Addbutton.TabIndex = 36;
+            this.Addbutton.Size = new System.Drawing.Size(102, 39);
+            this.Addbutton.TabIndex = 43;
             this.Addbutton.Text = "ADD";
             this.Addbutton.Click += new System.EventHandler(this.Addbutton_Click);
             // 
@@ -169,18 +167,17 @@
             this.Updatebutton.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.Updatebutton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Updatebutton.ImageSize = new System.Drawing.Size(15, 15);
-            this.Updatebutton.Location = new System.Drawing.Point(760, 88);
+            this.Updatebutton.Location = new System.Drawing.Point(762, 95);
             this.Updatebutton.Name = "Updatebutton";
             this.Updatebutton.Size = new System.Drawing.Size(100, 39);
-            this.Updatebutton.TabIndex = 35;
+            this.Updatebutton.TabIndex = 42;
             this.Updatebutton.Text = "UPDATE";
-            this.Updatebutton.Click += new System.EventHandler(this.Updatebutton_Click);
             // 
-            // Staff
+            // ResourcesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(995, 690);
+            this.ClientSize = new System.Drawing.Size(995, 704);
             this.Controls.Add(this.StaffDataGridview);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.label2);
@@ -189,9 +186,10 @@
             this.Controls.Add(this.Addbutton);
             this.Controls.Add(this.Updatebutton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Staff";
-            this.Text = "Staff";
-            this.Load += new System.EventHandler(this.Staff_Load);
+            this.Name = "ResourcesForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "ResourcesForm";
+            this.Load += new System.EventHandler(this.ResourcesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.StaffDataGridview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

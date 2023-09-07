@@ -1,4 +1,5 @@
-﻿using Health_Care_Plus_System.Screen_Forms.Employee;
+﻿using Health_Care_Plus_System.Classes;
+using Health_Care_Plus_System.Screen_Forms.Doctor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,12 +22,12 @@ namespace Health_Care_Plus_System.Screen_Forms.Doctor
         {
             InitializeComponent();
 
-            LoadDoctorsRecords();
+            LoadDoctorsRecords(); // Load the doctor data to display in datagridview table
         }
 
         private void Addbutton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             AddDoctor addDoctor = new AddDoctor();
             addDoctor.ShowDialog();
         }
@@ -58,42 +59,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Doctor
 
         private void Updatebutton_Click(object sender, EventArgs e)
         {
-            if (DoctorDataGridview.SelectedRows.Count > 0)
-            {
-                int rowIndex = DoctorDataGridview.SelectedRows[0].Index;
-                int DoctorID = Convert.ToInt32(DoctorDataGridview.Rows[rowIndex].Cells["DoctorID"].Value);
 
-                this.Hide();
-               UpdateDoctor updateDoctor = new UpdateDoctor(DoctorID);
-                updateDoctor.Show();
-            }
-            else
-            {
-                MessageBox.Show("Please select a row to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
-
-
-        // ---------- Delete the Doctors record method
-        private bool DeleteDoctorRecord(int DoctorID)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                string DELETEQuery = "DELETE FROM Doctors WHERE DoctorID = @DoctorID";
-
-                using (SqlCommand command = new SqlCommand(DELETEQuery, connection))
-                {
-                    command.Parameters.AddWithValue("@DoctorID", DoctorID);
-
-                    int rowsAffected = command.ExecuteNonQuery();
-
-                    return rowsAffected > 0;
-                }
-            }
         }
 
 
@@ -108,7 +74,10 @@ namespace Health_Care_Plus_System.Screen_Forms.Doctor
                     int rowIndex = DoctorDataGridview.SelectedRows[0].Index;
                     int DoctorID = Convert.ToInt32(DoctorDataGridview.Rows[rowIndex].Cells["DoctorID"].Value);
 
-                    if (DeleteDoctorRecord(DoctorID))
+                    DoctorClass doctorClass = new DoctorClass { DoctorID = DoctorID };
+
+
+                    if (doctorClass.DeleteDoctor())
                     {
                         MessageBox.Show("Record deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadDoctorsRecords();
@@ -125,27 +94,65 @@ namespace Health_Care_Plus_System.Screen_Forms.Doctor
             }
         }
 
+
+
         private void SearchTextBox_TextChanged(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+         
+        }
+
+        private void DoctorProfileBtn_Click(object sender, EventArgs e)
+        {
+            if (DoctorDataGridview.SelectedRows.Count > 0)
             {
-                connection.Open();
+                int DoctorID = Convert.ToInt32(DoctorDataGridview.SelectedRows[0].Cells["DoctorID"].Value);
+                DoctorClass selectedDoctor = DoctorClass.GetDoctorByID(DoctorID);
 
-                string searchQuery = SearchTextBox.Text.Trim();
-
-                string query = "SELECT * FROM Doctors " +
-                               "WHERE FullName LIKE @SearchQuery OR ContactNo LIKE @SearchQuery OR Specialization LIKE @SearchQuery";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
+                if (selectedDoctor != null)
                 {
-                    command.Parameters.AddWithValue("@SearchQuery", "%" + searchQuery + "%");
-
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-                    DataTable dataTable = new DataTable();
-                    dataAdapter.Fill(dataTable);
-
-                    DoctorDataGridview.DataSource = dataTable;
+                    DoctorProfile doctorProfile = new DoctorProfile(selectedDoctor);
+                    doctorProfile.ShowDialog();
                 }
+                else
+                {
+                    MessageBox.Show("Doctor not found.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a doctor to view the profile.");
+            }
+        }
+
+
+
+
+
+        private void Updatebutton_Click_1(object sender, EventArgs e)
+        {
+            if (DoctorDataGridview.SelectedRows.Count > 0)
+            {
+                int rowIndex = DoctorDataGridview.SelectedRows[0].Index;
+                int DoctorID = Convert.ToInt32(DoctorDataGridview.Rows[rowIndex].Cells["DoctorID"].Value);
+
+                this.Hide();
+                UpdateDoctor updateDoctor = new UpdateDoctor(DoctorID);
+                updateDoctor.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SearchTextBox_TextChanged_1(object sender, EventArgs e)
+        {
+            string searchQuery = SearchTextBox.Text.Trim();
+            DataTable dataTable = DoctorClass.SearchDoctors(searchQuery);
+
+            if (dataTable != null)
+            {
+                DoctorDataGridview.DataSource = dataTable;
             }
         }
     }

@@ -124,7 +124,7 @@
             "Sunrise Medical Center",
             "Tropical Wellness Medical Center",
             "Unity Hospital Colombo"});
-            this.WorkPlaceComboBox.Location = new System.Drawing.Point(28, 444);
+            this.WorkPlaceComboBox.Location = new System.Drawing.Point(32, 448);
             this.WorkPlaceComboBox.Name = "WorkPlaceComboBox";
             this.WorkPlaceComboBox.Size = new System.Drawing.Size(303, 36);
             this.WorkPlaceComboBox.TabIndex = 200;

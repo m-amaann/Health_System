@@ -16,5 +16,17 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
         {
             InitializeComponent();
         }
+
+        private void Addbutton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AddAppointment addAppointment = new AddAppointment();
+            addAppointment.Show();
+        }
+
+        private void Appointment_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

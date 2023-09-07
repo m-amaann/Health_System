@@ -148,6 +148,7 @@
             this.Addbutton.Size = new System.Drawing.Size(100, 39);
             this.Addbutton.TabIndex = 36;
             this.Addbutton.Text = "ADD";
+            this.Addbutton.Click += new System.EventHandler(this.Addbutton_Click);
             // 
             // Updatebutton
             // 
@@ -184,6 +185,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Appointment";
             this.Text = "Appointment";
+            this.Load += new System.EventHandler(this.Appointment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

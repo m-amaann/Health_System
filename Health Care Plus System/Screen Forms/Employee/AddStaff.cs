@@ -48,7 +48,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Employee
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
-            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+            openFileDialog.Filter = "Image Files (*.jpg; *.jpeg; *.png; *.bmp; *.avif)|*.jpg; *.jpeg; *.png; *.bmp; *.avif";
             openFileDialog.Title = "Select an Image File";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)

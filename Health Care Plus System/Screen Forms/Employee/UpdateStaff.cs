@@ -18,9 +18,9 @@ namespace Health_Care_Plus_System.Screen_Forms.Employee
     public partial class UpdateStaff : Form
     {
 
-        private string connectionString = (Properties.Settings.Default.DBConnectionString); //connection string line
+        private string connectionString = Properties.Settings.Default.DBConnectionString; // Connection string
         private int staffIDUpdate;
-
+        private string selectedImageFileName;
 
         public UpdateStaff(int StaffID)
         {
@@ -39,10 +39,9 @@ namespace Health_Care_Plus_System.Screen_Forms.Employee
                 try
                 {
                     connection.Open();
+                    string query = "SELECT * FROM Staff WHERE StaffID = @StaffID";
 
-                    string UpdateQuery = "SELECT * FROM Staff WHERE StaffID = @StaffID";
-
-                    using (SqlCommand command = new SqlCommand(UpdateQuery, connection))
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@StaffID", staffIDUpdate);
 
@@ -62,19 +61,8 @@ namespace Health_Care_Plus_System.Screen_Forms.Employee
                                 ContactTextBox.Text = reader["ContactNo"].ToString();
                                 EmailTextbox.Text = reader["Email"].ToString();
                                 AddressTextBox1.Text = reader["Address"].ToString();
-
-                                if (reader["ProfileImg"] != DBNull.Value)
-                                {
-                                    byte[] imageData = (byte[])reader["ProfileImg"];
-                                    using (MemoryStream ms = new MemoryStream(imageData))
-                                    {
-                                        BrowsPictureBox1.Image = Image.FromStream(ms);
-                                    }
-                                }
-                                else
-                                {
-                                    BrowsPictureBox1.Image = null;
-                                }
+                                selectedImageFileName = reader["ProfileImg"].ToString(); // Store the image file name
+                                BrowsPictureBox1.ImageLocation = Path.Combine(Application.StartupPath, "Images", selectedImageFileName); //  images are stored in a folder named "Images"
                             }
                         }
                     }
@@ -86,64 +74,38 @@ namespace Health_Care_Plus_System.Screen_Forms.Employee
             }
         }
 
+
+
         private void Updatebutton_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            // Update staff record with new data
+            StaffClass updatedStaff = new StaffClass
             {
-                try
-                {
-                    connection.Open();
+                StaffID = staffIDUpdate,
 
-                    string UPDATEQUERY = @"UPDATE Staff SET FirstName = @FirstName, LastName = @LastName, DOB = @DOB, 
-                                         BloodGroup = @BloodGroup, Gender = @Gender, Occupation = @Occupation, 
-                                         Salary = @Salary, JoiningDate = @JoiningDate, Shift = @Shift, 
-                                         ContactNo = @ContactNo, Email = @Email, Address = @Address,
-                                         ProfileImg = @ProfileImg WHERE StaffID = @StaffID";
+                FirstName = FirstTextBox.Text.Trim(),
+                LastName = LastTextBox.Text.Trim(),
+                DOB = DobDateTimePicker.Value,
+                BloodGroup = BloodgroupComboBox.Text.Trim(),
+                Gender = genderComboBox.Text,
+                Occupation = OccupationComboBox1.Text.Trim(),
+                Salary = SalaryTextbox.Text.Trim(),
+                JoiningDate = JoiningDateTimePicker1.Value,
+                Shift = ShiftComboBox2.Text,
+                ContactNo = ContactTextBox.Text.Trim(),
+                Email = EmailTextbox.Text.Trim(),
+                Address = AddressTextBox1.Text.Trim(),
+                ProfileImg = BrowsPictureBox1.ImageLocation
+            };
 
-                    using (SqlCommand command = new SqlCommand(UPDATEQUERY, connection))
-                    {
-                        command.Parameters.AddWithValue("@FirstName", FirstTextBox.Text);
-                        command.Parameters.AddWithValue("@LastName", LastTextBox.Text);
-                        command.Parameters.AddWithValue("@DOB", DobDateTimePicker.Value);
-                        command.Parameters.AddWithValue("@BloodGroup", BloodgroupComboBox.Text);
-                        command.Parameters.AddWithValue("@Gender", genderComboBox.Text);
-                        command.Parameters.AddWithValue("@Occupation", OccupationComboBox1.Text);
-                        command.Parameters.AddWithValue("@Salary", SalaryTextbox.Text);
-                        command.Parameters.AddWithValue("@JoiningDate", JoiningDateTimePicker1.Value);
-                        command.Parameters.AddWithValue("@Shift", ShiftComboBox2.Text);
-                        command.Parameters.AddWithValue("@ContactNo", ContactTextBox.Text);
-                        command.Parameters.AddWithValue("@Email", EmailTextbox.Text);
-                        command.Parameters.AddWithValue("@Address", AddressTextBox1.Text);
-                        if (!string.IsNullOrWhiteSpace(BrowsPictureBox1.Text))
-                        {
-                            string ProfileImage = Path.GetFileName(BrowsPictureBox1.Text);
-                            command.Parameters.AddWithValue("@ProfileImg", ProfileImage);
-                        }
-                        else
-                        {
-                            command.Parameters.AddWithValue("@ProfileImg", DBNull.Value);
-                        }
-
-                        command.Parameters.AddWithValue("@StaffID", staffIDUpdate);
-
-
-                        int rowsAffected = command.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Staff Record Updated Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("An error occurred while processing your request. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("A database error occurred while processing your request. Please contact support.", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            if (updatedStaff.UpdateStaffRecord())
+            {
+                MessageBox.Show("Staff record updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Failed to update staff record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -155,10 +117,13 @@ namespace Health_Care_Plus_System.Screen_Forms.Employee
         private void BrowseBtn_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files (*.jpg; *.jpeg; *.png; *.bmp; *.avif)|*.jpg; *.jpeg; *.png; *.bmp; *.avif";
+
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                BrowsPictureBox1.Image = new Bitmap(openFileDialog.FileName);
-                BrowsPictureBox1.Text = openFileDialog.FileName;
+                selectedImageFileName = Path.GetFileName(openFileDialog.FileName); // Store the selected file name
+                string selectedImagePath = openFileDialog.FileName;
+                BrowsPictureBox1.ImageLocation = selectedImagePath;
             }
         }
     }

@@ -27,11 +27,13 @@ namespace Health_Care_Plus_System.Screen_Forms.Employee
         public string Address { get; set; }
         public string ProfileImg { get; set; }
 
-        public StaffClass()
+        public StaffClass( )
         {
 
         }
 
+
+        // This method to display retrive the staff reocrd in Table
         public bool LoadStaffRecord()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))

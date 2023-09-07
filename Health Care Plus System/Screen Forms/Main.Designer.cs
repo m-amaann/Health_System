@@ -168,7 +168,7 @@
             this.ResourcesMenuBtn.TabIndex = 10;
             this.ResourcesMenuBtn.Text = "       Resource";
             this.ResourcesMenuBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ResourcesMenuBtn.Click += new System.EventHandler(this.ReportGenerateBtn_Click);
+            this.ResourcesMenuBtn.Click += new System.EventHandler(this.ResourcesMenuBtn_Click);
             // 
             // AdminButton
             // 
@@ -227,7 +227,6 @@
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 9;
             this.guna2PictureBox1.TabStop = false;
-            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // PaymentButton
             // 
@@ -324,6 +323,7 @@
             this.AppointmentButton.TabIndex = 5;
             this.AppointmentButton.Text = "       Appointment";
             this.AppointmentButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.AppointmentButton.Click += new System.EventHandler(this.AppointmentButton_Click);
             // 
             // DoctorButton
             // 
@@ -410,7 +410,6 @@
             this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PictureBox1.TabIndex = 2;
             this.PictureBox1.TabStop = false;
-            this.PictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // Separator1
             // 

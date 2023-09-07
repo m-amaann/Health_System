@@ -44,8 +44,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.SpecificationComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.BrowsPictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.BrowseBtn = new Guna.UI2.WinForms.Guna2Button();
             this.MedicalLicenceTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.genderComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -53,7 +51,6 @@
             this.DobDateTimePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.FullNameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -61,6 +58,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.Updatebutton = new Guna.UI2.WinForms.Guna2Button();
+            this.BrowsPictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.BrowseBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.BrowsPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -389,39 +389,6 @@
             this.label12.TabIndex = 223;
             this.label12.Text = "Specialization";
             // 
-            // BrowsPictureBox1
-            // 
-            this.BrowsPictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.BrowsPictureBox1.BorderRadius = 3;
-            this.BrowsPictureBox1.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.BrowsPictureBox1.ImageRotate = 0F;
-            this.BrowsPictureBox1.Location = new System.Drawing.Point(796, 529);
-            this.BrowsPictureBox1.Name = "BrowsPictureBox1";
-            this.BrowsPictureBox1.Size = new System.Drawing.Size(116, 36);
-            this.BrowsPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.BrowsPictureBox1.TabIndex = 222;
-            this.BrowsPictureBox1.TabStop = false;
-            this.BrowsPictureBox1.UseTransparentBackground = true;
-            // 
-            // BrowseBtn
-            // 
-            this.BrowseBtn.BorderRadius = 5;
-            this.BrowseBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BrowseBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BrowseBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BrowseBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BrowseBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BrowseBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BrowseBtn.ForeColor = System.Drawing.Color.Black;
-            this.BrowseBtn.Image = ((System.Drawing.Image)(resources.GetObject("BrowseBtn.Image")));
-            this.BrowseBtn.Location = new System.Drawing.Point(691, 529);
-            this.BrowseBtn.Name = "BrowseBtn";
-            this.BrowseBtn.PressedColor = System.Drawing.Color.Lavender;
-            this.BrowseBtn.Size = new System.Drawing.Size(99, 36);
-            this.BrowseBtn.TabIndex = 221;
-            this.BrowseBtn.Text = "Upload";
-            this.BrowseBtn.Click += new System.EventHandler(this.BrowseBtn_Click);
-            // 
             // MedicalLicenceTextBox
             // 
             this.MedicalLicenceTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -571,17 +538,6 @@
             this.label3.TabIndex = 214;
             this.label3.Text = "Full Name";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(32, 49);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 28);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 208;
-            this.pictureBox1.TabStop = false;
-            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -674,7 +630,51 @@
             this.Updatebutton.Size = new System.Drawing.Size(116, 41);
             this.Updatebutton.TabIndex = 239;
             this.Updatebutton.Text = "UPDATE";
-            this.Updatebutton.Click += new System.EventHandler(this.Updatebutton_Click);
+            this.Updatebutton.Click += new System.EventHandler(this.Updatebutton_Click_1);
+            // 
+            // BrowsPictureBox1
+            // 
+            this.BrowsPictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.BrowsPictureBox1.BorderRadius = 3;
+            this.BrowsPictureBox1.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.BrowsPictureBox1.ImageRotate = 0F;
+            this.BrowsPictureBox1.Location = new System.Drawing.Point(796, 529);
+            this.BrowsPictureBox1.Name = "BrowsPictureBox1";
+            this.BrowsPictureBox1.Size = new System.Drawing.Size(116, 36);
+            this.BrowsPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.BrowsPictureBox1.TabIndex = 222;
+            this.BrowsPictureBox1.TabStop = false;
+            this.BrowsPictureBox1.UseTransparentBackground = true;
+            // 
+            // BrowseBtn
+            // 
+            this.BrowseBtn.BorderRadius = 5;
+            this.BrowseBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BrowseBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BrowseBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BrowseBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BrowseBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BrowseBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BrowseBtn.ForeColor = System.Drawing.Color.Black;
+            this.BrowseBtn.Image = ((System.Drawing.Image)(resources.GetObject("BrowseBtn.Image")));
+            this.BrowseBtn.Location = new System.Drawing.Point(691, 529);
+            this.BrowseBtn.Name = "BrowseBtn";
+            this.BrowseBtn.PressedColor = System.Drawing.Color.Lavender;
+            this.BrowseBtn.Size = new System.Drawing.Size(99, 36);
+            this.BrowseBtn.TabIndex = 221;
+            this.BrowseBtn.Text = "Upload";
+            this.BrowseBtn.Click += new System.EventHandler(this.BrowseBtn_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(32, 49);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(28, 28);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 208;
+            this.pictureBox1.TabStop = false;
             // 
             // UpdateDoctor
             // 

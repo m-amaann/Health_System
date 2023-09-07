@@ -1,7 +1,9 @@
 ﻿using Health_Care_Plus_System.Screen_Forms;
 using Health_Care_Plus_System.Screen_Forms.AdminAcceess;
+using Health_Care_Plus_System.Screen_Forms.Appointment;
 using Health_Care_Plus_System.Screen_Forms.Doctor;
 using Health_Care_Plus_System.Screen_Forms.Employee;
+using Health_Care_Plus_System.Screen_Forms.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,7 +38,7 @@ namespace Health_Care_Plus_System
 
 
             // Set the username in the header bar
-            UsernameLabel.Text = "Hi : " + role;
+            UsernameLabel.Text = "Hey : " + role;
 
 
             if (userRole.IsAdmin(role))
@@ -94,7 +96,6 @@ namespace Health_Care_Plus_System
         }
 
 
-
         public void loadform(object Form)
         {
             if (this.MainPanel.Controls.Count > 0)
@@ -109,34 +110,19 @@ namespace Health_Care_Plus_System
 
 
 
-
-
         private void Main_Load(object sender, EventArgs e)
         {
             loadform(new DashboardForm());
-        }
 
-
-
-        private void PictureBox1_Click(object sender, EventArgs e)
-        {
 
         }
 
-        private void toolStripLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void PatButton1_Click(object sender, EventArgs e)
         {
             loadform(new PatientForm());
         }
 
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void guna2Button5_Click(object sender, EventArgs e)
         {
@@ -151,15 +137,15 @@ namespace Health_Care_Plus_System
             login.Show();
         }
 
+
+
         private void LoggoutBtn_Click_1(object sender, EventArgs e)
         {
            Application.Exit();
         }
 
-        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
-        {
 
-        }
+
 
         private void DoctorButton_Click(object sender, EventArgs e)
         {
@@ -184,14 +170,27 @@ namespace Health_Care_Plus_System
 
         }
 
-        private void ReportGenerateBtn_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void AdminButton_Click(object sender, EventArgs e)
         {
             loadform(new AddUsers());
+        }
+
+        private void AppointmentButton_Click(object sender, EventArgs e)
+        {
+            loadform(new Appointment());
+        }
+
+        private void TimeDateLabel_Click(object sender, EventArgs e)
+        {
+           
+
+        }
+
+        private void ResourcesMenuBtn_Click(object sender, EventArgs e)
+        {
+            loadform(new ResourcesForm());
         }
     }
 }

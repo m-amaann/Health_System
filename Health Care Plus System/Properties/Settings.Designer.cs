@@ -33,5 +33,16 @@ namespace Health_Care_Plus_System.Properties {
                 return ((string)(this["DBConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DELL-5050\\SQLEXPRESS;Initial Catalog=HealthCareDB;Integrated Security" +
+            "=True")]
+        public string HealthCareDBConnectionString {
+            get {
+                return ((string)(this["HealthCareDBConnectionString"]));
+            }
+        }
     }
 }
