@@ -54,7 +54,7 @@
             this.PatientWidget = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.ResourceLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.DoctorWidget.SuspendLayout();
@@ -340,7 +340,7 @@
             this.guna2Panel1.BorderColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderRadius = 30;
             this.guna2Panel1.Controls.Add(this.pictureBox5);
-            this.guna2Panel1.Controls.Add(this.label2);
+            this.guna2Panel1.Controls.Add(this.ResourceLabel);
             this.guna2Panel1.Controls.Add(this.label7);
             this.guna2Panel1.Location = new System.Drawing.Point(680, 228);
             this.guna2Panel1.Name = "guna2Panel1";
@@ -358,16 +358,16 @@
             this.pictureBox5.TabIndex = 9;
             this.pictureBox5.TabStop = false;
             // 
-            // label2
+            // ResourceLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.label2.Location = new System.Drawing.Point(15, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 47);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "20";
+            this.ResourceLabel.AutoSize = true;
+            this.ResourceLabel.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResourceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.ResourceLabel.Location = new System.Drawing.Point(15, 46);
+            this.ResourceLabel.Name = "ResourceLabel";
+            this.ResourceLabel.Size = new System.Drawing.Size(64, 47);
+            this.ResourceLabel.TabIndex = 10;
+            this.ResourceLabel.Text = "20";
             // 
             // label7
             // 
@@ -449,7 +449,7 @@
         private Guna.UI2.WinForms.Guna2Panel PatientWidget;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label ResourceLabel;
         private System.Windows.Forms.Label label7;
     }
 }

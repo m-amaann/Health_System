@@ -18,7 +18,7 @@ namespace Health_Care_Plus_System.Screen_Forms
         {
             InitializeComponent();
 
-            dashboardCount = new DashboardCount();    //  DashboardCount instance.
+            dashboardCount = new DashboardCount();   
          
             UpdateTotalCounts();    // Call the method to update the total counts.
 
@@ -34,12 +34,13 @@ namespace Health_Care_Plus_System.Screen_Forms
                 int staffCount = dashboardCount.GetStaffTotalCount();
                 int doctorCount = dashboardCount.GetDoctorsTotalCount();
                 int patientCount = dashboardCount.GetPatientsCount();
-
+                int resourceCount = dashboardCount.GetResourceTotalCount();
 
                 // Update the labels to display the counts.
                 Patientlabel.Text = patientCount.ToString();
                 Stafflabel.Text = staffCount.ToString();
                 Doctorlabel.Text = doctorCount.ToString();
+                ResourceLabel.Text = resourceCount.ToString();
             }
             catch (Exception ex)
             {

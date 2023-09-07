@@ -30,7 +30,6 @@
         {
             this.Updatebutton = new Guna.UI2.WinForms.Guna2Button();
             this.Addbutton = new Guna.UI2.WinForms.Guna2Button();
-            this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
             this.SearchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.SearchBtn = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -81,12 +80,6 @@
             this.Addbutton.TabIndex = 20;
             this.Addbutton.Text = "ADD";
             this.Addbutton.Click += new System.EventHandler(this.Addbutton_Click);
-            // 
-            // directorySearcher1
-            // 
-            this.directorySearcher1.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
-            this.directorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
-            this.directorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
             // 
             // SearchTextBox
             // 
@@ -207,7 +200,6 @@
         #endregion
         private Guna.UI2.WinForms.Guna2Button Updatebutton;
         private Guna.UI2.WinForms.Guna2Button Addbutton;
-        private System.DirectoryServices.DirectorySearcher directorySearcher1;
         private Guna.UI2.WinForms.Guna2TextBox SearchTextBox;
         private Guna.UI2.WinForms.Guna2Button SearchBtn;
         private System.Windows.Forms.Label label2;

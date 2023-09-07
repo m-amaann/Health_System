@@ -99,5 +99,30 @@ namespace Health_Care_Plus_System.Classes
                 return -1; // Return -1 to indicate an error.
             }
         }
+
+
+        public int GetResourceTotalCount()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT COUNT(*) FROM Resources";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        int resourceCount = (int)command.ExecuteScalar();
+                        return resourceCount;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while fetching resource count: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1; // Return -1 to indicate an error.
+            }
+        }
     }
 }

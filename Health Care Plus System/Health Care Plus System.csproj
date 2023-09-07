@@ -274,7 +274,7 @@
     <Compile Include="Classes\DashboardCount.cs" />
     <Compile Include="Classes\DoctorClass.cs" />
     <Compile Include="Classes\PatientClass.cs" />
-    <Compile Include="Classes\Resources.cs" />
+    <Compile Include="Classes\ResourceClass.cs" />
     <Compile Include="Classes\StaffClass.cs" />
     <Compile Include="Screen Forms\Appointment\UpdateAppointment.cs">
       <SubType>Form</SubType>
@@ -409,6 +409,12 @@
     </Compile>
     <Compile Include="Screen Forms\Resources\ResourcesForm.Designer.cs">
       <DependentUpon>ResourcesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen Forms\Resources\UpdateResource.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen Forms\Resources\UpdateResource.Designer.cs">
+      <DependentUpon>UpdateResource.cs</DependentUpon>
     </Compile>
     <Compile Include="SessAuthManager.cs" />
     <Compile Include="Classes\userRole.cs" />

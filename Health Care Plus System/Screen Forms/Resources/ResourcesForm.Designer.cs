@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.StaffDataGridview = new System.Windows.Forms.DataGridView();
+            this.ResourceDataGridview = new System.Windows.Forms.DataGridView();
             this.DeleteButton = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.SearchBtn = new Guna.UI2.WinForms.Guna2Button();
             this.SearchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.Addbutton = new Guna.UI2.WinForms.Guna2Button();
             this.Updatebutton = new Guna.UI2.WinForms.Guna2Button();
-            ((System.ComponentModel.ISupportInitialize)(this.StaffDataGridview)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResourceDataGridview)).BeginInit();
             this.SuspendLayout();
             // 
-            // StaffDataGridview
+            // ResourceDataGridview
             // 
-            this.StaffDataGridview.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.StaffDataGridview.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.StaffDataGridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.StaffDataGridview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.StaffDataGridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.StaffDataGridview.Location = new System.Drawing.Point(12, 162);
-            this.StaffDataGridview.Name = "StaffDataGridview";
-            this.StaffDataGridview.RowHeadersWidth = 51;
-            this.StaffDataGridview.RowTemplate.Height = 24;
-            this.StaffDataGridview.Size = new System.Drawing.Size(970, 523);
-            this.StaffDataGridview.TabIndex = 48;
+            this.ResourceDataGridview.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ResourceDataGridview.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ResourceDataGridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ResourceDataGridview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.ResourceDataGridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ResourceDataGridview.Location = new System.Drawing.Point(12, 162);
+            this.ResourceDataGridview.Name = "ResourceDataGridview";
+            this.ResourceDataGridview.RowHeadersWidth = 51;
+            this.ResourceDataGridview.RowTemplate.Height = 24;
+            this.ResourceDataGridview.Size = new System.Drawing.Size(970, 523);
+            this.ResourceDataGridview.TabIndex = 48;
             // 
             // DeleteButton
             // 
@@ -71,6 +71,7 @@
             this.DeleteButton.Size = new System.Drawing.Size(100, 39);
             this.DeleteButton.TabIndex = 47;
             this.DeleteButton.Text = "DELETE";
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // label2
             // 
@@ -80,7 +81,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.label2.Location = new System.Drawing.Point(413, 19);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(284, 34);
+            this.label2.Size = new System.Drawing.Size(227, 27);
             this.label2.TabIndex = 46;
             this.label2.Text = "Manage Resources";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -130,6 +131,7 @@
             this.SearchTextBox.SelectedText = "";
             this.SearchTextBox.Size = new System.Drawing.Size(258, 43);
             this.SearchTextBox.TabIndex = 44;
+            this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
             // 
             // Addbutton
             // 
@@ -172,13 +174,14 @@
             this.Updatebutton.Size = new System.Drawing.Size(100, 39);
             this.Updatebutton.TabIndex = 42;
             this.Updatebutton.Text = "UPDATE";
+            this.Updatebutton.Click += new System.EventHandler(this.Updatebutton_Click);
             // 
             // ResourcesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(995, 704);
-            this.Controls.Add(this.StaffDataGridview);
+            this.Controls.Add(this.ResourceDataGridview);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.SearchBtn);
@@ -190,7 +193,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ResourcesForm";
             this.Load += new System.EventHandler(this.ResourcesForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.StaffDataGridview)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResourceDataGridview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,7 +201,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView StaffDataGridview;
+        private System.Windows.Forms.DataGridView ResourceDataGridview;
         private Guna.UI2.WinForms.Guna2Button DeleteButton;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Button SearchBtn;

@@ -260,9 +260,10 @@
             this.AddButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.AddButton.Location = new System.Drawing.Point(433, 551);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(113, 42);
+            this.AddButton.Size = new System.Drawing.Size(124, 42);
             this.AddButton.TabIndex = 212;
-            this.AddButton.Text = "  SAVE";
+            this.AddButton.Text = "    SAVE";
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // SerialNoTextbox
             // 
@@ -431,6 +432,8 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Name = "AddResource";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.AddResource_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
