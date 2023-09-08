@@ -62,7 +62,9 @@ namespace Health_Care_Plus_System.Screen_Forms.Employee
                                 EmailTextbox.Text = reader["Email"].ToString();
                                 AddressTextBox1.Text = reader["Address"].ToString();
                                 selectedImageFileName = reader["ProfileImg"].ToString(); // Store the image file name
-                                BrowsPictureBox1.ImageLocation = Path.Combine(Application.StartupPath, "Images", selectedImageFileName); //  images are stored in a folder named "Images"
+                                                                                         // Set the image location for BrowsPictureBox1
+                                string imageFilePath = Path.Combine(Application.StartupPath, "Images", selectedImageFileName);
+                                BrowsPictureBox1.ImageLocation = imageFilePath;
                             }
                         }
                     }
@@ -100,7 +102,6 @@ namespace Health_Care_Plus_System.Screen_Forms.Employee
 
             if (updatedStaff.UpdateStaffRecord())
             {
-                MessageBox.Show("Staff record updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             else

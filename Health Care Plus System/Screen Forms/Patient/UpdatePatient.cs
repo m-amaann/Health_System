@@ -84,9 +84,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Patient
                     MessageBox.Show("Patient Record updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-                    Close();
-                  
-
+                    Close();               
 
                 }
                 else

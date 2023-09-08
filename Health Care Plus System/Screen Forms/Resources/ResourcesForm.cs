@@ -1,4 +1,5 @@
 ﻿using Health_Care_Plus_System.Classes;
+using Health_Care_Plus_System.Properties;
 using Health_Care_Plus_System.Screen_Forms.Employee;
 using System;
 using System.Collections.Generic;
@@ -103,11 +104,11 @@ namespace Health_Care_Plus_System.Screen_Forms.Resources
             if (ResourceDataGridview.SelectedRows.Count > 0)
             {
                 int rowIndex = ResourceDataGridview.SelectedRows[0].Index;
-                int resourceID = Convert.ToInt32(ResourceDataGridview.Rows[rowIndex].Cells["ResourceID"].Value);
+                int ResourceID = Convert.ToInt32(ResourceDataGridview.Rows[rowIndex].Cells["ResourceID"].Value);
 
-                UpdateResource updateResource = new UpdateResource(resourceID);
+                this.Hide();
+                UpdateResource updateResource = new UpdateResource(ResourceID);
                 updateResource.ShowDialog();
-                LoadResourcesRecord();
             }
             else
             {

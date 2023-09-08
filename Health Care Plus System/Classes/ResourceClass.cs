@@ -153,17 +153,7 @@ namespace Health_Care_Plus_System.Classes
 
                         int rowsAffected = cmd.ExecuteNonQuery();
 
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Resource Record Updated Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            return true;
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("An error occurred while updating resource record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
+                        return rowsAffected > 0;
                     }
                 }
                 catch (Exception ex)

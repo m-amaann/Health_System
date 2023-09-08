@@ -182,7 +182,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Employee
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (Exception )
                 {
                     MessageBox.Show("A database error occurred while processing your request. Please contact support.", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;

@@ -37,7 +37,7 @@
             this.AdminButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.UsernameLabel = new System.Windows.Forms.Label();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.ProfilePictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.PaymentButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             this.RoomScheduleButton = new Guna.UI2.WinForms.Guna2Button();
@@ -47,14 +47,14 @@
             this.PatButton1 = new Guna.UI2.WinForms.Guna2Button();
             this.PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            this.LogoutBtn = new Guna.UI2.WinForms.Guna2Button();
             this.PanelHeader = new Guna.UI2.WinForms.Guna2Panel();
-            this.LogoutLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.LoggoutBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.SidebarPanel.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             this.PanelHeader.SuspendLayout();
             this.SuspendLayout();
@@ -80,7 +80,7 @@
             this.SidebarPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.SidebarPanel.Location = new System.Drawing.Point(0, 0);
             this.SidebarPanel.Name = "SidebarPanel";
-            this.SidebarPanel.Size = new System.Drawing.Size(251, 810);
+            this.SidebarPanel.Size = new System.Drawing.Size(251, 842);
             this.SidebarPanel.TabIndex = 0;
             this.SidebarPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.SidebarPanel_Paint);
             // 
@@ -131,7 +131,7 @@
             this.ReportGenerateBtn.PressedColor = System.Drawing.Color.DarkGray;
             this.ReportGenerateBtn.Size = new System.Drawing.Size(250, 34);
             this.ReportGenerateBtn.TabIndex = 12;
-            this.ReportGenerateBtn.Text = "       Report";
+            this.ReportGenerateBtn.Text = "       Report Generate";
             this.ReportGenerateBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // guna2Separator1
@@ -200,10 +200,10 @@
             this.guna2GradientPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(124)))), ((int)(((byte)(211)))));
             this.guna2GradientPanel1.BorderRadius = 10;
             this.guna2GradientPanel1.Controls.Add(this.UsernameLabel);
-            this.guna2GradientPanel1.Controls.Add(this.guna2PictureBox1);
+            this.guna2GradientPanel1.Controls.Add(this.ProfilePictureBox2);
             this.guna2GradientPanel1.CustomBorderThickness = new System.Windows.Forms.Padding(0, 8, 8, 0);
             this.guna2GradientPanel1.ForeColor = System.Drawing.Color.Transparent;
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(2, 744);
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(2, 773);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.Size = new System.Drawing.Size(247, 66);
             this.guna2GradientPanel1.TabIndex = 2;
@@ -211,22 +211,27 @@
             // UsernameLabel
             // 
             this.UsernameLabel.AutoSize = true;
+            this.UsernameLabel.BackColor = System.Drawing.Color.Transparent;
             this.UsernameLabel.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameLabel.Location = new System.Drawing.Point(58, 24);
+            this.UsernameLabel.Location = new System.Drawing.Point(66, 22);
             this.UsernameLabel.Name = "UsernameLabel";
-            this.UsernameLabel.Size = new System.Drawing.Size(0, 26);
+            this.UsernameLabel.Size = new System.Drawing.Size(104, 26);
             this.UsernameLabel.TabIndex = 2;
+            this.UsernameLabel.Text = "Receptionist";
             // 
-            // guna2PictureBox1
+            // ProfilePictureBox2
             // 
-            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(8, 18);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(44, 34);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 9;
-            this.guna2PictureBox1.TabStop = false;
+            this.ProfilePictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.ProfilePictureBox2.FillColor = System.Drawing.Color.Transparent;
+            this.ProfilePictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("ProfilePictureBox2.Image")));
+            this.ProfilePictureBox2.ImageRotate = 0F;
+            this.ProfilePictureBox2.Location = new System.Drawing.Point(4, 9);
+            this.ProfilePictureBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.ProfilePictureBox2.Name = "ProfilePictureBox2";
+            this.ProfilePictureBox2.Size = new System.Drawing.Size(59, 51);
+            this.ProfilePictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ProfilePictureBox2.TabIndex = 10;
+            this.ProfilePictureBox2.TabStop = false;
             // 
             // PaymentButton
             // 
@@ -297,7 +302,7 @@
             this.RoomScheduleButton.PressedColor = System.Drawing.Color.DarkGray;
             this.RoomScheduleButton.Size = new System.Drawing.Size(250, 34);
             this.RoomScheduleButton.TabIndex = 6;
-            this.RoomScheduleButton.Text = "       Room Theater";
+            this.RoomScheduleButton.Text = "       Room Theaters";
             this.RoomScheduleButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // AppointmentButton
@@ -421,28 +426,41 @@
             this.Separator1.TabIndex = 2;
             this.Separator1.UseTransparentBackground = true;
             // 
+            // LogoutBtn
+            // 
+            this.LogoutBtn.BackColor = System.Drawing.Color.Transparent;
+            this.LogoutBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.LogoutBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.LogoutBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.LogoutBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.LogoutBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.LogoutBtn.FillColor = System.Drawing.Color.Transparent;
+            this.LogoutBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogoutBtn.ForeColor = System.Drawing.Color.DimGray;
+            this.LogoutBtn.Image = ((System.Drawing.Image)(resources.GetObject("LogoutBtn.Image")));
+            this.LogoutBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.LogoutBtn.ImageSize = new System.Drawing.Size(28, 28);
+            this.LogoutBtn.Location = new System.Drawing.Point(926, 4);
+            this.LogoutBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.LogoutBtn.Name = "LogoutBtn";
+            this.LogoutBtn.Padding = new System.Windows.Forms.Padding(2);
+            this.LogoutBtn.PressedColor = System.Drawing.Color.DarkGray;
+            this.LogoutBtn.Size = new System.Drawing.Size(144, 46);
+            this.LogoutBtn.TabIndex = 14;
+            this.LogoutBtn.Text = " LOGOUT";
+            this.LogoutBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
+            // 
             // PanelHeader
             // 
             this.PanelHeader.BackColor = System.Drawing.Color.White;
             this.PanelHeader.BorderColor = System.Drawing.Color.Transparent;
-            this.PanelHeader.Controls.Add(this.LogoutLabel);
+            this.PanelHeader.Controls.Add(this.LogoutBtn);
             this.PanelHeader.Controls.Add(this.label1);
-            this.PanelHeader.Controls.Add(this.LoggoutBtn);
             this.PanelHeader.Location = new System.Drawing.Point(220, 0);
             this.PanelHeader.Name = "PanelHeader";
-            this.PanelHeader.Size = new System.Drawing.Size(1070, 47);
+            this.PanelHeader.Size = new System.Drawing.Size(1070, 51);
             this.PanelHeader.TabIndex = 1;
-            // 
-            // LogoutLabel
-            // 
-            this.LogoutLabel.AutoSize = true;
-            this.LogoutLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogoutLabel.ForeColor = System.Drawing.Color.Red;
-            this.LogoutLabel.Location = new System.Drawing.Point(979, 11);
-            this.LogoutLabel.Name = "LogoutLabel";
-            this.LogoutLabel.Size = new System.Drawing.Size(64, 23);
-            this.LogoutLabel.TabIndex = 0;
-            this.LogoutLabel.Text = "Logout";
             // 
             // label1
             // 
@@ -456,33 +474,26 @@
             this.label1.Text = "Health Care Plus ";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // LoggoutBtn
-            // 
-            this.LoggoutBtn.BackColor = System.Drawing.Color.Transparent;
-            this.LoggoutBtn.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.LoggoutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LoggoutBtn.HoverState.ImageSize = new System.Drawing.Size(36, 36);
-            this.LoggoutBtn.Image = ((System.Drawing.Image)(resources.GetObject("LoggoutBtn.Image")));
-            this.LoggoutBtn.ImageOffset = new System.Drawing.Point(0, 0);
-            this.LoggoutBtn.ImageRotate = 0F;
-            this.LoggoutBtn.ImageSize = new System.Drawing.Size(32, 32);
-            this.LoggoutBtn.Location = new System.Drawing.Point(935, 3);
-            this.LoggoutBtn.Name = "LoggoutBtn";
-            this.LoggoutBtn.PressedState.ImageFlip = Guna.UI2.WinForms.Enums.FlipOrientation.Vertical;
-            this.LoggoutBtn.PressedState.ImageSize = new System.Drawing.Size(36, 36);
-            this.LoggoutBtn.Size = new System.Drawing.Size(42, 42);
-            this.LoggoutBtn.TabIndex = 6;
-            this.LoggoutBtn.Click += new System.EventHandler(this.LoggoutBtn_Click_1);
-            // 
             // MainPanel
             // 
             this.MainPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.MainPanel.BackColor = System.Drawing.Color.Transparent;
             this.MainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.MainPanel.Location = new System.Drawing.Point(266, 65);
+            this.MainPanel.Location = new System.Drawing.Point(266, 95);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(1007, 733);
+            this.MainPanel.Size = new System.Drawing.Size(1007, 735);
             this.MainPanel.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label2.Location = new System.Drawing.Point(271, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 22);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Dashboard";
             // 
             // Main
             // 
@@ -490,7 +501,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1289, 810);
+            this.ClientSize = new System.Drawing.Size(1289, 842);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.SidebarPanel);
             this.Controls.Add(this.PanelHeader);
@@ -502,11 +514,12 @@
             this.SidebarPanel.ResumeLayout(false);
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
             this.PanelHeader.ResumeLayout(false);
             this.PanelHeader.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -524,16 +537,16 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2Button PaymentButton;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2Button AdminButton;
         private System.Windows.Forms.Label UsernameLabel;
         private Guna.UI2.WinForms.Guna2Button ResourcesMenuBtn;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
         private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label LogoutLabel;
-        private Guna.UI2.WinForms.Guna2ImageButton LoggoutBtn;
         private Guna.UI2.WinForms.Guna2Button ReportGenerateBtn;
         private Guna.UI2.WinForms.Guna2Button MedicationBtn;
+        private Guna.UI2.WinForms.Guna2PictureBox ProfilePictureBox2;
+        private Guna.UI2.WinForms.Guna2Button LogoutBtn;
+        private System.Windows.Forms.Label label2;
     }
 }

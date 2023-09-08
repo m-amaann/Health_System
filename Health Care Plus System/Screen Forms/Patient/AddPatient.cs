@@ -50,6 +50,8 @@ namespace Health_Care_Plus_System.Screen_Forms.Patient
                     MessageBox.Show("Patient Record Saved Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearForm();
                     this.Close();
+
+
                 }
                 else
                 {

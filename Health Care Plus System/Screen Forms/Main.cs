@@ -38,7 +38,7 @@ namespace Health_Care_Plus_System
 
 
             // Set the username in the header bar
-            UsernameLabel.Text = "Hey : " + role;
+            UsernameLabel.Text =  role;
 
 
             if (userRole.IsAdmin(role))
@@ -141,7 +141,7 @@ namespace Health_Care_Plus_System
 
         private void LoggoutBtn_Click_1(object sender, EventArgs e)
         {
-           Application.Exit();
+           
         }
 
 
@@ -182,15 +182,30 @@ namespace Health_Care_Plus_System
             loadform(new Appointment());
         }
 
-        private void TimeDateLabel_Click(object sender, EventArgs e)
-        {
-           
 
-        }
 
         private void ResourcesMenuBtn_Click(object sender, EventArgs e)
         {
             loadform(new ResourcesForm());
+        }
+
+
+
+        private void MenuItemPanel_Paint(object sender, PaintEventArgs e)
+        {
+           
+        }
+
+
+        // Logout Button Application
+        private void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

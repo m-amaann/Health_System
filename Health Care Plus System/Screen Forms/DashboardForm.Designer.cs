@@ -50,12 +50,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Patientlabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.PatientWidget = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.ResourceLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.DoctorWidget.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -98,7 +98,7 @@
             this.DoctorWidget.Controls.Add(this.pictureBox6);
             this.DoctorWidget.Controls.Add(this.Doctorlabel);
             this.DoctorWidget.Controls.Add(this.label12);
-            this.DoctorWidget.Location = new System.Drawing.Point(66, 228);
+            this.DoctorWidget.Location = new System.Drawing.Point(66, 251);
             this.DoctorWidget.Name = "DoctorWidget";
             this.DoctorWidget.Size = new System.Drawing.Size(257, 101);
             this.DoctorWidget.TabIndex = 105;
@@ -156,7 +156,7 @@
             this.StaffWidget.Controls.Add(this.Stafflabel);
             this.StaffWidget.Controls.Add(this.pictureBox4);
             this.StaffWidget.Controls.Add(this.label8);
-            this.StaffWidget.Location = new System.Drawing.Point(370, 228);
+            this.StaffWidget.Location = new System.Drawing.Point(370, 251);
             this.StaffWidget.Name = "StaffWidget";
             this.StaffWidget.Size = new System.Drawing.Size(257, 101);
             this.StaffWidget.TabIndex = 106;
@@ -169,7 +169,7 @@
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(66, 45);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(274, 19);
-            this.guna2HtmlLabel3.TabIndex = 500;
+            this.guna2HtmlLabel3.TabIndex = 1000;
             this.guna2HtmlLabel3.Text = "Displays analytics about the Health system";
             // 
             // pictureBox3
@@ -202,7 +202,7 @@
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(66, 13);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(93, 25);
-            this.guna2HtmlLabel2.TabIndex = 107;
+            this.guna2HtmlLabel2.TabIndex = 500;
             this.guna2HtmlLabel2.Text = "Analytics";
             // 
             // label6
@@ -225,7 +225,7 @@
             this.guna2Panel3.Controls.Add(this.pictureBox3);
             this.guna2Panel3.Controls.Add(this.label5);
             this.guna2Panel3.Controls.Add(this.label6);
-            this.guna2Panel3.Location = new System.Drawing.Point(680, 102);
+            this.guna2Panel3.Location = new System.Drawing.Point(680, 125);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(257, 101);
             this.guna2Panel3.TabIndex = 103;
@@ -272,7 +272,7 @@
             this.guna2Panel2.Controls.Add(this.label3);
             this.guna2Panel2.Controls.Add(this.pictureBox2);
             this.guna2Panel2.Controls.Add(this.label4);
-            this.guna2Panel2.Location = new System.Drawing.Point(370, 102);
+            this.guna2Panel2.Location = new System.Drawing.Point(370, 125);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(257, 101);
             this.guna2Panel2.TabIndex = 104;
@@ -310,18 +310,6 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Patients";
             // 
-            // guna2HtmlLabel1
-            // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(842, 71);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(95, 25);
-            this.guna2HtmlLabel1.TabIndex = 500;
-            this.guna2HtmlLabel1.Text = "Overview";
-            this.guna2HtmlLabel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // PatientWidget
             // 
             this.PatientWidget.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -329,7 +317,7 @@
             this.PatientWidget.Controls.Add(this.pictureBox1);
             this.PatientWidget.Controls.Add(this.Patientlabel);
             this.PatientWidget.Controls.Add(this.label1);
-            this.PatientWidget.Location = new System.Drawing.Point(66, 102);
+            this.PatientWidget.Location = new System.Drawing.Point(66, 125);
             this.PatientWidget.Name = "PatientWidget";
             this.PatientWidget.Size = new System.Drawing.Size(257, 101);
             this.PatientWidget.TabIndex = 102;
@@ -342,7 +330,7 @@
             this.guna2Panel1.Controls.Add(this.pictureBox5);
             this.guna2Panel1.Controls.Add(this.ResourceLabel);
             this.guna2Panel1.Controls.Add(this.label7);
-            this.guna2Panel1.Location = new System.Drawing.Point(680, 228);
+            this.guna2Panel1.Location = new System.Drawing.Point(680, 251);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(257, 101);
             this.guna2Panel1.TabIndex = 104;
@@ -381,12 +369,24 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "Resource";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(189)))));
+            this.label2.Location = new System.Drawing.Point(819, 86);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(118, 27);
+            this.label2.TabIndex = 501;
+            this.label2.Text = "Overview";
+            // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(999, 672);
+            this.ClientSize = new System.Drawing.Size(1007, 672);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.DoctorWidget);
             this.Controls.Add(this.StaffWidget);
@@ -394,7 +394,6 @@
             this.Controls.Add(this.guna2HtmlLabel2);
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel2);
-            this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.PatientWidget);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DashboardForm";
@@ -445,11 +444,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label Patientlabel;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2Panel PatientWidget;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label ResourceLabel;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label2;
     }
 }
