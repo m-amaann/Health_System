@@ -12,6 +12,8 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
 {
     public partial class Appointment : Form
     {
+        private string connectionString = Properties.Settings.Default.DBConnectionString; // this connecting DB string statement
+
         public Appointment()
         {
             InitializeComponent();
@@ -21,10 +23,20 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
         {
             this.Hide();
             AddAppointment addAppointment = new AddAppointment();
-            addAppointment.Show();
+            addAppointment.ShowDialog();
         }
 
         private void Appointment_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Updatebutton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
         {
 
         }

@@ -28,26 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.DataGridView1 = new System.Windows.Forms.DataGridView();
+            this.AppointmentDataGridView1 = new System.Windows.Forms.DataGridView();
             this.DeleteButton = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.SearchBtn = new Guna.UI2.WinForms.Guna2Button();
             this.SearchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.Addbutton = new Guna.UI2.WinForms.Guna2Button();
             this.Updatebutton = new Guna.UI2.WinForms.Guna2Button();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AppointmentDataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // DataGridView1
+            // AppointmentDataGridView1
             // 
-            this.DataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridView1.Location = new System.Drawing.Point(13, 156);
-            this.DataGridView1.Name = "DataGridView1";
-            this.DataGridView1.RowHeadersWidth = 51;
-            this.DataGridView1.RowTemplate.Height = 24;
-            this.DataGridView1.Size = new System.Drawing.Size(970, 515);
-            this.DataGridView1.TabIndex = 41;
+            this.AppointmentDataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.AppointmentDataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.AppointmentDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AppointmentDataGridView1.Location = new System.Drawing.Point(13, 156);
+            this.AppointmentDataGridView1.Name = "AppointmentDataGridView1";
+            this.AppointmentDataGridView1.RowHeadersWidth = 51;
+            this.AppointmentDataGridView1.RowTemplate.Height = 24;
+            this.AppointmentDataGridView1.Size = new System.Drawing.Size(970, 515);
+            this.AppointmentDataGridView1.TabIndex = 41;
             // 
             // DeleteButton
             // 
@@ -68,6 +69,7 @@
             this.DeleteButton.Size = new System.Drawing.Size(106, 39);
             this.DeleteButton.TabIndex = 40;
             this.DeleteButton.Text = "DELETE";
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // label2
             // 
@@ -169,13 +171,14 @@
             this.Updatebutton.Size = new System.Drawing.Size(97, 39);
             this.Updatebutton.TabIndex = 35;
             this.Updatebutton.Text = "UPDATE";
+            this.Updatebutton.Click += new System.EventHandler(this.Updatebutton_Click);
             // 
             // Appointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(996, 690);
-            this.Controls.Add(this.DataGridView1);
+            this.Controls.Add(this.AppointmentDataGridView1);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.SearchBtn);
@@ -186,7 +189,7 @@
             this.Name = "Appointment";
             this.Text = "Appointment";
             this.Load += new System.EventHandler(this.Appointment_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AppointmentDataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,7 +197,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView DataGridView1;
+        private System.Windows.Forms.DataGridView AppointmentDataGridView1;
         private Guna.UI2.WinForms.Guna2Button DeleteButton;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Button SearchBtn;
