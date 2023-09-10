@@ -58,5 +58,10 @@ namespace Health_Care_Plus_System.Screen_Forms
           
             
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

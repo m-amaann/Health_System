@@ -13,8 +13,10 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
 {
     public partial class AddAppointment : Form
     {
-        //initialize instance
+        //initialize instance class
         private AppointmentClass AppointmentClass = new AppointmentClass();
+
+        //initialize instance variable
         private DataTable patientsTable;
         private DataTable doctorsTable;
 
@@ -41,13 +43,16 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
         {
             doctorsTable = AppointmentClass.GetDoctors();
             DataTable filteredDoctorsTable = new DataTable();
-            filteredDoctorsTable.Columns.Add("DoctorID", typeof(int));
             filteredDoctorsTable.Columns.Add("Specialization", typeof(string));
             filteredDoctorsTable.Columns.Add("FullName", typeof(string));
+            filteredDoctorsTable.Columns.Add("AvailabilityDay", typeof(string));
+            filteredDoctorsTable.Columns.Add("AvailabilityTime", typeof(string));
+
+
 
             foreach (DataRow row in doctorsTable.Rows)
             {
-                filteredDoctorsTable.Rows.Add(row["DoctorID"], row["Specialization"], row["FullName"]);
+                filteredDoctorsTable.Rows.Add( row["Specialization"], row["FullName"], row["AvailabilityDay"], row["AvailabilityTime"]);
             }
 
             DoctorDataGrideView.DataSource = filteredDoctorsTable;
@@ -73,13 +78,12 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
 
             //DataTable to display patient column names
             DataTable filteredPatientsTable = new DataTable();
-            filteredPatientsTable.Columns.Add("PatID", typeof(int));
             filteredPatientsTable.Columns.Add("FullName", typeof(string));
             filteredPatientsTable.Columns.Add("ContactNo", typeof(string));
 
             foreach (DataRow row in patientsTable.Rows)
             {
-                filteredPatientsTable.Rows.Add(row["PatID"], row["FullName"], row["ContactNo"]);
+                filteredPatientsTable.Rows.Add( row["FullName"], row["ContactNo"]);
             }
 
             PatientDataGrideView.DataSource = filteredPatientsTable;
@@ -87,36 +91,48 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
 
  
 
+        // Add Button Click Handle
         private void AddButton_Click(object sender, EventArgs e)
         {
-            if (ValidateInput())
+            try
             {
-                AppointmentClass AppointmentClass = new AppointmentClass()
-                {  
-                     Specialization = SpecializationComboBox2.Text,
-                    DoctorName = DoctorNameText.Text,
-                    PatientName = PatientTextBox1.Text,
-                    Appoint_Date = AppointmentDateTimePicker.Value,
-                    Appoint_Time = AvalableTimeComboBox.Text,
-                    Note = NoteTextbox.Text,
-                    Sender_Name = SenderNameComboBox.Text                   
-                };
-
-                bool success = AppointmentClass.AddAppointment();
-
-                if (success)
+                if (ValidateInput())
                 {
-                    MessageBox.Show("Make A Patient Appointment Successful.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    AppointmentClass AppointmentClass = new AppointmentClass()
+                    {
+                        Specialization = SpecializationComboBox2.Text,
+                        DoctorName = DoctorNameText.Text,
+                        PatientName = PatientTextBox1.Text,
+                        Appoint_Date = AppointmentDateTimePicker.Value,
+                        Appoint_Time = AvalableTimeComboBox.Text,
+                        Note = NoteTextbox.Text,
+                        Sender_Name = SenderNameComboBox.Text
+                    };
+
+                    // Call the Method in Appointment Class
+                    bool success = AppointmentClass.AddAppointment();
+
+                    if (success)
+                    {
+                        MessageBox.Show("Make A Patient Appointment Successful.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to add a appointment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Failed to add a appointment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
 
 
+
+
+        // Validate user input fields in form
         private bool ValidateInput()
         {
             if (string.IsNullOrWhiteSpace(SpecializationComboBox2.Text) ||
@@ -131,6 +147,8 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
             }
             return true; // If all validations passed
         }
+
+
 
         private void SpecializationComboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -149,6 +167,9 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
             }
         }
 
+
+
+
         private void DoctorNameText_TextChanged(object sender, EventArgs e)
         {
             //In this function searching doctor names record list
@@ -158,14 +179,27 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
             dv.RowFilter = $"FullName LIKE '%{searchTerm}%'";
 
             DoctorDataGrideView.DataSource = dv;
-
         }
 
 
 
-        private void DoctorDataGrideView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void PatientTextBox1_TextChanged(object sender, EventArgs e)
         {
-            // Check if a row is selected and ensure it's not a header row
+            //In this function searching patient names record list
+            string searchPatient = PatientTextBox1.Text.Trim();
+
+            DataView dv = new DataView(patientsTable);
+            dv.RowFilter = $"FullName LIKE '%{searchPatient}%'";
+
+            PatientDataGrideView.DataSource = dv;
+        }
+
+
+
+
+        private void DoctorDataGrideView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Check if a row is selected 
             if (e.RowIndex >= 0 && e.RowIndex < DoctorDataGrideView.Rows.Count - 1)
             {
                 DataGridViewRow selectedRow = DoctorDataGrideView.Rows[e.RowIndex];
@@ -179,15 +213,21 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
             }
         }
 
-        private void PatientTextBox1_TextChanged(object sender, EventArgs e)
+
+
+
+        private void PatientDataGrideView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //In this function searching doctor names record list
-            string searchPatient = PatientTextBox1.Text.Trim();
+            // Check if a patient row is selected 
+            if (e.RowIndex >= 0 && e.RowIndex < PatientDataGrideView.Rows.Count - 1)
+            {
+                DataGridViewRow selectedRow = PatientDataGrideView.Rows[e.RowIndex];
 
-            DataView dv = new DataView(doctorsTable);
-            dv.RowFilter = $"FullName LIKE '%{searchPatient}%'";
+                //  the patient name from the selected row
+                string PatientName = selectedRow.Cells["FullName"].Value.ToString();
 
-            PatientDataGrideView.DataSource = dv;
+                PatientTextBox1.Text = PatientName;
+            }
         }
     }
 }

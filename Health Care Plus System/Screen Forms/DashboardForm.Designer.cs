@@ -98,7 +98,7 @@
             this.DoctorWidget.Controls.Add(this.pictureBox6);
             this.DoctorWidget.Controls.Add(this.Doctorlabel);
             this.DoctorWidget.Controls.Add(this.label12);
-            this.DoctorWidget.Location = new System.Drawing.Point(66, 251);
+            this.DoctorWidget.Location = new System.Drawing.Point(71, 251);
             this.DoctorWidget.Name = "DoctorWidget";
             this.DoctorWidget.Size = new System.Drawing.Size(257, 101);
             this.DoctorWidget.TabIndex = 105;
@@ -156,7 +156,7 @@
             this.StaffWidget.Controls.Add(this.Stafflabel);
             this.StaffWidget.Controls.Add(this.pictureBox4);
             this.StaffWidget.Controls.Add(this.label8);
-            this.StaffWidget.Location = new System.Drawing.Point(370, 251);
+            this.StaffWidget.Location = new System.Drawing.Point(380, 251);
             this.StaffWidget.Name = "StaffWidget";
             this.StaffWidget.Size = new System.Drawing.Size(257, 101);
             this.StaffWidget.TabIndex = 106;
@@ -225,7 +225,7 @@
             this.guna2Panel3.Controls.Add(this.pictureBox3);
             this.guna2Panel3.Controls.Add(this.label5);
             this.guna2Panel3.Controls.Add(this.label6);
-            this.guna2Panel3.Location = new System.Drawing.Point(680, 125);
+            this.guna2Panel3.Location = new System.Drawing.Point(690, 125);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(257, 101);
             this.guna2Panel3.TabIndex = 103;
@@ -241,6 +241,7 @@
             this.label3.Size = new System.Drawing.Size(64, 47);
             this.label3.TabIndex = 8;
             this.label3.Text = "20";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // pictureBox2
             // 
@@ -272,7 +273,7 @@
             this.guna2Panel2.Controls.Add(this.label3);
             this.guna2Panel2.Controls.Add(this.pictureBox2);
             this.guna2Panel2.Controls.Add(this.label4);
-            this.guna2Panel2.Location = new System.Drawing.Point(370, 125);
+            this.guna2Panel2.Location = new System.Drawing.Point(380, 125);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(257, 101);
             this.guna2Panel2.TabIndex = 104;
@@ -317,7 +318,7 @@
             this.PatientWidget.Controls.Add(this.pictureBox1);
             this.PatientWidget.Controls.Add(this.Patientlabel);
             this.PatientWidget.Controls.Add(this.label1);
-            this.PatientWidget.Location = new System.Drawing.Point(66, 125);
+            this.PatientWidget.Location = new System.Drawing.Point(71, 125);
             this.PatientWidget.Name = "PatientWidget";
             this.PatientWidget.Size = new System.Drawing.Size(257, 101);
             this.PatientWidget.TabIndex = 102;
@@ -330,7 +331,7 @@
             this.guna2Panel1.Controls.Add(this.pictureBox5);
             this.guna2Panel1.Controls.Add(this.ResourceLabel);
             this.guna2Panel1.Controls.Add(this.label7);
-            this.guna2Panel1.Location = new System.Drawing.Point(680, 251);
+            this.guna2Panel1.Location = new System.Drawing.Point(690, 251);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(257, 101);
             this.guna2Panel1.TabIndex = 104;

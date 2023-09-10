@@ -288,6 +288,18 @@
     <Compile Include="Screen Forms\Doctor\DoctorProfile.Designer.cs">
       <DependentUpon>DoctorProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screen Forms\EMR\AddEMR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen Forms\EMR\AddEMR.Designer.cs">
+      <DependentUpon>AddEMR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen Forms\EMR\EMRForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen Forms\EMR\EMRForm.Designer.cs">
+      <DependentUpon>EMRForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screen Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -424,6 +436,12 @@
     <EmbeddedResource Include="Screen Forms\Doctor\DoctorProfile.resx">
       <DependentUpon>DoctorProfile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screen Forms\EMR\AddEMR.resx">
+      <DependentUpon>AddEMR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen Forms\EMR\EMRForm.resx">
+      <DependentUpon>EMRForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screen Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -509,6 +527,7 @@
   <ItemGroup>
     <None Include="Resources\eye_open_icon.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.4.0.2\build\Fody.targets" Condition="Exists('..\packages\Fody.4.0.2\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -25,32 +25,39 @@ namespace Health_Care_Plus_System.Screen_Forms.Resources
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            // Validate input fields before adding.
-            if (ValidateInput())
+            try
             {
-                ResourceClass newResource = new ResourceClass
+                // Validate input fields before adding.
+                if (ValidateInput())
                 {
-                    Name = NameTextBox.Text,
-                    ResourceType = ResourceTypeBox.Text,
-                    Location = LocationComboBox1.Text,
-                    Availability = AvailabilityComboBox.Text,
-                    SerialNo = SerialNoTextbox.Text,
-                    Model = ModelTextBox.Text,
-                    PurchasedDate = PurchaseDateTimePicker1.Value,
-                    ContactNo = ContactNoTextBox.Text
-                };
+                    ResourceClass newResource = new ResourceClass
+                    {
+                        Name = NameTextBox.Text,
+                        ResourceType = ResourceTypeBox.Text,
+                        Location = LocationComboBox1.Text,
+                        Availability = AvailabilityComboBox.Text,
+                        SerialNo = SerialNoTextbox.Text,
+                        Model = ModelTextBox.Text,
+                        PurchasedDate = PurchaseDateTimePicker1.Value,
+                        ContactNo = ContactNoTextBox.Text
+                    };
 
-                bool success = newResource.AddResourceRecord();
+                    bool success = newResource.AddResourceRecord();
 
-                if (success)
-                {
-                    MessageBox.Show("Resource Record added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close(); 
+                    if (success)
+                    {
+                        MessageBox.Show("Resource Record added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to add resource.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Failed to add resource.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
 
