@@ -68,7 +68,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Resources
                     int rowIndex = ResourceDataGridview.SelectedRows[0].Index;
                     int resourceID = Convert.ToInt32(ResourceDataGridview.Rows[rowIndex].Cells["ResourceID"].Value);
 
-                    if (StaffClass.DeleteStaffRecord(resourceID))
+                    if (ResourceClass.DeleteResourceRecord(resourceID))
                     {
                         MessageBox.Show("Record has been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadResourcesRecord();

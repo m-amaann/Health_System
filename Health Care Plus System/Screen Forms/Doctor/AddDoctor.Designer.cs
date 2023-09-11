@@ -286,7 +286,7 @@
             "Ophthalmology: Eye",
             "Otolaryngology: Ear/Nose/Throat (ENT)",
             "Pediatrics: Children",
-            "Psychiatry: Mental",
+            "psychology",
             "Pulmonology: Lung",
             "Radiology: Imaging",
             "Urology: Urinary",
@@ -298,11 +298,11 @@
             "Gynecology: Female",
             "Obstetrics: Pregnancy",
             "Anesthesiology: Anesthesia",
-            "Infectious Disease: Infection",
+            "Infectious",
             "Allergy & Immunology: Allergies",
             "Physical Medicine: Rehabilitation",
-            "Emergency Medicine: Emergency",
-            ""});
+            "Emergency",
+            "General"});
             this.SpecificationComboBox1.Location = new System.Drawing.Point(363, 252);
             this.SpecificationComboBox1.Name = "SpecificationComboBox1";
             this.SpecificationComboBox1.Size = new System.Drawing.Size(303, 36);
@@ -558,7 +558,9 @@
             "10:00 AM - 4:00 PM",
             "04:00 PM - 9:00 PM",
             "06:00 PM - 10:30 PM",
-            "9:00 PM - 1:30 AM"});
+            "9:00 PM - 1:30 AM",
+            "8:30 AM -5:00 PM",
+            "5:30 PM - 1:30 AM"});
             this.AvalableTimeComboBox.Location = new System.Drawing.Point(688, 444);
             this.AvalableTimeComboBox.Name = "AvalableTimeComboBox";
             this.AvalableTimeComboBox.Size = new System.Drawing.Size(303, 36);

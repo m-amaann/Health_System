@@ -38,7 +38,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
 
 
 
-
+        // Doctor Load Record Method
         private void LoadDoctors()
         {
             doctorsTable = AppointmentClass.GetDoctors();
@@ -72,6 +72,8 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
         }
 
 
+
+        // Patient's Load Record Method
         private void LoadPatients()
         {
             patientsTable = AppointmentClass.GetPatients();
@@ -91,66 +93,80 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
 
  
 
-        // Add Button Click Handle
-        private void AddButton_Click(object sender, EventArgs e)
+   
+       
+
+        private void hospitalChargeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            AppointmentTotal();
+        }
+
+        private void DoctorChargeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            AppointmentTotal();
+        }
+
+
+
+        private void AppointmentTotal()
         {
             try
             {
-                if (ValidateInput())
-                {
-                    AppointmentClass AppointmentClass = new AppointmentClass()
-                    {
-                        Specialization = SpecializationComboBox2.Text,
-                        DoctorName = DoctorNameText.Text,
-                        PatientName = PatientTextBox1.Text,
-                        Appoint_Date = AppointmentDateTimePicker.Value,
-                        Appoint_Time = AvalableTimeComboBox.Text,
-                        Note = NoteTextbox.Text,
-                        Sender_Name = SenderNameComboBox.Text
-                    };
+                // Get the hospital charge and doctor charge values as doubles
+                double hospitalCharge = double.Parse(hospitalChargeTextBox.Text);
+                double doctorCharge = double.Parse(DoctorChargeTextBox.Text);
 
-                    // Call the Method in Appointment Class
-                    bool success = AppointmentClass.AddAppointment();
+                // Calculate total charge
+                double totalCharge = hospitalCharge + doctorCharge;
 
-                    if (success)
-                    {
-                        MessageBox.Show("Make A Patient Appointment Successful.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Failed to add a appointment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+                // Display the total charge
+                TotalTextBox.Text ="Rs."+ totalCharge.ToString("0.00"); // Format as a decimal with two decimal 
             }
-            catch(Exception ex)
+            catch (FormatException)
             {
-                MessageBox.Show("An error occurred: " + ex.Message);
+ 
+                TotalTextBox.Text = "0.00"; 
             }
         }
 
 
 
 
-        // Validate user input fields in form
-        private bool ValidateInput()
+
+
+
+
+        private void DoctorDataGrideView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(SpecializationComboBox2.Text) ||
-                string.IsNullOrWhiteSpace(DoctorNameText.Text) ||
-                string.IsNullOrWhiteSpace(PatientTextBox1.Text) ||
-                string.IsNullOrWhiteSpace(AvalableTimeComboBox.Text) ||
-                string.IsNullOrWhiteSpace(NoteTextbox.Text) ||
-                string.IsNullOrWhiteSpace(SenderNameComboBox.Text))
+            // Check if a row is selected 
+            if (e.RowIndex >= 0 && e.RowIndex < DoctorDataGrideView.Rows.Count - 1)
             {
-                MessageBox.Show("Please fill in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                DataGridViewRow selectedRow = DoctorDataGrideView.Rows[e.RowIndex];
+
+                //  the doctor name from the selected row
+                string Specialization = selectedRow.Cells["Specialization"].Value.ToString();
+                string DoctorName = selectedRow.Cells["FullName"].Value.ToString();
+
+                SpecializationComboBox2.Text = Specialization;
+                DoctorNameText.Text = DoctorName;
             }
-            return true; // If all validations passed
         }
 
+        private void PatientDataGrideView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            // Check if a patient row is selected 
+            if (e.RowIndex >= 0 && e.RowIndex < PatientDataGrideView.Rows.Count - 1)
+            {
+                DataGridViewRow selectedRow = PatientDataGrideView.Rows[e.RowIndex];
 
+                //  the patient name from the selected row
+                string PatientName = selectedRow.Cells["FullName"].Value.ToString();
 
-        private void SpecializationComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+                PatientTextBox1.Text = PatientName;
+            }
+        }
+
+        private void SpecializationComboBox2_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             string selectedSpecialization = SpecializationComboBox2.Text;
             if (selectedSpecialization == "All")
@@ -167,10 +183,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
             }
         }
 
-
-
-
-        private void DoctorNameText_TextChanged(object sender, EventArgs e)
+        private void DoctorNameText_TextChanged_1(object sender, EventArgs e)
         {
             //In this function searching doctor names record list
             string searchTerm = DoctorNameText.Text.Trim();
@@ -183,7 +196,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
 
 
 
-        private void PatientTextBox1_TextChanged(object sender, EventArgs e)
+        private void PatientTextBox1_TextChanged_1(object sender, EventArgs e)
         {
             //In this function searching patient names record list
             string searchPatient = PatientTextBox1.Text.Trim();
@@ -197,37 +210,71 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
 
 
 
-        private void DoctorDataGrideView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void AddButton_Click_1(object sender, EventArgs e)
         {
-            // Check if a row is selected 
-            if (e.RowIndex >= 0 && e.RowIndex < DoctorDataGrideView.Rows.Count - 1)
+            try
             {
-                DataGridViewRow selectedRow = DoctorDataGrideView.Rows[e.RowIndex];
+                if (ValidateInput())
+                {
+                    AppointmentClass AppointmentClass = new AppointmentClass()
+                    {
+                        Specialization = SpecializationComboBox2.Text,
+                        DoctorName = DoctorNameText.Text,
+                        PatientName = PatientTextBox1.Text,
+                        Appoint_Date = AppointmentDateTimePicker.Value,
+                        Appoint_Time = AvalableTimeComboBox.Text,
+                        Note = NoteTextbox.Text,
+                        HospitalCharge = hospitalChargeTextBox.Text,
+                        Sender_Name = SenderNameComboBox.Text,
+                        DoctorCharge = DoctorChargeTextBox.Text,
+                        TotalFee = TotalTextBox.Text
 
-                //  the doctor name from the selected row
-                string Specialization = selectedRow.Cells["Specialization"].Value.ToString();
-                string DoctorName = selectedRow.Cells["FullName"].Value.ToString();
+                    };
 
-                SpecializationComboBox2.Text = Specialization;
-                DoctorNameText.Text = DoctorName;
+                    // Call the Method in Appointment Class
+                    bool success = AppointmentClass.AddAppointment();
+
+                    if (success)
+                    {
+                        MessageBox.Show("Make A Patient Appointment Successful.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to add a appointment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+             
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
 
 
 
 
-        private void PatientDataGrideView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        // Validate user input fields in form method
+        private bool ValidateInput()
         {
-            // Check if a patient row is selected 
-            if (e.RowIndex >= 0 && e.RowIndex < PatientDataGrideView.Rows.Count - 1)
+            if (
+                string.IsNullOrWhiteSpace(SpecializationComboBox2.Text) ||
+                string.IsNullOrWhiteSpace(DoctorNameText.Text) ||
+                string.IsNullOrWhiteSpace(PatientTextBox1.Text) ||
+                string.IsNullOrWhiteSpace(AvalableTimeComboBox.Text) ||
+                string.IsNullOrWhiteSpace(NoteTextbox.Text) ||
+                string.IsNullOrWhiteSpace(SenderNameComboBox.Text) ||
+                string.IsNullOrWhiteSpace(hospitalChargeTextBox.Text) || 
+                string.IsNullOrWhiteSpace(DoctorChargeTextBox.Text) 
+                )
             {
-                DataGridViewRow selectedRow = PatientDataGrideView.Rows[e.RowIndex];
-
-                //  the patient name from the selected row
-                string PatientName = selectedRow.Cells["FullName"].Value.ToString();
-
-                PatientTextBox1.Text = PatientName;
+                MessageBox.Show("Please fill in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
+            return true; // If all validations passed
         }
+
     }
 }

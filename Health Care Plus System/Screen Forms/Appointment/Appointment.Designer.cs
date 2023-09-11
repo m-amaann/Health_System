@@ -50,6 +50,7 @@
             this.AppointmentDataGridView1.RowTemplate.Height = 24;
             this.AppointmentDataGridView1.Size = new System.Drawing.Size(970, 469);
             this.AppointmentDataGridView1.TabIndex = 41;
+            this.AppointmentDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AppointmentDataGridView1_CellContentClick);
             // 
             // DeleteButton
             // 
@@ -130,6 +131,7 @@
             this.SearchTextBox.SelectedText = "";
             this.SearchTextBox.Size = new System.Drawing.Size(258, 43);
             this.SearchTextBox.TabIndex = 37;
+            this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
             // 
             // Addbutton
             // 

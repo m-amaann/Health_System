@@ -213,7 +213,7 @@
             this.UsernameLabel.AutoSize = true;
             this.UsernameLabel.BackColor = System.Drawing.Color.Transparent;
             this.UsernameLabel.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameLabel.Location = new System.Drawing.Point(66, 22);
+            this.UsernameLabel.Location = new System.Drawing.Point(70, 22);
             this.UsernameLabel.Name = "UsernameLabel";
             this.UsernameLabel.Size = new System.Drawing.Size(104, 26);
             this.UsernameLabel.TabIndex = 2;
@@ -225,7 +225,7 @@
             this.ProfilePictureBox2.FillColor = System.Drawing.Color.Transparent;
             this.ProfilePictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("ProfilePictureBox2.Image")));
             this.ProfilePictureBox2.ImageRotate = 0F;
-            this.ProfilePictureBox2.Location = new System.Drawing.Point(4, 9);
+            this.ProfilePictureBox2.Location = new System.Drawing.Point(7, 9);
             this.ProfilePictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.ProfilePictureBox2.Name = "ProfilePictureBox2";
             this.ProfilePictureBox2.Size = new System.Drawing.Size(59, 51);
@@ -440,12 +440,12 @@
             this.LogoutBtn.Image = ((System.Drawing.Image)(resources.GetObject("LogoutBtn.Image")));
             this.LogoutBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.LogoutBtn.ImageSize = new System.Drawing.Size(28, 28);
-            this.LogoutBtn.Location = new System.Drawing.Point(926, 4);
+            this.LogoutBtn.Location = new System.Drawing.Point(926, 0);
             this.LogoutBtn.Margin = new System.Windows.Forms.Padding(0);
             this.LogoutBtn.Name = "LogoutBtn";
             this.LogoutBtn.Padding = new System.Windows.Forms.Padding(2);
             this.LogoutBtn.PressedColor = System.Drawing.Color.DarkGray;
-            this.LogoutBtn.Size = new System.Drawing.Size(144, 46);
+            this.LogoutBtn.Size = new System.Drawing.Size(144, 50);
             this.LogoutBtn.TabIndex = 14;
             this.LogoutBtn.Text = " LOGOUT";
             this.LogoutBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -489,7 +489,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label2.Location = new System.Drawing.Point(271, 64);
+            this.label2.Location = new System.Drawing.Point(271, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 22);
             this.label2.TabIndex = 0;
