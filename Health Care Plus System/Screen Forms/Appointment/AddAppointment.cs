@@ -202,7 +202,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
             string searchPatient = PatientTextBox1.Text.Trim();
 
             DataView dv = new DataView(patientsTable);
-            dv.RowFilter = $"FullName LIKE '%{searchPatient}%'";
+            dv.RowFilter = $"FullName LIKE '%{searchPatient}%' OR ContactNo LIKE '%{searchPatient}%'";
 
             PatientDataGrideView.DataSource = dv;
         }

@@ -87,7 +87,7 @@
             this.TotalTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalTextBox.ForeColor = System.Drawing.Color.DodgerBlue;
             this.TotalTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TotalTextBox.Location = new System.Drawing.Point(496, 643);
+            this.TotalTextBox.Location = new System.Drawing.Point(495, 643);
             this.TotalTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.TotalTextBox.Name = "TotalTextBox";
             this.TotalTextBox.Padding = new System.Windows.Forms.Padding(1);
@@ -128,7 +128,7 @@
             this.DoctorChargeTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DoctorChargeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(104)))), ((int)(((byte)(112)))));
             this.DoctorChargeTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.DoctorChargeTextBox.Location = new System.Drawing.Point(36, 643);
+            this.DoctorChargeTextBox.Location = new System.Drawing.Point(35, 643);
             this.DoctorChargeTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.DoctorChargeTextBox.Name = "DoctorChargeTextBox";
             this.DoctorChargeTextBox.Padding = new System.Windows.Forms.Padding(1);
@@ -168,7 +168,7 @@
             this.hospitalChargeTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hospitalChargeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(104)))), ((int)(((byte)(112)))));
             this.hospitalChargeTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.hospitalChargeTextBox.Location = new System.Drawing.Point(760, 555);
+            this.hospitalChargeTextBox.Location = new System.Drawing.Point(759, 555);
             this.hospitalChargeTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.hospitalChargeTextBox.Name = "hospitalChargeTextBox";
             this.hospitalChargeTextBox.Padding = new System.Windows.Forms.Padding(1);
@@ -248,7 +248,7 @@
             this.NoteTextbox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NoteTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(104)))), ((int)(((byte)(112)))));
             this.NoteTextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.NoteTextbox.Location = new System.Drawing.Point(380, 469);
+            this.NoteTextbox.Location = new System.Drawing.Point(379, 469);
             this.NoteTextbox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.NoteTextbox.Multiline = true;
             this.NoteTextbox.Name = "NoteTextbox";
@@ -589,7 +589,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(442, 9);
+            this.label1.Location = new System.Drawing.Point(441, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(341, 29);
             this.label1.TabIndex = 280;
@@ -633,7 +633,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1138, 703);
+            this.ClientSize = new System.Drawing.Size(1137, 703);
             this.Controls.Add(this.Updatebutton);
             this.Controls.Add(this.TotalTextBox);
             this.Controls.Add(this.label13);

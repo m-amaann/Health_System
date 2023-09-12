@@ -56,11 +56,13 @@
             this.StatusComboBox.ItemHeight = 30;
             this.StatusComboBox.Items.AddRange(new object[] {
             "Available",
-            "Occupance"});
+            "Occupancy",
+            ""});
             this.StatusComboBox.Location = new System.Drawing.Point(559, 283);
             this.StatusComboBox.Name = "StatusComboBox";
             this.StatusComboBox.Size = new System.Drawing.Size(303, 36);
             this.StatusComboBox.TabIndex = 156;
+            this.StatusComboBox.SelectedIndexChanged += new System.EventHandler(this.StatusComboBox_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -94,7 +96,7 @@
             "Emergency Room",
             "Radiology Room",
             "Operating Theater"});
-            this.ScheduleProcedureComboBox.Location = new System.Drawing.Point(156, 283);
+            this.ScheduleProcedureComboBox.Location = new System.Drawing.Point(146, 283);
             this.ScheduleProcedureComboBox.Name = "ScheduleProcedureComboBox";
             this.ScheduleProcedureComboBox.Size = new System.Drawing.Size(303, 36);
             this.ScheduleProcedureComboBox.TabIndex = 154;
@@ -105,7 +107,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.label2.Location = new System.Drawing.Point(154, 254);
+            this.label2.Location = new System.Drawing.Point(144, 254);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(174, 26);
             this.label2.TabIndex = 155;
@@ -144,11 +146,12 @@
             this.AddRoomBtn.ForeColor = System.Drawing.Color.White;
             this.AddRoomBtn.Image = ((System.Drawing.Image)(resources.GetObject("AddRoomBtn.Image")));
             this.AddRoomBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.AddRoomBtn.Location = new System.Drawing.Point(422, 436);
+            this.AddRoomBtn.Location = new System.Drawing.Point(424, 436);
             this.AddRoomBtn.Name = "AddRoomBtn";
             this.AddRoomBtn.Size = new System.Drawing.Size(117, 42);
             this.AddRoomBtn.TabIndex = 150;
             this.AddRoomBtn.Text = "   SAVE";
+            this.AddRoomBtn.Click += new System.EventHandler(this.AddRoomBtn_Click);
             // 
             // RoomTheaterNoTextBox
             // 
@@ -157,7 +160,6 @@
             this.RoomTheaterNoTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
             this.RoomTheaterNoTextBox.BorderRadius = 3;
             this.RoomTheaterNoTextBox.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.RoomTheaterNoTextBox.BorderThickness = 0;
             this.RoomTheaterNoTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.RoomTheaterNoTextBox.DefaultText = "";
             this.RoomTheaterNoTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -168,7 +170,7 @@
             this.RoomTheaterNoTextBox.Font = new System.Drawing.Font("Poppins", 9F);
             this.RoomTheaterNoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(104)))), ((int)(((byte)(112)))));
             this.RoomTheaterNoTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.RoomTheaterNoTextBox.Location = new System.Drawing.Point(156, 180);
+            this.RoomTheaterNoTextBox.Location = new System.Drawing.Point(146, 176);
             this.RoomTheaterNoTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.RoomTheaterNoTextBox.Name = "RoomTheaterNoTextBox";
             this.RoomTheaterNoTextBox.Padding = new System.Windows.Forms.Padding(1);
@@ -187,7 +189,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.label3.Location = new System.Drawing.Point(155, 152);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(178, 33);
+            this.label3.Size = new System.Drawing.Size(142, 26);
             this.label3.TabIndex = 152;
             this.label3.Text = "Room Theater No";
             // 
@@ -195,7 +197,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(24, 80);
+            this.pictureBox1.Location = new System.Drawing.Point(24, 75);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(28, 28);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -208,7 +210,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(355, 22);
+            this.label1.Location = new System.Drawing.Point(340, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(321, 29);
             this.label1.TabIndex = 147;
@@ -231,7 +233,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 638);
+            this.ClientSize = new System.Drawing.Size(986, 630);
             this.Controls.Add(this.StatusComboBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.ScheduleProcedureComboBox);
@@ -244,6 +246,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label6);
             this.Name = "AddRoom";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.AddRoom_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

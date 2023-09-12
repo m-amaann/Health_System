@@ -36,7 +36,7 @@
             this.SearchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.Addbutton = new Guna.UI2.WinForms.Guna2Button();
             this.Updatebutton = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.RoomBookingBtn = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.ResourceDataGridview)).BeginInit();
             this.SuspendLayout();
             // 
@@ -175,33 +175,34 @@
             this.Updatebutton.TabIndex = 49;
             this.Updatebutton.Text = "UPDATE";
             // 
-            // guna2Button1
+            // RoomBookingBtn
             // 
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.BorderRadius = 10;
-            this.guna2Button1.CustomBorderThickness = new System.Windows.Forms.Padding(5);
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(223)))), ((int)(((byte)(203)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(131)))), ((int)(((byte)(149)))));
-            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.Location = new System.Drawing.Point(12, 653);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.guna2Button1.Size = new System.Drawing.Size(169, 39);
-            this.guna2Button1.TabIndex = 56;
-            this.guna2Button1.Text = "  Room Booking";
+            this.RoomBookingBtn.Animated = true;
+            this.RoomBookingBtn.BorderRadius = 10;
+            this.RoomBookingBtn.CustomBorderThickness = new System.Windows.Forms.Padding(5);
+            this.RoomBookingBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.RoomBookingBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.RoomBookingBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.RoomBookingBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.RoomBookingBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(223)))), ((int)(((byte)(203)))));
+            this.RoomBookingBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.RoomBookingBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(131)))), ((int)(((byte)(149)))));
+            this.RoomBookingBtn.Image = ((System.Drawing.Image)(resources.GetObject("RoomBookingBtn.Image")));
+            this.RoomBookingBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.RoomBookingBtn.Location = new System.Drawing.Point(12, 653);
+            this.RoomBookingBtn.Name = "RoomBookingBtn";
+            this.RoomBookingBtn.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.RoomBookingBtn.Size = new System.Drawing.Size(184, 39);
+            this.RoomBookingBtn.TabIndex = 56;
+            this.RoomBookingBtn.Text = "  Room Booking";
+            this.RoomBookingBtn.Click += new System.EventHandler(this.RoomBookingBtn_Click);
             // 
             // RoomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(995, 704);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.RoomBookingBtn);
             this.Controls.Add(this.ResourceDataGridview);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.label2);
@@ -212,6 +213,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RoomForm";
             this.Text = "RoomForm";
+            this.Load += new System.EventHandler(this.RoomForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ResourceDataGridview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -227,6 +229,6 @@
         private Guna.UI2.WinForms.Guna2TextBox SearchTextBox;
         private Guna.UI2.WinForms.Guna2Button Addbutton;
         private Guna.UI2.WinForms.Guna2Button Updatebutton;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button RoomBookingBtn;
     }
 }

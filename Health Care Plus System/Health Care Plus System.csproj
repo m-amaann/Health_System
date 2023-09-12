@@ -271,10 +271,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AppointmentClass.cs" />
+    <Compile Include="Classes\BookingRoomClass.cs" />
     <Compile Include="Classes\DashboardCount.cs" />
     <Compile Include="Classes\DoctorClass.cs" />
     <Compile Include="Classes\PatientClass.cs" />
     <Compile Include="Classes\ResourceClass.cs" />
+    <Compile Include="Classes\RoomClass.cs" />
     <Compile Include="Classes\StaffClass.cs" />
     <Compile Include="Screen Forms\Appointment\UpdateAppointment.cs">
       <SubType>Form</SubType>
