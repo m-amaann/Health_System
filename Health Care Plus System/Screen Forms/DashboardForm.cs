@@ -35,12 +35,15 @@ namespace Health_Care_Plus_System.Screen_Forms
                 int doctorCount = dashboardCount.GetDoctorsTotalCount();
                 int patientCount = dashboardCount.GetPatientsCount();
                 int resourceCount = dashboardCount.GetResourceTotalCount();
+                int appointmentCount = dashboardCount.GetAppointmentotalCount();
+
 
                 // Update the labels to display the counts.
                 Patientlabel.Text = patientCount.ToString();
                 Stafflabel.Text = staffCount.ToString();
                 Doctorlabel.Text = doctorCount.ToString();
                 ResourceLabel.Text = resourceCount.ToString();
+                AppointmentLabel.Text = appointmentCount.ToString();
             }
             catch (Exception ex)
             {

@@ -4,6 +4,7 @@ using Health_Care_Plus_System.Screen_Forms.Appointment;
 using Health_Care_Plus_System.Screen_Forms.Doctor;
 using Health_Care_Plus_System.Screen_Forms.Employee;
 using Health_Care_Plus_System.Screen_Forms.Resources;
+using Health_Care_Plus_System.Screen_Forms.Room;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,17 +28,20 @@ namespace Health_Care_Plus_System
         {
             InitializeComponent();
 
+            //this is to display current digital time in label
+            DigitalClock.Text = DateTime.Now.ToLongTimeString();
+            timer1.Start();
+
+
+
             /*Set Font Family*/
             label1.Font = new Font("Montserrat", 14, FontStyle.Bold);
-
 
             this.username = username;
             this.role = role.ToLower();
 
-           
 
-
-            // Set the username in the header bar
+            // Set username in the header bar
             UsernameLabel.Text =  role;
 
 
@@ -206,6 +210,17 @@ namespace Health_Care_Plus_System
         private void guna2Panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DigitalClock.Text = DateTime.Now.ToLongTimeString();
+
+        }
+
+        private void RoomScheduleButton_Click(object sender, EventArgs e)
+        {
+            loadform(new RoomForm());
         }
     }
 }

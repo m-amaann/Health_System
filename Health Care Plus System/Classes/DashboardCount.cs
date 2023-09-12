@@ -124,5 +124,36 @@ namespace Health_Care_Plus_System.Classes
                 return -1; // Return -1 to indicate an error.
             }
         }
+
+
+
+
+        //  Get Staff's Total Save Count Display Method
+        public int GetAppointmentotalCount()
+        {
+            try
+            {
+                // Connect to the database.
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // SQL query to count appointment.
+                    string query = "SELECT COUNT(*) FROM Appointment";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        // Execute the query and get the count.
+                        int appointmentCount = (int)command.ExecuteScalar();
+                        return appointmentCount;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while fetching appointment count: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1; // Return -1 to indicate an error.
+            }
+        }
     }
 }

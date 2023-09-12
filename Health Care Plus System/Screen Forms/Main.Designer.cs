@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.SidebarPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.MedicationBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -52,6 +53,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.DigitalClock = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SidebarPanel.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePictureBox2)).BeginInit();
@@ -304,6 +307,7 @@
             this.RoomScheduleButton.TabIndex = 6;
             this.RoomScheduleButton.Text = "       Room Theaters";
             this.RoomScheduleButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.RoomScheduleButton.Click += new System.EventHandler(this.RoomScheduleButton_Click);
             // 
             // AppointmentButton
             // 
@@ -495,6 +499,25 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Dashboard";
             // 
+            // DigitalClock
+            // 
+            this.DigitalClock.AutoSize = true;
+            this.DigitalClock.BackColor = System.Drawing.Color.Transparent;
+            this.DigitalClock.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DigitalClock.ForeColor = System.Drawing.Color.LightSlateGray;
+            this.DigitalClock.Location = new System.Drawing.Point(1128, 60);
+            this.DigitalClock.Name = "DigitalClock";
+            this.DigitalClock.Size = new System.Drawing.Size(57, 28);
+            this.DigitalClock.TabIndex = 3;
+            this.DigitalClock.Text = "Time";
+            this.DigitalClock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -502,6 +525,7 @@
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1289, 842);
+            this.Controls.Add(this.DigitalClock);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.SidebarPanel);
@@ -548,5 +572,7 @@
         private Guna.UI2.WinForms.Guna2PictureBox ProfilePictureBox2;
         private Guna.UI2.WinForms.Guna2Button LogoutBtn;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label DigitalClock;
+        private System.Windows.Forms.Timer timer1;
     }
 }

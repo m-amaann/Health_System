@@ -32,36 +32,36 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.Doctorlabel = new System.Windows.Forms.Label();
             this.DoctorWidget = new Guna.UI2.WinForms.Guna2Panel();
+            this.ViewLabel = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.Stafflabel = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.StaffWidget = new Guna.UI2.WinForms.Guna2Panel();
+            this.label13 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.AppointmentLabel = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label14 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Patientlabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PatientWidget = new Guna.UI2.WinForms.Guna2Panel();
+            this.label11 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label16 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.ResourceLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.ViewLabel = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.DoctorWidget.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -94,22 +94,36 @@
             this.Doctorlabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.Doctorlabel.Location = new System.Drawing.Point(7, 35);
             this.Doctorlabel.Name = "Doctorlabel";
-            this.Doctorlabel.Size = new System.Drawing.Size(36, 40);
+            this.Doctorlabel.Size = new System.Drawing.Size(35, 39);
             this.Doctorlabel.TabIndex = 6;
             this.Doctorlabel.Text = "8";
             // 
             // DoctorWidget
             // 
-            this.DoctorWidget.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.DoctorWidget.BackColor = System.Drawing.Color.White;
             this.DoctorWidget.BorderRadius = 5;
             this.DoctorWidget.Controls.Add(this.ViewLabel);
             this.DoctorWidget.Controls.Add(this.pictureBox6);
             this.DoctorWidget.Controls.Add(this.Doctorlabel);
             this.DoctorWidget.Controls.Add(this.label12);
-            this.DoctorWidget.Location = new System.Drawing.Point(71, 257);
+            this.DoctorWidget.Location = new System.Drawing.Point(55, 257);
             this.DoctorWidget.Name = "DoctorWidget";
             this.DoctorWidget.Size = new System.Drawing.Size(270, 120);
             this.DoctorWidget.TabIndex = 105;
+            // 
+            // ViewLabel
+            // 
+            this.ViewLabel.AutoSize = true;
+            this.ViewLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ViewLabel.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ViewLabel.ForeColor = System.Drawing.Color.DarkGray;
+            this.ViewLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ViewLabel.Location = new System.Drawing.Point(10, 95);
+            this.ViewLabel.Name = "ViewLabel";
+            this.ViewLabel.Size = new System.Drawing.Size(68, 17);
+            this.ViewLabel.TabIndex = 1100;
+            this.ViewLabel.Text = "View Info";
+            this.ViewLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label12
             // 
@@ -131,7 +145,7 @@
             this.Stafflabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.Stafflabel.Location = new System.Drawing.Point(12, 36);
             this.Stafflabel.Name = "Stafflabel";
-            this.Stafflabel.Size = new System.Drawing.Size(36, 40);
+            this.Stafflabel.Size = new System.Drawing.Size(35, 39);
             this.Stafflabel.TabIndex = 8;
             this.Stafflabel.Text = "7";
             // 
@@ -160,16 +174,31 @@
             // 
             // StaffWidget
             // 
-            this.StaffWidget.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.StaffWidget.BackColor = System.Drawing.Color.White;
             this.StaffWidget.BorderRadius = 5;
             this.StaffWidget.Controls.Add(this.label13);
             this.StaffWidget.Controls.Add(this.Stafflabel);
             this.StaffWidget.Controls.Add(this.pictureBox4);
             this.StaffWidget.Controls.Add(this.label8);
-            this.StaffWidget.Location = new System.Drawing.Point(380, 257);
+            this.StaffWidget.ForeColor = System.Drawing.Color.White;
+            this.StaffWidget.Location = new System.Drawing.Point(364, 257);
             this.StaffWidget.Name = "StaffWidget";
             this.StaffWidget.Size = new System.Drawing.Size(277, 120);
             this.StaffWidget.TabIndex = 106;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.DarkGray;
+            this.label13.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label13.Location = new System.Drawing.Point(7, 95);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(68, 17);
+            this.label13.TabIndex = 1101;
+            this.label13.Text = "View Info";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pictureBox3
             // 
@@ -189,7 +218,7 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.label5.Location = new System.Drawing.Point(15, 35);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 40);
+            this.label5.Size = new System.Drawing.Size(53, 39);
             this.label5.TabIndex = 10;
             this.label5.Text = "20";
             // 
@@ -207,30 +236,44 @@
             // 
             // guna2Panel3
             // 
-            this.guna2Panel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Panel3.BackColor = System.Drawing.Color.White;
             this.guna2Panel3.BorderColor = System.Drawing.Color.Transparent;
             this.guna2Panel3.BorderRadius = 30;
             this.guna2Panel3.Controls.Add(this.label15);
             this.guna2Panel3.Controls.Add(this.pictureBox3);
             this.guna2Panel3.Controls.Add(this.label5);
             this.guna2Panel3.Controls.Add(this.label6);
-            this.guna2Panel3.Location = new System.Drawing.Point(690, 114);
+            this.guna2Panel3.Location = new System.Drawing.Point(674, 114);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(274, 120);
             this.guna2Panel3.TabIndex = 103;
             // 
-            // label3
+            // label15
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.label3.Location = new System.Drawing.Point(12, 35);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 40);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "20";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.DarkGray;
+            this.label15.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label15.Location = new System.Drawing.Point(9, 94);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(68, 17);
+            this.label15.TabIndex = 1102;
+            this.label15.Text = "View Info";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // AppointmentLabel
+            // 
+            this.AppointmentLabel.AutoSize = true;
+            this.AppointmentLabel.BackColor = System.Drawing.Color.Transparent;
+            this.AppointmentLabel.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AppointmentLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.AppointmentLabel.Location = new System.Drawing.Point(12, 35);
+            this.AppointmentLabel.Name = "AppointmentLabel";
+            this.AppointmentLabel.Size = new System.Drawing.Size(53, 39);
+            this.AppointmentLabel.TabIndex = 8;
+            this.AppointmentLabel.Text = "20";
+            this.AppointmentLabel.Click += new System.EventHandler(this.label3_Click);
             // 
             // pictureBox2
             // 
@@ -257,16 +300,30 @@
             // 
             // guna2Panel2
             // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Panel2.BackColor = System.Drawing.Color.White;
             this.guna2Panel2.BorderRadius = 5;
             this.guna2Panel2.Controls.Add(this.label14);
-            this.guna2Panel2.Controls.Add(this.label3);
+            this.guna2Panel2.Controls.Add(this.AppointmentLabel);
             this.guna2Panel2.Controls.Add(this.pictureBox2);
             this.guna2Panel2.Controls.Add(this.label4);
-            this.guna2Panel2.Location = new System.Drawing.Point(380, 114);
+            this.guna2Panel2.Location = new System.Drawing.Point(364, 114);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(277, 120);
             this.guna2Panel2.TabIndex = 104;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.DarkGray;
+            this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label14.Location = new System.Drawing.Point(7, 94);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(68, 17);
+            this.label14.TabIndex = 1102;
+            this.label14.Text = "View Info";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pictureBox1
             // 
@@ -286,7 +343,7 @@
             this.Patientlabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.Patientlabel.Location = new System.Drawing.Point(6, 35);
             this.Patientlabel.Name = "Patientlabel";
-            this.Patientlabel.Size = new System.Drawing.Size(36, 40);
+            this.Patientlabel.Size = new System.Drawing.Size(35, 39);
             this.Patientlabel.TabIndex = 6;
             this.Patientlabel.Text = "7";
             // 
@@ -304,30 +361,59 @@
             // 
             // PatientWidget
             // 
-            this.PatientWidget.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.PatientWidget.BackColor = System.Drawing.Color.White;
             this.PatientWidget.BorderRadius = 5;
             this.PatientWidget.Controls.Add(this.label11);
             this.PatientWidget.Controls.Add(this.pictureBox1);
             this.PatientWidget.Controls.Add(this.Patientlabel);
             this.PatientWidget.Controls.Add(this.label1);
-            this.PatientWidget.Location = new System.Drawing.Point(71, 114);
+            this.PatientWidget.Location = new System.Drawing.Point(55, 114);
             this.PatientWidget.Name = "PatientWidget";
             this.PatientWidget.Size = new System.Drawing.Size(270, 120);
             this.PatientWidget.TabIndex = 102;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DarkGray;
+            this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label11.Location = new System.Drawing.Point(10, 94);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(68, 17);
+            this.label11.TabIndex = 1101;
+            this.label11.Text = "View Info";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
             // guna2Panel1
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Panel1.BackColor = System.Drawing.Color.White;
             this.guna2Panel1.BorderColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderRadius = 30;
             this.guna2Panel1.Controls.Add(this.label16);
             this.guna2Panel1.Controls.Add(this.pictureBox5);
             this.guna2Panel1.Controls.Add(this.ResourceLabel);
             this.guna2Panel1.Controls.Add(this.label7);
-            this.guna2Panel1.Location = new System.Drawing.Point(690, 257);
+            this.guna2Panel1.Location = new System.Drawing.Point(674, 257);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(274, 120);
             this.guna2Panel1.TabIndex = 104;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.DarkGray;
+            this.label16.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label16.Location = new System.Drawing.Point(9, 95);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(68, 17);
+            this.label16.TabIndex = 1102;
+            this.label16.Text = "View Info";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pictureBox5
             // 
@@ -347,7 +433,7 @@
             this.ResourceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.ResourceLabel.Location = new System.Drawing.Point(15, 35);
             this.ResourceLabel.Name = "ResourceLabel";
-            this.ResourceLabel.Size = new System.Drawing.Size(55, 40);
+            this.ResourceLabel.Size = new System.Drawing.Size(53, 39);
             this.ResourceLabel.TabIndex = 10;
             this.ResourceLabel.Text = "20";
             // 
@@ -368,7 +454,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(189)))));
-            this.label2.Location = new System.Drawing.Point(846, 80);
+            this.label2.Location = new System.Drawing.Point(830, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 27);
             this.label2.TabIndex = 501;
@@ -396,96 +482,11 @@
             this.label10.TabIndex = 1002;
             this.label10.Text = "Display analytics about the Health system";
             // 
-            // ViewLabel
-            // 
-            this.ViewLabel.AutoSize = true;
-            this.ViewLabel.BackColor = System.Drawing.Color.Transparent;
-            this.ViewLabel.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ViewLabel.ForeColor = System.Drawing.Color.DarkGray;
-            this.ViewLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ViewLabel.Location = new System.Drawing.Point(10, 95);
-            this.ViewLabel.Name = "ViewLabel";
-            this.ViewLabel.Size = new System.Drawing.Size(68, 17);
-            this.ViewLabel.TabIndex = 1100;
-            this.ViewLabel.Text = "View Info";
-            this.ViewLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.DarkGray;
-            this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label11.Location = new System.Drawing.Point(10, 94);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(68, 17);
-            this.label11.TabIndex = 1101;
-            this.label11.Text = "View Info";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label11.Click += new System.EventHandler(this.label11_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.DarkGray;
-            this.label13.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label13.Location = new System.Drawing.Point(7, 95);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(68, 17);
-            this.label13.TabIndex = 1101;
-            this.label13.Text = "View Info";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.DarkGray;
-            this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label14.Location = new System.Drawing.Point(7, 94);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(68, 17);
-            this.label14.TabIndex = 1102;
-            this.label14.Text = "View Info";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.DarkGray;
-            this.label15.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label15.Location = new System.Drawing.Point(9, 94);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(68, 17);
-            this.label15.TabIndex = 1102;
-            this.label15.Text = "View Info";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.DarkGray;
-            this.label16.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label16.Location = new System.Drawing.Point(9, 95);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(68, 17);
-            this.label16.TabIndex = 1102;
-            this.label16.Text = "View Info";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.MintCream;
             this.ClientSize = new System.Drawing.Size(1007, 672);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -536,7 +537,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label AppointmentLabel;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
