@@ -305,7 +305,7 @@
             this.RoomScheduleButton.PressedColor = System.Drawing.Color.DarkGray;
             this.RoomScheduleButton.Size = new System.Drawing.Size(250, 34);
             this.RoomScheduleButton.TabIndex = 6;
-            this.RoomScheduleButton.Text = "       Room Theaters";
+            this.RoomScheduleButton.Text = "       Room Theater";
             this.RoomScheduleButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.RoomScheduleButton.Click += new System.EventHandler(this.RoomScheduleButton_Click);
             // 

@@ -8,21 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Health_Care_Plus_System.Screen_Forms.EMR
+namespace Health_Care_Plus_System.Screen_Forms.Payment
 {
-    public partial class AddEMR : Form
+    public partial class AddPayment : Form
     {
-        public AddEMR()
+        public AddPayment()
         {
             InitializeComponent();
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PatientDataGrideView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

@@ -1,4 +1,5 @@
 ﻿using Health_Care_Plus_System.Classes;
+using Health_Care_Plus_System.Screen_Forms.EMR;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +27,6 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
 
         private void Addbutton_Click(object sender, EventArgs e)
         {
-            this.Hide();
             AddAppointment addAppointment = new AddAppointment();
             addAppointment.ShowDialog();
         }
@@ -66,7 +66,6 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
                 int Appointment_ID = Convert.ToInt32(AppointmentDataGridView1.Rows[rowIndex].Cells["Appointment_ID"].Value);
 
                 // Pass the appointmentID to the UpdateAppointment form
-                this.Hide();
                 UpdateAppointment updateAppointment = new UpdateAppointment(Appointment_ID);
                 updateAppointment.ShowDialog();
             }
@@ -128,6 +127,12 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
         private void AppointmentDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            AddEMR addEMR = new AddEMR();
+            addEMR.ShowDialog();
         }
     }
 }

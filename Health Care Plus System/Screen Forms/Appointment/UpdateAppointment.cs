@@ -26,7 +26,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
 
             if (appointment != null)
             {
-                SpecializationComboBox2.Text = appointment.Specialization;
+                SpecializationComboBox2.SelectedItem = appointment.Specialization;
                 DoctorNameText.Text = appointment.DoctorName;
                 PatientTextBox1.Text = appointment.PatientName;
                 AppointmentDateTimePicker.Value = appointment.Appoint_Date;
@@ -77,13 +77,13 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
             LoadAppointmentRecord();
             LoadDoctors();
             LoadPatients();
+            LoadSpecializationComboBox();
         }
 
         private void LoadDoctors()
         {
             doctorsTable = appointmentClass.GetDoctors();
             DisplayDoctorsInDataGridView();
-            LoadSpecializationComboBox();
         }
 
         private void LoadPatients()
@@ -95,7 +95,6 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
         private void LoadSpecializationComboBox()
         {
             SpecializationComboBox2.Items.Clear();
-            SpecializationComboBox2.Items.Add("All");
 
             foreach (DataRow row in doctorsTable.Rows)
             {
@@ -111,24 +110,29 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
 
         private void DisplayDoctorsInDataGridView()
         {
-            // Display doctorsTable in DataGridView control (DoctorDataGrideView)
             DoctorDataGrideView.DataSource = doctorsTable;
         }
 
         private void DisplayPatientsInDataGridView()
         {
-            // Display patientsTable in DataGridView control (PatientDataGrideView)
             PatientDataGrideView.DataSource = patientsTable;
         }
 
         private void DoctorDataGrideView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.RowIndex < DoctorDataGrideView.Rows.Count - 1)
+            if (e.RowIndex >= 0 && e.RowIndex < DoctorDataGrideView.Rows.Count)
             {
-                // Handle doctor selection from DataGridView
                 DataGridViewRow selectedRow = DoctorDataGrideView.Rows[e.RowIndex];
+                string doctorspecialization = selectedRow.Cells["Specialization"].Value.ToString();
                 string doctorName = selectedRow.Cells["FullName"].Value.ToString();
+
                 DoctorNameText.Text = doctorName;
+
+                int specializationIndex = SpecializationComboBox2.FindStringExact(doctorspecialization);
+                if (specializationIndex >= 0)
+                {
+                    SpecializationComboBox2.SelectedIndex = specializationIndex;
+                }
             }
         }
 
@@ -136,10 +140,24 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
         {
             if (e.RowIndex >= 0 && e.RowIndex < PatientDataGrideView.Rows.Count - 1)
             {
-                // Handle patient selection from DataGridView
                 DataGridViewRow selectedRow = PatientDataGrideView.Rows[e.RowIndex];
                 string patientName = selectedRow.Cells["FullName"].Value.ToString();
                 PatientTextBox1.Text = patientName;
+            }
+        }
+
+        private void SpecializationComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedSpecialization = SpecializationComboBox2.Text;
+            if (selectedSpecialization == "All")
+            {
+                DoctorDataGrideView.DataSource = doctorsTable;
+            }
+            else
+            {
+                DataView dv = new DataView(doctorsTable);
+                dv.RowFilter = $"Specialization = '{selectedSpecialization}'";
+                DoctorDataGrideView.DataSource = dv;
             }
         }
     }

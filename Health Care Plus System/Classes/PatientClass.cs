@@ -43,7 +43,7 @@ namespace Health_Care_Plus_System.Classes
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
-                return null; 
+                return null;
             }
         }
 
@@ -78,7 +78,7 @@ namespace Health_Care_Plus_System.Classes
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
-                return null; 
+                return null;
             }
         }
 
@@ -120,7 +120,7 @@ namespace Health_Care_Plus_System.Classes
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
-                return false; 
+                return false;
             }
         }
 
@@ -165,7 +165,7 @@ namespace Health_Care_Plus_System.Classes
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
-                return false; 
+                return false;
             }
         }
 
@@ -196,7 +196,7 @@ namespace Health_Care_Plus_System.Classes
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
-                return false; 
+                return false;
             }
         }
     }

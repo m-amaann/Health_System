@@ -447,7 +447,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(357, 27);
+            this.label1.Location = new System.Drawing.Point(357, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(266, 29);
             this.label1.TabIndex = 57;
@@ -468,7 +468,7 @@
             this.Updatebutton.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.Updatebutton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Updatebutton.ImageSize = new System.Drawing.Size(15, 15);
-            this.Updatebutton.Location = new System.Drawing.Point(412, 603);
+            this.Updatebutton.Location = new System.Drawing.Point(391, 597);
             this.Updatebutton.Name = "Updatebutton";
             this.Updatebutton.Size = new System.Drawing.Size(116, 39);
             this.Updatebutton.TabIndex = 80;

@@ -275,6 +275,7 @@
     <Compile Include="Classes\DashboardCount.cs" />
     <Compile Include="Classes\DoctorClass.cs" />
     <Compile Include="Classes\PatientClass.cs" />
+    <Compile Include="Classes\PatientProfileClass.cs" />
     <Compile Include="Classes\ResourceClass.cs" />
     <Compile Include="Classes\RoomClass.cs" />
     <Compile Include="Classes\StaffClass.cs" />
@@ -406,6 +407,12 @@
     <Compile Include="Screen Forms\Patient\PatientForm.Designer.cs">
       <DependentUpon>PatientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screen Forms\Patient\PatientProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen Forms\Patient\PatientProfile.Designer.cs">
+      <DependentUpon>PatientProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screen Forms\Patient\UpdatePatient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -521,6 +528,9 @@
     <EmbeddedResource Include="Screen Forms\Patient\PatientForm.resx">
       <DependentUpon>PatientForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screen Forms\Patient\PatientProfile.resx">
+      <DependentUpon>PatientProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screen Forms\Patient\UpdatePatient.resx">
       <DependentUpon>UpdatePatient.cs</DependentUpon>
     </EmbeddedResource>
@@ -565,7 +575,9 @@
   <ItemGroup>
     <None Include="Resources\eye_open_icon.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Screen Forms\RoomBook\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.4.0.2\build\Fody.targets" Condition="Exists('..\packages\Fody.4.0.2\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

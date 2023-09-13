@@ -90,6 +90,7 @@ namespace Health_Care_Plus_System
             AdminButton.Visible = false;
             ResourcesMenuBtn.Visible = false;
             ReportGenerateBtn.Visible = false;
+            MedicationBtn.Visible = false;
 
         }
 

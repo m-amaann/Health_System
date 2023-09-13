@@ -1,5 +1,6 @@
 ﻿using Health_Care_Plus_System.Classes;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,9 +18,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Room
         private string connectionString = Properties.Settings.Default.DBConnectionString; // connecting DB string statement
 
 
-        //initialize instance class
         private BookingRoomClass bookingRoomClass = new BookingRoomClass();
-        private DataTable CombinedTable;
 
         //initialize instance variable
         private DataTable PatientTable;
@@ -29,36 +28,59 @@ namespace Health_Care_Plus_System.Screen_Forms.Room
         public RoomBooking()
         {
             InitializeComponent();
+
+            LoadRoomTheaterNumbers(); //call the method here
         }
 
         private void RoomBooking_Load(object sender, EventArgs e)
         {
-            LoadPatients();
+            LoadPatientsAndAppoinment();
         }
 
 
-        // Patient's Load Record Method
-        private void LoadPatients()
+        // Patient and Appoimnet Load Record Method
+        private void LoadPatientsAndAppoinment()
         {
-            // Modify SQL query to combine data from both tables
-            string query = "SELECT P.PatID, P.FullName AS PatientName, ISNULL(A.Appointment_ID, 0) AS Appointment_ID " +
-               "FROM Patient P " +
-               "LEFT JOIN Appointment A ON P.PatID = A.PatientName";
-
             PatientTable = bookingRoomClass.GetPatients();
 
+            //DataTable to display patient column names
+            DataTable filteredPatientsTable = new DataTable();
+            filteredPatientsTable.Columns.Add("PatID", typeof(int));
+            filteredPatientsTable.Columns.Add("FullName", typeof(string));
+
+
+            foreach (DataRow row in PatientTable.Rows)
+            {
+                filteredPatientsTable.Rows.Add(row["PatID"], row["FullName"]);
+            }
+
+            PatientDataGrideView.DataSource = filteredPatientsTable;
+        }
+
+
+
+
+        // Room Theater No Load Record Method()
+        private void LoadRoomTheaterNumbers()
+        {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-                    CombinedTable = new DataTable();
-                    dataAdapter.Fill(CombinedTable);
+                string QUERY = "SELECT RoomTheaterID, RoomTheater_No FROM Rooms WHERE Status = 'Available'";
 
-                    // Bind the combinedTable to the DataGridView
-                    PatientDataGrideView.DataSource = CombinedTable;
+                using (SqlCommand command = new SqlCommand(QUERY, connection))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        DataTable roomTheaterTable = new DataTable();
+                        adapter.Fill(roomTheaterTable);
+
+                        // you have a ComboBox named 'roomTheaterComboBox'
+                        RoomTheaterNoComboBox.DataSource = roomTheaterTable;
+                        RoomTheaterNoComboBox.DisplayMember = "RoomTheater_No";
+                        RoomTheaterNoComboBox.ValueMember = "RoomTheaterID";
+                    }
                 }
             }
         }
@@ -66,23 +88,21 @@ namespace Health_Care_Plus_System.Screen_Forms.Room
 
 
 
+
         private void PatientDataGrideView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Check if a patient row is selected 
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && e.RowIndex < PatientDataGrideView.Rows.Count - 1)
             {
                 DataGridViewRow selectedRow = PatientDataGrideView.Rows[e.RowIndex];
-                string patientID = selectedRow.Cells["PatID"].Value.ToString();
-                string patientName = selectedRow.Cells["FullName"].Value.ToString();
-                string appointmentID = selectedRow.Cells["Appointment_ID"].Value.ToString();
+
+                //  the patient name from the selected row
+                string PatientID = selectedRow.Cells["PatID"].Value.ToString();
+                string PatientName = selectedRow.Cells["FullName"].Value.ToString();
 
 
-                // Display patient and appointment information as needed
-                PatientIDTextBox.Text = patientID;
-                PatientNameTextBox.Text = patientName;
+                PatientNameTextBox.Text = PatientName;
 
-                AppoinmentIDTextBox1.Text = appointmentID;
-                // You can add more code to display other patient and appointment details.
             }
         }
 
@@ -95,6 +115,16 @@ namespace Health_Care_Plus_System.Screen_Forms.Room
             dv.RowFilter = $"FullName LIKE '%{searchPatient}%'";
 
             PatientDataGrideView.DataSource = dv;
+        }
+
+        private void BookRoomAddBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RoomTheaterNoComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

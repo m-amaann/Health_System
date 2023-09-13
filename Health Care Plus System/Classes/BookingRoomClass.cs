@@ -14,11 +14,6 @@ namespace Health_Care_Plus_System.Classes
 
 
 
-
-
-
-
-
         //  Get Room Record Method for in Booking Room Method
         public DataTable GetPatients()
         {
@@ -28,7 +23,7 @@ namespace Health_Care_Plus_System.Classes
                 {
                     connection.Open();
 
-                    string query = "SELECT PatID, FullName, NIC FROM Patient";
+                    string query = "SELECT PatID, FullName FROM Patient";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -40,6 +35,7 @@ namespace Health_Care_Plus_System.Classes
                     }
                 }
             }
+
             catch (Exception)
             {
                 throw;

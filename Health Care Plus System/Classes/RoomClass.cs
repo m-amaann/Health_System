@@ -115,37 +115,34 @@ namespace Health_Care_Plus_System.Classes
 
 
         // Room Update Record Method
+        // Room Update Record Method
         public bool UpdateRoomsRecord()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
+                    connection.Open();
 
+                    string updateQuery = @"
+                UPDATE Rooms SET 
+                    RoomTheater_No = @RoomTheater_No, 
+                    Type = @Type, 
+                    Scheduled_Procedure = @Scheduled_Procedure, 
+                    Status = @Status
+                WHERE RoomTheaterID = @RoomTheaterID";
+
+                    using (SqlCommand cmd = new SqlCommand(updateQuery, connection))
                     {
-                        connection.Open();
+                        cmd.Parameters.AddWithValue("@RoomTheaterID", RoomTheaterID);
+                        cmd.Parameters.AddWithValue("@RoomTheater_No", RoomTheater_No);
+                        cmd.Parameters.AddWithValue("@Type", Type);
+                        cmd.Parameters.AddWithValue("@Scheduled_Procedure", Scheduled_Procedure);
+                        cmd.Parameters.AddWithValue("@Status", Status);
 
-                        string updateQuery = @"
-                            UPDATE Rooms SET 
-                                RoomTheater_No = @RoomTheater_No, 
-                                Type = @Type, 
-                                Scheduled_Procedure = @Scheduled_Procedure, 
-                                Status = @Status,                             
-                            WHERE RoomTheaterID = @RoomTheaterID";
+                        int rowsAffected = cmd.ExecuteNonQuery();
 
-                        using (SqlCommand cmd = new SqlCommand(updateQuery, connection))
-                        {
-                            cmd.Parameters.AddWithValue("@RoomTheaterID", RoomTheaterID);
-                            cmd.Parameters.AddWithValue("@RoomTheater_No", RoomTheater_No);
-                            cmd.Parameters.AddWithValue("@Type", Type);
-                            cmd.Parameters.AddWithValue("@Scheduled_Procedure", Scheduled_Procedure);
-                            cmd.Parameters.AddWithValue("@Status", Status);
-                            
-
-                            int rowsAffected = cmd.ExecuteNonQuery();
-
-                            return rowsAffected > 0;
-                        }
+                        return rowsAffected > 0;
                     }
                 }
                 catch (Exception ex)
@@ -159,6 +156,7 @@ namespace Health_Care_Plus_System.Classes
                 }
             }
         }
+
 
 
 

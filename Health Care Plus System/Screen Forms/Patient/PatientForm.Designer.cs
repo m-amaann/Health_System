@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientForm));
             this.Updatebutton = new Guna.UI2.WinForms.Guna2Button();
             this.Addbutton = new Guna.UI2.WinForms.Guna2Button();
             this.SearchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
@@ -35,7 +36,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.DeleteButton = new Guna.UI2.WinForms.Guna2Button();
             this.DataGridView1 = new System.Windows.Forms.DataGridView();
+            this.PatientProfileBtn = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PatientProfileBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // Updatebutton
@@ -134,7 +137,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label2.Location = new System.Drawing.Point(421, 25);
+            this.label2.Location = new System.Drawing.Point(417, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(200, 27);
             this.label2.TabIndex = 32;
@@ -165,6 +168,7 @@
             // DataGridView1
             // 
             this.DataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridView1.Location = new System.Drawing.Point(12, 162);
             this.DataGridView1.Name = "DataGridView1";
@@ -174,12 +178,24 @@
             this.DataGridView1.TabIndex = 34;
             this.DataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
+            // PatientProfileBtn
+            // 
+            this.PatientProfileBtn.Image = ((System.Drawing.Image)(resources.GetObject("PatientProfileBtn.Image")));
+            this.PatientProfileBtn.Location = new System.Drawing.Point(555, 93);
+            this.PatientProfileBtn.Name = "PatientProfileBtn";
+            this.PatientProfileBtn.Size = new System.Drawing.Size(50, 41);
+            this.PatientProfileBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PatientProfileBtn.TabIndex = 57;
+            this.PatientProfileBtn.TabStop = false;
+            this.PatientProfileBtn.Click += new System.EventHandler(this.PatientProfileBtn_Click);
+            // 
             // PatientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(996, 690);
+            this.Controls.Add(this.PatientProfileBtn);
             this.Controls.Add(this.DataGridView1);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.label2);
@@ -192,6 +208,7 @@
             this.Text = "PatientForm";
             this.Load += new System.EventHandler(this.PatientForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PatientProfileBtn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,5 +222,6 @@
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Button DeleteButton;
         private System.Windows.Forms.DataGridView DataGridView1;
+        private System.Windows.Forms.PictureBox PatientProfileBtn;
     }
 }

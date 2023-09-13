@@ -571,6 +571,7 @@
             this.SpecializationComboBox2.Name = "SpecializationComboBox2";
             this.SpecializationComboBox2.Size = new System.Drawing.Size(261, 36);
             this.SpecializationComboBox2.TabIndex = 160;
+            this.SpecializationComboBox2.SelectedIndexChanged += new System.EventHandler(this.SpecializationComboBox2_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -589,7 +590,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(441, 9);
+            this.label1.Location = new System.Drawing.Point(407, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(341, 29);
             this.label1.TabIndex = 280;
@@ -654,6 +655,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Name = "UpdateAppointment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.UpdateAppointment_Load);
             this.PatientgroupBox2.ResumeLayout(false);
             this.PatientgroupBox2.PerformLayout();

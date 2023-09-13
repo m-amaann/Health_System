@@ -1,6 +1,6 @@
-﻿namespace Health_Care_Plus_System.Screen_Forms.Room
+﻿namespace Health_Care_Plus_System.Screen_Forms.Payment
 {
-    partial class RoomForm
+    partial class PaymentForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoomForm));
             this.RoomDataGridview = new System.Windows.Forms.DataGridView();
             this.DeleteButton = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -36,7 +35,6 @@
             this.SearchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.Addbutton = new Guna.UI2.WinForms.Guna2Button();
             this.Updatebutton = new Guna.UI2.WinForms.Guna2Button();
-            this.RoomBookingBtn = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.RoomDataGridview)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,13 +45,12 @@
             this.RoomDataGridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RoomDataGridview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.RoomDataGridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RoomDataGridview.Location = new System.Drawing.Point(12, 157);
+            this.RoomDataGridview.Location = new System.Drawing.Point(29, 162);
             this.RoomDataGridview.Name = "RoomDataGridview";
             this.RoomDataGridview.RowHeadersWidth = 51;
             this.RoomDataGridview.RowTemplate.Height = 24;
-            this.RoomDataGridview.Size = new System.Drawing.Size(970, 470);
-            this.RoomDataGridview.TabIndex = 55;
-            this.RoomDataGridview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ResourceDataGridview_CellContentClick);
+            this.RoomDataGridview.Size = new System.Drawing.Size(944, 502);
+            this.RoomDataGridview.TabIndex = 63;
             // 
             // DeleteButton
             // 
@@ -69,12 +66,11 @@
             this.DeleteButton.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.DeleteButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.DeleteButton.ImageSize = new System.Drawing.Size(15, 15);
-            this.DeleteButton.Location = new System.Drawing.Point(873, 95);
+            this.DeleteButton.Location = new System.Drawing.Point(873, 100);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(100, 39);
-            this.DeleteButton.TabIndex = 54;
+            this.DeleteButton.TabIndex = 62;
             this.DeleteButton.Text = "DELETE";
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // label2
             // 
@@ -82,11 +78,11 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label2.Location = new System.Drawing.Point(422, 9);
+            this.label2.Location = new System.Drawing.Point(373, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(188, 27);
-            this.label2.TabIndex = 53;
-            this.label2.Text = "Manage Rooms";
+            this.label2.Size = new System.Drawing.Size(284, 27);
+            this.label2.TabIndex = 61;
+            this.label2.Text = "Manage Payment BIlling";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // SearchBtn
@@ -105,10 +101,10 @@
             this.SearchBtn.ForeColor = System.Drawing.SystemColors.Highlight;
             this.SearchBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.SearchBtn.ImageSize = new System.Drawing.Size(17, 17);
-            this.SearchBtn.Location = new System.Drawing.Point(292, 91);
+            this.SearchBtn.Location = new System.Drawing.Point(292, 96);
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(96, 43);
-            this.SearchBtn.TabIndex = 52;
+            this.SearchBtn.TabIndex = 60;
             this.SearchBtn.Text = "Search";
             // 
             // SearchTextBox
@@ -125,7 +121,7 @@
             this.SearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.SearchTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.SearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SearchTextBox.Location = new System.Drawing.Point(29, 91);
+            this.SearchTextBox.Location = new System.Drawing.Point(29, 96);
             this.SearchTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.SearchTextBox.Name = "SearchTextBox";
             this.SearchTextBox.PasswordChar = '\0';
@@ -133,8 +129,7 @@
             this.SearchTextBox.PlaceholderText = "Enter Search....";
             this.SearchTextBox.SelectedText = "";
             this.SearchTextBox.Size = new System.Drawing.Size(258, 43);
-            this.SearchTextBox.TabIndex = 51;
-            this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
+            this.SearchTextBox.TabIndex = 59;
             // 
             // Addbutton
             // 
@@ -151,12 +146,11 @@
             this.Addbutton.ForeColor = System.Drawing.Color.White;
             this.Addbutton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Addbutton.ImageSize = new System.Drawing.Size(17, 17);
-            this.Addbutton.Location = new System.Drawing.Point(649, 95);
+            this.Addbutton.Location = new System.Drawing.Point(649, 100);
             this.Addbutton.Name = "Addbutton";
             this.Addbutton.Size = new System.Drawing.Size(102, 39);
-            this.Addbutton.TabIndex = 50;
+            this.Addbutton.TabIndex = 58;
             this.Addbutton.Text = "ADD";
-            this.Addbutton.Click += new System.EventHandler(this.Addbutton_Click);
             // 
             // Updatebutton
             // 
@@ -172,42 +166,17 @@
             this.Updatebutton.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.Updatebutton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Updatebutton.ImageSize = new System.Drawing.Size(15, 15);
-            this.Updatebutton.Location = new System.Drawing.Point(762, 95);
+            this.Updatebutton.Location = new System.Drawing.Point(762, 100);
             this.Updatebutton.Name = "Updatebutton";
             this.Updatebutton.Size = new System.Drawing.Size(100, 39);
-            this.Updatebutton.TabIndex = 49;
+            this.Updatebutton.TabIndex = 57;
             this.Updatebutton.Text = "UPDATE";
-            this.Updatebutton.Click += new System.EventHandler(this.Updatebutton_Click);
             // 
-            // RoomBookingBtn
-            // 
-            this.RoomBookingBtn.Animated = true;
-            this.RoomBookingBtn.BorderRadius = 10;
-            this.RoomBookingBtn.CustomBorderThickness = new System.Windows.Forms.Padding(5);
-            this.RoomBookingBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.RoomBookingBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.RoomBookingBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.RoomBookingBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.RoomBookingBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(223)))), ((int)(((byte)(203)))));
-            this.RoomBookingBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.RoomBookingBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(131)))), ((int)(((byte)(149)))));
-            this.RoomBookingBtn.Image = ((System.Drawing.Image)(resources.GetObject("RoomBookingBtn.Image")));
-            this.RoomBookingBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.RoomBookingBtn.ImageSize = new System.Drawing.Size(21, 21);
-            this.RoomBookingBtn.Location = new System.Drawing.Point(12, 653);
-            this.RoomBookingBtn.Name = "RoomBookingBtn";
-            this.RoomBookingBtn.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.RoomBookingBtn.Size = new System.Drawing.Size(184, 39);
-            this.RoomBookingBtn.TabIndex = 56;
-            this.RoomBookingBtn.Text = "  Room Booking";
-            this.RoomBookingBtn.Click += new System.EventHandler(this.RoomBookingBtn_Click);
-            // 
-            // RoomForm
+            // PaymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(995, 704);
-            this.Controls.Add(this.RoomBookingBtn);
+            this.ClientSize = new System.Drawing.Size(995, 711);
             this.Controls.Add(this.RoomDataGridview);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.label2);
@@ -216,9 +185,9 @@
             this.Controls.Add(this.Addbutton);
             this.Controls.Add(this.Updatebutton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "RoomForm";
-            this.Text = "RoomForm";
-            this.Load += new System.EventHandler(this.RoomForm_Load);
+            this.Name = "PaymentForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "PaymentForm";
             ((System.ComponentModel.ISupportInitialize)(this.RoomDataGridview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -234,6 +203,5 @@
         private Guna.UI2.WinForms.Guna2TextBox SearchTextBox;
         private Guna.UI2.WinForms.Guna2Button Addbutton;
         private Guna.UI2.WinForms.Guna2Button Updatebutton;
-        private Guna.UI2.WinForms.Guna2Button RoomBookingBtn;
     }
 }

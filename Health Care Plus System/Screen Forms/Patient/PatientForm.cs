@@ -36,7 +36,7 @@ namespace Health_Care_Plus_System.Screen_Forms
 
         private void PatientForm_Load(object sender, EventArgs e)
         {
-            
+
         }
 
 
@@ -91,7 +91,7 @@ namespace Health_Care_Plus_System.Screen_Forms
 
         private void UpdatePatient_FormClosed(object sender, FormClosedEventArgs e)
         {
-            LoadPatientRecords(); 
+            LoadPatientRecords();
             this.Show();
         }
 
@@ -143,6 +143,32 @@ namespace Health_Care_Plus_System.Screen_Forms
             else
             {
                 MessageBox.Show("Please select a row to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void PatientProfileBtn_Click(object sender, EventArgs e)
+        {
+            if (DataGridView1.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    int rowIndex = DataGridView1.SelectedRows[0].Index;
+                    int patID = Convert.ToInt32(DataGridView1.Rows[rowIndex].Cells["PatID"].Value);
+
+
+                    PatientProfile patientProfile = new PatientProfile(patID);
+                    patientProfile.ShowDialog();
+                    LoadPatientRecords();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while updating patient record: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
