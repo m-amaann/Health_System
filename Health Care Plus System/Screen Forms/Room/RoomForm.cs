@@ -20,6 +20,8 @@ namespace Health_Care_Plus_System.Screen_Forms.Room
         {
             AddRoom addRoom = new AddRoom();
             addRoom.Show();
+
+            LoadRoomtRecord();
         }
 
         private void RoomBookingBtn_Click(object sender, EventArgs e)

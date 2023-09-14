@@ -38,6 +38,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Room
         }
 
 
+
         // Patient and Appoimnet Load Record Method
         private void LoadPatientsAndAppoinment()
         {
@@ -46,17 +47,18 @@ namespace Health_Care_Plus_System.Screen_Forms.Room
             //DataTable to display patient column names
             DataTable filteredPatientsTable = new DataTable();
             filteredPatientsTable.Columns.Add("PatID", typeof(int));
-            filteredPatientsTable.Columns.Add("FullName", typeof(string));
+            filteredPatientsTable.Columns.Add("PatientName", typeof(string));
+            filteredPatientsTable.Columns.Add("Appointment_ID", typeof(int));
+
 
 
             foreach (DataRow row in PatientTable.Rows)
             {
-                filteredPatientsTable.Rows.Add(row["PatID"], row["FullName"]);
+                filteredPatientsTable.Rows.Add(row["PatID"], row["PatientName"], row["Appointment_ID"]);
             }
 
             PatientDataGrideView.DataSource = filteredPatientsTable;
         }
-
 
 
 
@@ -97,8 +99,8 @@ namespace Health_Care_Plus_System.Screen_Forms.Room
                 DataGridViewRow selectedRow = PatientDataGrideView.Rows[e.RowIndex];
 
                 //  the patient name from the selected row
-                string PatientID = selectedRow.Cells["PatID"].Value.ToString();
-                string PatientName = selectedRow.Cells["FullName"].Value.ToString();
+                string PatientName = selectedRow.Cells["PatientName"].Value.ToString();
+
 
 
                 PatientNameTextBox.Text = PatientName;
@@ -112,14 +114,48 @@ namespace Health_Care_Plus_System.Screen_Forms.Room
             string searchPatient = PatientNameTextBox.Text.Trim();
 
             DataView dv = new DataView(PatientTable);
-            dv.RowFilter = $"FullName LIKE '%{searchPatient}%'";
+            dv.RowFilter = $"PatientName LIKE '%{searchPatient}%'";
 
             PatientDataGrideView.DataSource = dv;
         }
 
+
+
+
+        // Add Click Button For Room Booking 
         private void BookRoomAddBtn_Click(object sender, EventArgs e)
         {
+            // Check if a patient is selected
+            if (PatientDataGrideView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a patient.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            // Get selected patient ID and name
+            int selectedPatientID = Convert.ToInt32(PatientDataGrideView.SelectedRows[0].Cells["PatID"].Value);
+            string selectedPatientName = PatientDataGrideView.SelectedRows[0].Cells["PatientName"].Value.ToString();
+
+            // Check if a room/theater is selected
+            if (RoomTheaterNoComboBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a room/theater number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Get selected room/theater ID
+            int selectedRoomTheaterID = Convert.ToInt32(RoomTheaterNoComboBox.SelectedValue);
+
+            // Get booking dates
+            DateTime bookingFromDate = FromDateDatePicker.Value;
+            DateTime bookingEndDate = EndDateDatePicker.Value;
+
+            // Call the RecordRoomBooking method to add the booking record
+            bookingRoomClass.RecordRoomBooking(selectedRoomTheaterID, selectedPatientID, 0, bookingFromDate, bookingEndDate);
+
+         
+
+            MessageBox.Show($"Room booked successfully for {selectedPatientName}.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void RoomTheaterNoComboBox_SelectedIndexChanged(object sender, EventArgs e)

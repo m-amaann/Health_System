@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.RoomDataGridview = new System.Windows.Forms.DataGridView();
+            this.PrescriptionDataGridview = new System.Windows.Forms.DataGridView();
             this.DeleteButton = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.SearchBtn = new Guna.UI2.WinForms.Guna2Button();
             this.SearchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.Addbutton = new Guna.UI2.WinForms.Guna2Button();
             this.Updatebutton = new Guna.UI2.WinForms.Guna2Button();
-            ((System.ComponentModel.ISupportInitialize)(this.RoomDataGridview)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PrescriptionDataGridview)).BeginInit();
             this.SuspendLayout();
             // 
-            // RoomDataGridview
+            // PrescriptionDataGridview
             // 
-            this.RoomDataGridview.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.RoomDataGridview.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.RoomDataGridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RoomDataGridview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.RoomDataGridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RoomDataGridview.Location = new System.Drawing.Point(25, 166);
-            this.RoomDataGridview.Name = "RoomDataGridview";
-            this.RoomDataGridview.RowHeadersWidth = 51;
-            this.RoomDataGridview.RowTemplate.Height = 24;
-            this.RoomDataGridview.Size = new System.Drawing.Size(944, 524);
-            this.RoomDataGridview.TabIndex = 70;
+            this.PrescriptionDataGridview.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PrescriptionDataGridview.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.PrescriptionDataGridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PrescriptionDataGridview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.PrescriptionDataGridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PrescriptionDataGridview.Location = new System.Drawing.Point(25, 166);
+            this.PrescriptionDataGridview.Name = "PrescriptionDataGridview";
+            this.PrescriptionDataGridview.RowHeadersWidth = 51;
+            this.PrescriptionDataGridview.RowTemplate.Height = 24;
+            this.PrescriptionDataGridview.Size = new System.Drawing.Size(944, 524);
+            this.PrescriptionDataGridview.TabIndex = 70;
             // 
             // DeleteButton
             // 
@@ -130,6 +130,7 @@
             this.SearchTextBox.SelectedText = "";
             this.SearchTextBox.Size = new System.Drawing.Size(258, 43);
             this.SearchTextBox.TabIndex = 66;
+            this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
             // 
             // Addbutton
             // 
@@ -178,7 +179,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(995, 714);
-            this.Controls.Add(this.RoomDataGridview);
+            this.Controls.Add(this.PrescriptionDataGridview);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.SearchBtn);
@@ -188,7 +189,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PrescriptionForm";
             this.Text = "PrescriptionForm";
-            ((System.ComponentModel.ISupportInitialize)(this.RoomDataGridview)).EndInit();
+            this.Load += new System.EventHandler(this.PrescriptionForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.PrescriptionDataGridview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,7 +198,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView RoomDataGridview;
+        private System.Windows.Forms.DataGridView PrescriptionDataGridview;
         private Guna.UI2.WinForms.Guna2Button DeleteButton;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Button SearchBtn;
