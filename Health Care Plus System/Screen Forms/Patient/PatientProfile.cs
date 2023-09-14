@@ -1,4 +1,5 @@
 ﻿using Health_Care_Plus_System.Classes;
+using Health_Care_Plus_System.Screen_Forms.EMR;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,33 +25,12 @@ namespace Health_Care_Plus_System.Screen_Forms.Patient
             selectedPatID = patID;
 
             LoadPatientRecord();
-            /*            selectedPatient = 
-            */
-            /*  this.selectedPatient = selectedPatient;
-
-              FullnameTextbox.Text = selectedPatient.FullName;
-              GenderComboBox.Text = selectedPatient.Gender;
-              EmailTextbox.Text = selectedPatient.Email;         
-              //Calculate age 
-              DateTime currentDate = DateTime.Today;
-              int ageInYears = currentDate.Year - selectedPatient.DOB.Year;
-
-              if (currentDate.Month < selectedPatient.DOB.Month || (currentDate.Month == selectedPatient.DOB.Month && currentDate.Day < selectedPatient.DOB.Day))
-              {
-                  ageInYears--;
-              }
-              DOBTextBox.Text = ageInYears.ToString();
-              AddressTextBox.Text = selectedPatient.Address;
-              CityTextbox.Text = selectedPatient.City;
-              NICTextbox.Text = selectedPatient.NIC;
-              BloodgroupBox.Text = selectedPatient.BloodGroup;
-              ContactTextbox.Text = selectedPatient.ContactNo;
-              MedicalTextbox.Text = selectedPatient.MedicalHistory;
-              RegisterDateTextBox.Text = selectedPatient.CreateAt.ToString();*/
-
+         
         }
 
-
+        public PatientProfile()
+        {
+        }
 
         private void LoadPatientRecord()
         {
@@ -91,6 +71,18 @@ namespace Health_Care_Plus_System.Screen_Forms.Patient
         private void closeBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void EMRecordBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AddEMR addEMR = new AddEMR();
+            addEMR.ShowDialog();
+        }
+
+        private void AppointmentBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

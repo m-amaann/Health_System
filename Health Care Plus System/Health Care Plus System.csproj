@@ -276,6 +276,7 @@
     <Compile Include="Classes\DoctorClass.cs" />
     <Compile Include="Classes\PatientClass.cs" />
     <Compile Include="Classes\PatientProfileClass.cs" />
+    <Compile Include="Classes\PrescriptionClass.cs" />
     <Compile Include="Classes\ResourceClass.cs" />
     <Compile Include="Classes\RoomClass.cs" />
     <Compile Include="Classes\StaffClass.cs" />
@@ -395,6 +396,18 @@
     <Compile Include="Screen Forms\Employee\UpdateStaff.Designer.cs">
       <DependentUpon>UpdateStaff.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screen Forms\Medication\AddPrescription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen Forms\Medication\AddPrescription.Designer.cs">
+      <DependentUpon>AddPrescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen Forms\Medication\PrescriptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen Forms\Medication\PrescriptionForm.Designer.cs">
+      <DependentUpon>PrescriptionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screen Forms\Patient\AddPatient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -418,6 +431,24 @@
     </Compile>
     <Compile Include="Screen Forms\Patient\UpdatePatient.Designer.cs">
       <DependentUpon>UpdatePatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen Forms\Payment\AddPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen Forms\Payment\AddPayment.Designer.cs">
+      <DependentUpon>AddPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen Forms\Payment\PaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen Forms\Payment\PaymentForm.Designer.cs">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen Forms\Payment\UpdatePayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen Forms\Payment\UpdatePayment.Designer.cs">
+      <DependentUpon>UpdatePayment.cs</DependentUpon>
     </Compile>
     <Compile Include="Screen Forms\Resources\AddResource.cs">
       <SubType>Form</SubType>
@@ -522,6 +553,12 @@
     <EmbeddedResource Include="Screen Forms\Employee\UpdateStaff.resx">
       <DependentUpon>UpdateStaff.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screen Forms\Medication\AddPrescription.resx">
+      <DependentUpon>AddPrescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen Forms\Medication\PrescriptionForm.resx">
+      <DependentUpon>PrescriptionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screen Forms\Patient\AddPatient.resx">
       <DependentUpon>AddPatient.cs</DependentUpon>
     </EmbeddedResource>
@@ -533,6 +570,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screen Forms\Patient\UpdatePatient.resx">
       <DependentUpon>UpdatePatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen Forms\Payment\AddPayment.resx">
+      <DependentUpon>AddPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen Forms\Payment\PaymentForm.resx">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen Forms\Payment\UpdatePayment.resx">
+      <DependentUpon>UpdatePayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screen Forms\Resources\AddResource.resx">
       <DependentUpon>AddResource.cs</DependentUpon>

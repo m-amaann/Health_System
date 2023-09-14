@@ -1,6 +1,6 @@
-﻿namespace Health_Care_Plus_System.Screen_Forms.Appointment
+﻿namespace Health_Care_Plus_System.Screen_Forms.Medication
 {
-    partial class Appointment
+    partial class PrescriptionForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.AppointmentDataGridView1 = new System.Windows.Forms.DataGridView();
+            this.RoomDataGridview = new System.Windows.Forms.DataGridView();
             this.DeleteButton = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.SearchBtn = new Guna.UI2.WinForms.Guna2Button();
             this.SearchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.Addbutton = new Guna.UI2.WinForms.Guna2Button();
             this.Updatebutton = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            ((System.ComponentModel.ISupportInitialize)(this.AppointmentDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RoomDataGridview)).BeginInit();
             this.SuspendLayout();
             // 
-            // AppointmentDataGridView1
+            // RoomDataGridview
             // 
-            this.AppointmentDataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.AppointmentDataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.AppointmentDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AppointmentDataGridView1.Location = new System.Drawing.Point(13, 156);
-            this.AppointmentDataGridView1.Name = "AppointmentDataGridView1";
-            this.AppointmentDataGridView1.RowHeadersWidth = 51;
-            this.AppointmentDataGridView1.RowTemplate.Height = 24;
-            this.AppointmentDataGridView1.Size = new System.Drawing.Size(970, 469);
-            this.AppointmentDataGridView1.TabIndex = 41;
-            this.AppointmentDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AppointmentDataGridView1_CellContentClick);
+            this.RoomDataGridview.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.RoomDataGridview.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.RoomDataGridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RoomDataGridview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.RoomDataGridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RoomDataGridview.Location = new System.Drawing.Point(25, 166);
+            this.RoomDataGridview.Name = "RoomDataGridview";
+            this.RoomDataGridview.RowHeadersWidth = 51;
+            this.RoomDataGridview.RowTemplate.Height = 24;
+            this.RoomDataGridview.Size = new System.Drawing.Size(944, 524);
+            this.RoomDataGridview.TabIndex = 70;
             // 
             // DeleteButton
             // 
@@ -66,12 +66,11 @@
             this.DeleteButton.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.DeleteButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.DeleteButton.ImageSize = new System.Drawing.Size(15, 15);
-            this.DeleteButton.Location = new System.Drawing.Point(868, 87);
+            this.DeleteButton.Location = new System.Drawing.Point(869, 104);
             this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(99, 39);
-            this.DeleteButton.TabIndex = 40;
+            this.DeleteButton.Size = new System.Drawing.Size(100, 39);
+            this.DeleteButton.TabIndex = 69;
             this.DeleteButton.Text = "DELETE";
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // label2
             // 
@@ -79,11 +78,11 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label2.Location = new System.Drawing.Point(366, 9);
+            this.label2.Location = new System.Drawing.Point(341, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(260, 27);
-            this.label2.TabIndex = 39;
-            this.label2.Text = "Manage Appointment";
+            this.label2.Size = new System.Drawing.Size(328, 27);
+            this.label2.TabIndex = 68;
+            this.label2.Text = "Manage Medication Record";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // SearchBtn
@@ -102,10 +101,10 @@
             this.SearchBtn.ForeColor = System.Drawing.SystemColors.Highlight;
             this.SearchBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.SearchBtn.ImageSize = new System.Drawing.Size(17, 17);
-            this.SearchBtn.Location = new System.Drawing.Point(293, 83);
+            this.SearchBtn.Location = new System.Drawing.Point(288, 100);
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(96, 43);
-            this.SearchBtn.TabIndex = 38;
+            this.SearchBtn.TabIndex = 67;
             this.SearchBtn.Text = "Search";
             // 
             // SearchTextBox
@@ -122,7 +121,7 @@
             this.SearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.SearchTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.SearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SearchTextBox.Location = new System.Drawing.Point(30, 83);
+            this.SearchTextBox.Location = new System.Drawing.Point(25, 100);
             this.SearchTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.SearchTextBox.Name = "SearchTextBox";
             this.SearchTextBox.PasswordChar = '\0';
@@ -130,8 +129,7 @@
             this.SearchTextBox.PlaceholderText = "Enter Search....";
             this.SearchTextBox.SelectedText = "";
             this.SearchTextBox.Size = new System.Drawing.Size(258, 43);
-            this.SearchTextBox.TabIndex = 37;
-            this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
+            this.SearchTextBox.TabIndex = 66;
             // 
             // Addbutton
             // 
@@ -148,10 +146,10 @@
             this.Addbutton.ForeColor = System.Drawing.Color.White;
             this.Addbutton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Addbutton.ImageSize = new System.Drawing.Size(17, 17);
-            this.Addbutton.Location = new System.Drawing.Point(628, 87);
+            this.Addbutton.Location = new System.Drawing.Point(645, 104);
             this.Addbutton.Name = "Addbutton";
-            this.Addbutton.Size = new System.Drawing.Size(100, 39);
-            this.Addbutton.TabIndex = 36;
+            this.Addbutton.Size = new System.Drawing.Size(102, 39);
+            this.Addbutton.TabIndex = 65;
             this.Addbutton.Text = "ADD";
             this.Addbutton.Click += new System.EventHandler(this.Addbutton_Click);
             // 
@@ -165,45 +163,22 @@
             this.Updatebutton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.Updatebutton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.Updatebutton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(130)))), ((int)(((byte)(234)))));
-            this.Updatebutton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Updatebutton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.Updatebutton.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.Updatebutton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Updatebutton.ImageSize = new System.Drawing.Size(15, 15);
-            this.Updatebutton.Location = new System.Drawing.Point(751, 87);
+            this.Updatebutton.Location = new System.Drawing.Point(758, 104);
             this.Updatebutton.Name = "Updatebutton";
-            this.Updatebutton.Size = new System.Drawing.Size(97, 39);
-            this.Updatebutton.TabIndex = 35;
+            this.Updatebutton.Size = new System.Drawing.Size(100, 39);
+            this.Updatebutton.TabIndex = 64;
             this.Updatebutton.Text = "UPDATE";
-            this.Updatebutton.Click += new System.EventHandler(this.Updatebutton_Click);
             // 
-            // guna2Button1
-            // 
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.BorderRadius = 5;
-            this.guna2Button1.CustomBorderThickness = new System.Windows.Forms.Padding(5);
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(130)))), ((int)(((byte)(234)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.guna2Button1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.ImageSize = new System.Drawing.Size(15, 15);
-            this.guna2Button1.Location = new System.Drawing.Point(13, 639);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(182, 39);
-            this.guna2Button1.TabIndex = 42;
-            this.guna2Button1.Text = "ADD EMR RECORD";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
-            // 
-            // Appointment
+            // PrescriptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(996, 690);
-            this.Controls.Add(this.guna2Button1);
-            this.Controls.Add(this.AppointmentDataGridView1);
+            this.ClientSize = new System.Drawing.Size(995, 714);
+            this.Controls.Add(this.RoomDataGridview);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.SearchBtn);
@@ -211,10 +186,9 @@
             this.Controls.Add(this.Addbutton);
             this.Controls.Add(this.Updatebutton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Appointment";
-            this.Text = "Appointment";
-            this.Load += new System.EventHandler(this.Appointment_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.AppointmentDataGridView1)).EndInit();
+            this.Name = "PrescriptionForm";
+            this.Text = "PrescriptionForm";
+            ((System.ComponentModel.ISupportInitialize)(this.RoomDataGridview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,13 +196,12 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView AppointmentDataGridView1;
+        private System.Windows.Forms.DataGridView RoomDataGridview;
         private Guna.UI2.WinForms.Guna2Button DeleteButton;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Button SearchBtn;
         private Guna.UI2.WinForms.Guna2TextBox SearchTextBox;
         private Guna.UI2.WinForms.Guna2Button Addbutton;
         private Guna.UI2.WinForms.Guna2Button Updatebutton;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

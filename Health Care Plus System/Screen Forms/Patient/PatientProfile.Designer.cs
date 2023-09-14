@@ -92,6 +92,7 @@
             // AppointmentBtn
             // 
             this.AppointmentBtn.BorderRadius = 5;
+            this.AppointmentBtn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.ToogleButton;
             this.AppointmentBtn.CustomBorderThickness = new System.Windows.Forms.Padding(5);
             this.AppointmentBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.AppointmentBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -109,10 +110,12 @@
             this.AppointmentBtn.Size = new System.Drawing.Size(220, 48);
             this.AppointmentBtn.TabIndex = 263;
             this.AppointmentBtn.Text = "  APPOINTMENT LIST";
+            this.AppointmentBtn.Click += new System.EventHandler(this.AppointmentBtn_Click);
             // 
             // EMRecordBtn
             // 
             this.EMRecordBtn.BorderRadius = 5;
+            this.EMRecordBtn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.ToogleButton;
             this.EMRecordBtn.CustomBorderThickness = new System.Windows.Forms.Padding(5);
             this.EMRecordBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.EMRecordBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -123,12 +126,14 @@
             this.EMRecordBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(131)))), ((int)(((byte)(149)))));
             this.EMRecordBtn.Image = ((System.Drawing.Image)(resources.GetObject("EMRecordBtn.Image")));
             this.EMRecordBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.EMRecordBtn.IndicateFocus = true;
             this.EMRecordBtn.Location = new System.Drawing.Point(93, 442);
             this.EMRecordBtn.Name = "EMRecordBtn";
             this.EMRecordBtn.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.EMRecordBtn.Size = new System.Drawing.Size(181, 48);
             this.EMRecordBtn.TabIndex = 262;
             this.EMRecordBtn.Text = "EMR RECORD";
+            this.EMRecordBtn.Click += new System.EventHandler(this.EMRecordBtn_Click);
             // 
             // RegisterDateTextBox
             // 
@@ -630,7 +635,7 @@
             this.closeBtn.ImageOffset = new System.Drawing.Point(0, 0);
             this.closeBtn.ImageRotate = 0F;
             this.closeBtn.ImageSize = new System.Drawing.Size(38, 38);
-            this.closeBtn.Location = new System.Drawing.Point(974, 2);
+            this.closeBtn.Location = new System.Drawing.Point(988, 1);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.PressedState.ImageSize = new System.Drawing.Size(38, 38);
             this.closeBtn.Size = new System.Drawing.Size(35, 37);
@@ -648,6 +653,7 @@
             this.Controls.Add(this.closeBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PatientProfile";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PatientProfile";
             this.Load += new System.EventHandler(this.PatientProfile_Load);
             this.panel1.ResumeLayout(false);

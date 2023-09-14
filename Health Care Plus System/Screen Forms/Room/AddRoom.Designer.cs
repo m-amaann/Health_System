@@ -90,7 +90,9 @@
             this.ScheduleProcedureComboBox.Items.AddRange(new object[] {
             "Special Room",
             "Standard Room ",
-            "General Room",
+            "General Room -1",
+            "General Room - 2",
+            "General Room - 3",
             "Single Room",
             "Isolation Room",
             "Emergency Room",

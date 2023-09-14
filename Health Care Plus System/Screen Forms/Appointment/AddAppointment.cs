@@ -20,6 +20,8 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
         private DataTable patientsTable;
         private DataTable doctorsTable;
 
+        // Store the selected patient's ID
+        private int selectedPatID = -1;
 
 
 
@@ -80,12 +82,13 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
 
             //DataTable to display patient column names
             DataTable filteredPatientsTable = new DataTable();
+            filteredPatientsTable.Columns.Add("PatID", typeof(int));
             filteredPatientsTable.Columns.Add("FullName", typeof(string));
             filteredPatientsTable.Columns.Add("ContactNo", typeof(string));
 
             foreach (DataRow row in patientsTable.Rows)
             {
-                filteredPatientsTable.Rows.Add( row["FullName"], row["ContactNo"]);
+                filteredPatientsTable.Rows.Add(row["PatID"], row["FullName"], row["ContactNo"]);
             }
 
             PatientDataGrideView.DataSource = filteredPatientsTable;
@@ -112,7 +115,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
         {
             try
             {
-                // Get the hospital charge and doctor charge values as doubles
+                // Get the hospital charge and doctor charge 
                 double hospitalCharge = double.Parse(hospitalChargeTextBox.Text);
                 double doctorCharge = double.Parse(DoctorChargeTextBox.Text);
 
@@ -154,12 +157,13 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
 
         private void PatientDataGrideView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            // Check if a patient row is selected 
+            // Check if a patient row is selected
             if (e.RowIndex >= 0 && e.RowIndex < PatientDataGrideView.Rows.Count - 1)
             {
                 DataGridViewRow selectedRow = PatientDataGrideView.Rows[e.RowIndex];
 
-                //  the patient name from the selected row
+                // Get the patient ID from the selected row
+                selectedPatID = Convert.ToInt32(selectedRow.Cells["PatID"].Value);
                 string PatientName = selectedRow.Cells["FullName"].Value.ToString();
 
                 PatientTextBox1.Text = PatientName;
@@ -221,6 +225,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
                     {
                         Specialization = SpecializationComboBox2.Text,
                         DoctorName = DoctorNameText.Text,
+                        PatID = selectedPatID, // Use the selectedPatID
                         PatientName = PatientTextBox1.Text,
                         Appoint_Date = AppointmentDateTimePicker.Value,
                         Appoint_Time = AvalableTimeComboBox.Text,

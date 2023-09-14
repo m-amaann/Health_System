@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Health_Care_Plus_System.Screen_Forms.Patient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,6 +26,13 @@ namespace Health_Care_Plus_System.Screen_Forms.EMR
         private void PatientDataGrideView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            PatientProfile patientProfile = new PatientProfile();
+            patientProfile.ShowDialog();
         }
     }
 }

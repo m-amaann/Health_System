@@ -29,6 +29,8 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
         {
             AddAppointment addAppointment = new AddAppointment();
             addAppointment.ShowDialog();
+
+            LoadAppointmentRecord();
         }
 
         private void Appointment_Load(object sender, EventArgs e)

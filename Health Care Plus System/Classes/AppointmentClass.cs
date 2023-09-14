@@ -22,6 +22,7 @@ namespace Health_Care_Plus_System.Classes
         public int Appointment_ID { get; set; }
         public string Specialization { get; set; }
         public string DoctorName { get; set; }
+        public int PatID { get; set; }
         public string PatientName { get; set; }
         public DateTime Appoint_Date { get; set; }
         public string Appoint_Time { get; set; }
@@ -30,7 +31,6 @@ namespace Health_Care_Plus_System.Classes
         public string HospitalCharge { get; set; }
         public string DoctorCharge { get; set; }
         public string TotalFee { get; set; }
-
 
 
 
@@ -57,6 +57,7 @@ namespace Health_Care_Plus_System.Classes
                             Appointment_ID = Convert.ToInt32(reader["Appointment_ID"]),
                             Specialization = reader["Specialization"].ToString(),
                             DoctorName = reader["DoctorName"].ToString(),
+                            PatID = Convert.ToInt32(reader["PatID"]),
                             PatientName = reader["PatientName"].ToString(),
                             Appoint_Date = Convert.ToDateTime(reader["Appoint_Date"]),
                             Appoint_Time = reader["Appoint_Time"].ToString(),
@@ -128,7 +129,7 @@ namespace Health_Care_Plus_System.Classes
                 {
                     connection.Open();
 
-                    string query = "SELECT FullName, ContactNo FROM Patient";
+                    string query = "SELECT PatID, FullName, ContactNo FROM Patient";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -145,7 +146,7 @@ namespace Health_Care_Plus_System.Classes
                 throw;
             }
         }
-       
+
 
 
 
@@ -163,13 +164,14 @@ namespace Health_Care_Plus_System.Classes
                     connection.Open();
 
                     string insertQuery = @"
-                INSERT INTO Appointment (Specialization, DoctorName, PatientName, Appoint_Date, Appoint_Time, Note, Sender_Name, HospitalCharge, DoctorCharge, TotalFee)
-                VALUES (@Specialization, @DoctorName, @PatientName, @Appoint_Date, @Appoint_Time, @Note, @Sender_Name, @HospitalCharge, @DoctorCharge, @TotalFee)";
+                INSERT INTO Appointment (Specialization, DoctorName, PatID, PatientName, Appoint_Date, Appoint_Time, Note, Sender_Name, HospitalCharge, DoctorCharge, TotalFee)
+                VALUES (@Specialization, @DoctorName, @PatID, @PatientName, @Appoint_Date, @Appoint_Time, @Note, @Sender_Name, @HospitalCharge, @DoctorCharge, @TotalFee)";
 
                     using (SqlCommand cmd = new SqlCommand(insertQuery, connection))
                     {
                         cmd.Parameters.AddWithValue("@Specialization", Specialization);
                         cmd.Parameters.AddWithValue("@DoctorName", DoctorName);
+                        cmd.Parameters.AddWithValue("@PatID", PatID);
                         cmd.Parameters.AddWithValue("@PatientName", PatientName);
                         cmd.Parameters.AddWithValue("@Appoint_Date", Appoint_Date);
                         cmd.Parameters.AddWithValue("@Appoint_Time", Appoint_Time);
@@ -181,15 +183,30 @@ namespace Health_Care_Plus_System.Classes
 
                         int rowsAffected = cmd.ExecuteNonQuery();
 
-                        return rowsAffected > 0;
+                        if (rowsAffected > 0)
+                        {
+                            return true; // Record added successfully
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to add a appointment. No rows affected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
                     }
                 }
             }
-            catch (Exception) 
+            catch (SqlException ex)
             {
+                MessageBox.Show("SQL Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
+
 
 
 
@@ -211,6 +228,7 @@ namespace Health_Care_Plus_System.Classes
                             UPDATE Appointment SET 
                                 Specialization = @Specialization, 
                                 DoctorName = @DoctorName, 
+                                PatID = @PatID, 
                                 PatientName = @PatientName, 
                                 Appoint_Date = @Appoint_Date, 
                                 Appoint_Time = @Appoint_Time, 
@@ -226,6 +244,7 @@ namespace Health_Care_Plus_System.Classes
                             cmd.Parameters.AddWithValue("@Appointment_ID", Appointment_ID);
                             cmd.Parameters.AddWithValue("@Specialization", Specialization);
                             cmd.Parameters.AddWithValue("@DoctorName", DoctorName);
+                            cmd.Parameters.AddWithValue("@PatID", PatID);
                             cmd.Parameters.AddWithValue("@PatientName", PatientName);
                             cmd.Parameters.AddWithValue("@Appoint_Date", Appoint_Date);
                             cmd.Parameters.AddWithValue("@Appoint_Time", Appoint_Time);
@@ -356,6 +375,7 @@ namespace Health_Care_Plus_System.Classes
                                 Appointment_ID = Convert.ToInt32(reader["Appointment_ID"]);
                                 Specialization = reader["Specialization"].ToString();
                                 DoctorName = reader["DoctorName"].ToString();
+                                PatID = Convert.ToInt32(reader["PatID"]);
                                 PatientName = reader["PatientName"].ToString();
                                 Appoint_Date = Convert.ToDateTime(reader["Appoint_Date"].ToString());
                                 Appoint_Time = reader["Appoint_Time"].ToString();
