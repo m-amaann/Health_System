@@ -21,5 +21,11 @@ namespace Health_Care_Plus_System.Screen_Forms.Payment
         {
 
         }
+
+        private void Addbutton_Click(object sender, EventArgs e)
+        {
+            AddPayment addPayment = new AddPayment();
+            addPayment.Show();
+        }
     }
 }

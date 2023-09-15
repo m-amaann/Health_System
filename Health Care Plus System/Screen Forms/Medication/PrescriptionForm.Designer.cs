@@ -71,6 +71,7 @@
             this.DeleteButton.Size = new System.Drawing.Size(100, 39);
             this.DeleteButton.TabIndex = 69;
             this.DeleteButton.Text = "DELETE";
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // label2
             // 
@@ -173,6 +174,7 @@
             this.Updatebutton.Size = new System.Drawing.Size(100, 39);
             this.Updatebutton.TabIndex = 64;
             this.Updatebutton.Text = "UPDATE";
+            this.Updatebutton.Click += new System.EventHandler(this.Updatebutton_Click);
             // 
             // PrescriptionForm
             // 

@@ -151,6 +151,7 @@
             this.Addbutton.Size = new System.Drawing.Size(102, 39);
             this.Addbutton.TabIndex = 58;
             this.Addbutton.Text = "ADD";
+            this.Addbutton.Click += new System.EventHandler(this.Addbutton_Click);
             // 
             // Updatebutton
             // 

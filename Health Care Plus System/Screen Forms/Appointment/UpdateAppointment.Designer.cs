@@ -459,6 +459,7 @@
             this.DoctorgroupBox1.TabIndex = 283;
             this.DoctorgroupBox1.TabStop = false;
             this.DoctorgroupBox1.Text = "Select a Doctor";
+            this.DoctorgroupBox1.Enter += new System.EventHandler(this.DoctorgroupBox1_Enter);
             // 
             // DoctorDataGrideView
             // 

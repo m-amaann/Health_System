@@ -34,11 +34,11 @@ namespace Health_Care_Plus_System.Screen_Forms.Medication
 
         private void AddPrescription_Load(object sender, EventArgs e)
         {
-            GetPatientAndDoctor();
+            GetPatientAndDoctor(); //Called the method
         }
 
 
-        // Patient's Load Record Method
+        // Patient and Doctor Load Record Method
         private void GetPatientAndDoctor()
         {
             patientsTable = prescriptionClass.GetPatientAndDoctor();
@@ -56,6 +56,8 @@ namespace Health_Care_Plus_System.Screen_Forms.Medication
 
             PatientDataTable.DataSource = filteredPatientsTable;
         }
+
+
 
 
 
@@ -78,7 +80,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Medication
 
         private void PatientDataTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Check if a appointment row is selected
+            // Check if a medication row is selected
             if (e.RowIndex >= 0 && e.RowIndex < PatientDataTable.Rows.Count - 1)
             {
                 DataGridViewRow selectedRow = PatientDataTable.Rows[e.RowIndex];
@@ -121,6 +123,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Medication
 
                         // Clear the input fields after successful addition
                         ClearInputFields();
+                        this.Close();
                     }
                     else
                     {

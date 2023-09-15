@@ -24,10 +24,13 @@ namespace Health_Care_Plus_System.Screen_Forms.Medication
             InitializeComponent();
         }
 
+
         private void Addbutton_Click(object sender, EventArgs e)
         {
             AddPrescription addPrescription = new AddPrescription();
             addPrescription.ShowDialog();
+            LoadPrescriptionRecord();
+
 
         }
 
@@ -68,6 +71,53 @@ namespace Health_Care_Plus_System.Screen_Forms.Medication
 
                     PrescriptionDataGridview.DataSource = dataTable; // PrescriptionDataGridview is name of Table 
                 }
+            }
+        }
+
+        private void Updatebutton_Click(object sender, EventArgs e)
+        {
+            // Check if a prescription is selected
+            if (PrescriptionDataGridview.SelectedRows.Count > 0)
+            {
+                // Get the selected MedicationID from the Table
+                int medicationID = Convert.ToInt32(PrescriptionDataGridview.SelectedRows[0].Cells["MedicationID"].Value);
+
+                UpdatePrescription updatePrescription = new UpdatePrescription(medicationID);
+                updatePrescription.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a prescription to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (PrescriptionDataGridview.SelectedRows.Count > 0)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this medication record?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    int rowIndex = PrescriptionDataGridview.SelectedRows[0].Index;
+                    int prescriptionID = Convert.ToInt32(PrescriptionDataGridview.Rows[rowIndex].Cells["MedicationID"].Value);
+
+                    PrescriptionClass prescriptionClass = new PrescriptionClass { MedicationID = prescriptionID };
+
+                    if (prescriptionClass.DeletePrescriptionecord())
+                    {
+                        MessageBox.Show("Appointment record deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadPrescriptionRecord(); // Refresh the appointment records after deletion
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to delete appointment record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select an appointment record to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -28,6 +28,9 @@ namespace Health_Care_Plus_System.Screen_Forms.Room
         {
             RoomBooking roomBooking = new RoomBooking();
             roomBooking.Show();
+
+            LoadRoomtRecord();
+
         }
 
         private void RoomForm_Load(object sender, EventArgs e)

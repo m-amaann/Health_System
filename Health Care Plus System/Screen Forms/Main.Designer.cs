@@ -31,20 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.SidebarPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
-            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.UsernameLabel = new System.Windows.Forms.Label();
-            this.Separator1 = new Guna.UI2.WinForms.Guna2Separator();
-            this.PanelHeader = new Guna.UI2.WinForms.Guna2Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.MainPanel = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.DigitalClock = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.MedicationBtn = new Guna.UI2.WinForms.Guna2Button();
             this.ReportGenerateBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.ResourcesMenuBtn = new Guna.UI2.WinForms.Guna2Button();
             this.AdminButton = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.UsernameLabel = new System.Windows.Forms.Label();
             this.ProfilePictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.PaymentButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
@@ -54,12 +47,19 @@
             this.StaffBtn = new Guna.UI2.WinForms.Guna2Button();
             this.PatButton1 = new Guna.UI2.WinForms.Guna2Button();
             this.PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            this.PanelHeader = new Guna.UI2.WinForms.Guna2Panel();
             this.LogoutBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.MainPanel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.DigitalClock = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SidebarPanel.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
-            this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
+            this.PanelHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // SidebarPanel
@@ -86,113 +86,6 @@
             this.SidebarPanel.Size = new System.Drawing.Size(251, 842);
             this.SidebarPanel.TabIndex = 0;
             this.SidebarPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.SidebarPanel_Paint);
-            // 
-            // guna2Separator1
-            // 
-            this.guna2Separator1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Separator1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(127)))), ((int)(((byte)(215)))));
-            this.guna2Separator1.Location = new System.Drawing.Point(13, 140);
-            this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(221, 10);
-            this.guna2Separator1.TabIndex = 11;
-            this.guna2Separator1.UseTransparentBackground = true;
-            // 
-            // guna2GradientPanel1
-            // 
-            this.guna2GradientPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(124)))), ((int)(((byte)(211)))));
-            this.guna2GradientPanel1.BorderRadius = 10;
-            this.guna2GradientPanel1.Controls.Add(this.UsernameLabel);
-            this.guna2GradientPanel1.Controls.Add(this.ProfilePictureBox2);
-            this.guna2GradientPanel1.CustomBorderThickness = new System.Windows.Forms.Padding(0, 8, 8, 0);
-            this.guna2GradientPanel1.ForeColor = System.Drawing.Color.Transparent;
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(2, 773);
-            this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(247, 66);
-            this.guna2GradientPanel1.TabIndex = 2;
-            // 
-            // UsernameLabel
-            // 
-            this.UsernameLabel.AutoSize = true;
-            this.UsernameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.UsernameLabel.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameLabel.Location = new System.Drawing.Point(70, 22);
-            this.UsernameLabel.Name = "UsernameLabel";
-            this.UsernameLabel.Size = new System.Drawing.Size(104, 26);
-            this.UsernameLabel.TabIndex = 2;
-            this.UsernameLabel.Text = "Receptionist";
-            // 
-            // Separator1
-            // 
-            this.Separator1.BackColor = System.Drawing.Color.Transparent;
-            this.Separator1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(148)))), ((int)(((byte)(224)))));
-            this.Separator1.Location = new System.Drawing.Point(15, 80);
-            this.Separator1.Name = "Separator1";
-            this.Separator1.Size = new System.Drawing.Size(222, 13);
-            this.Separator1.TabIndex = 2;
-            this.Separator1.UseTransparentBackground = true;
-            // 
-            // PanelHeader
-            // 
-            this.PanelHeader.BackColor = System.Drawing.Color.White;
-            this.PanelHeader.BorderColor = System.Drawing.Color.Transparent;
-            this.PanelHeader.Controls.Add(this.LogoutBtn);
-            this.PanelHeader.Controls.Add(this.label1);
-            this.PanelHeader.Location = new System.Drawing.Point(220, 0);
-            this.PanelHeader.Name = "PanelHeader";
-            this.PanelHeader.Size = new System.Drawing.Size(1070, 51);
-            this.PanelHeader.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(189)))));
-            this.label1.Location = new System.Drawing.Point(50, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(201, 27);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Health Care Plus ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // MainPanel
-            // 
-            this.MainPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.MainPanel.BackColor = System.Drawing.Color.Transparent;
-            this.MainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.MainPanel.Location = new System.Drawing.Point(266, 95);
-            this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(1007, 735);
-            this.MainPanel.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label2.Location = new System.Drawing.Point(271, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 22);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Dashboard";
-            // 
-            // DigitalClock
-            // 
-            this.DigitalClock.AutoSize = true;
-            this.DigitalClock.BackColor = System.Drawing.Color.Transparent;
-            this.DigitalClock.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DigitalClock.ForeColor = System.Drawing.Color.LightSlateGray;
-            this.DigitalClock.Location = new System.Drawing.Point(1128, 60);
-            this.DigitalClock.Name = "DigitalClock";
-            this.DigitalClock.Size = new System.Drawing.Size(57, 28);
-            this.DigitalClock.TabIndex = 3;
-            this.DigitalClock.Text = "Time";
-            this.DigitalClock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // MedicationBtn
             // 
@@ -245,6 +138,16 @@
             this.ReportGenerateBtn.Text = "       Report Generate";
             this.ReportGenerateBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
+            // guna2Separator1
+            // 
+            this.guna2Separator1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Separator1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(127)))), ((int)(((byte)(215)))));
+            this.guna2Separator1.Location = new System.Drawing.Point(13, 140);
+            this.guna2Separator1.Name = "guna2Separator1";
+            this.guna2Separator1.Size = new System.Drawing.Size(221, 10);
+            this.guna2Separator1.TabIndex = 11;
+            this.guna2Separator1.UseTransparentBackground = true;
+            // 
             // ResourcesMenuBtn
             // 
             this.ResourcesMenuBtn.Animated = true;
@@ -295,6 +198,30 @@
             this.AdminButton.Text = "       Users";
             this.AdminButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.AdminButton.Click += new System.EventHandler(this.AdminButton_Click);
+            // 
+            // guna2GradientPanel1
+            // 
+            this.guna2GradientPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(124)))), ((int)(((byte)(211)))));
+            this.guna2GradientPanel1.BorderRadius = 10;
+            this.guna2GradientPanel1.Controls.Add(this.UsernameLabel);
+            this.guna2GradientPanel1.Controls.Add(this.ProfilePictureBox2);
+            this.guna2GradientPanel1.CustomBorderThickness = new System.Windows.Forms.Padding(0, 8, 8, 0);
+            this.guna2GradientPanel1.ForeColor = System.Drawing.Color.Transparent;
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(2, 773);
+            this.guna2GradientPanel1.Name = "guna2GradientPanel1";
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(247, 66);
+            this.guna2GradientPanel1.TabIndex = 2;
+            // 
+            // UsernameLabel
+            // 
+            this.UsernameLabel.AutoSize = true;
+            this.UsernameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.UsernameLabel.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsernameLabel.Location = new System.Drawing.Point(70, 22);
+            this.UsernameLabel.Name = "UsernameLabel";
+            this.UsernameLabel.Size = new System.Drawing.Size(104, 26);
+            this.UsernameLabel.TabIndex = 2;
+            this.UsernameLabel.Text = "Receptionist";
             // 
             // ProfilePictureBox2
             // 
@@ -380,7 +307,7 @@
             this.RoomScheduleButton.PressedColor = System.Drawing.Color.DarkGray;
             this.RoomScheduleButton.Size = new System.Drawing.Size(250, 34);
             this.RoomScheduleButton.TabIndex = 6;
-            this.RoomScheduleButton.Text = "       Room Theater";
+            this.RoomScheduleButton.Text = "       Room and Theater";
             this.RoomScheduleButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.RoomScheduleButton.Click += new System.EventHandler(this.RoomScheduleButton_Click);
             // 
@@ -495,6 +422,27 @@
             this.PictureBox1.TabIndex = 2;
             this.PictureBox1.TabStop = false;
             // 
+            // Separator1
+            // 
+            this.Separator1.BackColor = System.Drawing.Color.Transparent;
+            this.Separator1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(148)))), ((int)(((byte)(224)))));
+            this.Separator1.Location = new System.Drawing.Point(15, 80);
+            this.Separator1.Name = "Separator1";
+            this.Separator1.Size = new System.Drawing.Size(222, 13);
+            this.Separator1.TabIndex = 2;
+            this.Separator1.UseTransparentBackground = true;
+            // 
+            // PanelHeader
+            // 
+            this.PanelHeader.BackColor = System.Drawing.Color.White;
+            this.PanelHeader.BorderColor = System.Drawing.Color.Transparent;
+            this.PanelHeader.Controls.Add(this.LogoutBtn);
+            this.PanelHeader.Controls.Add(this.label1);
+            this.PanelHeader.Location = new System.Drawing.Point(220, 0);
+            this.PanelHeader.Name = "PanelHeader";
+            this.PanelHeader.Size = new System.Drawing.Size(1070, 51);
+            this.PanelHeader.TabIndex = 1;
+            // 
             // LogoutBtn
             // 
             this.LogoutBtn.BackColor = System.Drawing.Color.Transparent;
@@ -520,6 +468,58 @@
             this.LogoutBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(189)))));
+            this.label1.Location = new System.Drawing.Point(50, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(201, 27);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Health Care Plus ";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // MainPanel
+            // 
+            this.MainPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.MainPanel.BackColor = System.Drawing.Color.Transparent;
+            this.MainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MainPanel.Location = new System.Drawing.Point(266, 95);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(1007, 735);
+            this.MainPanel.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label2.Location = new System.Drawing.Point(271, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 22);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Dashboard";
+            // 
+            // DigitalClock
+            // 
+            this.DigitalClock.AutoSize = true;
+            this.DigitalClock.BackColor = System.Drawing.Color.Transparent;
+            this.DigitalClock.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DigitalClock.ForeColor = System.Drawing.Color.LightSlateGray;
+            this.DigitalClock.Location = new System.Drawing.Point(1128, 60);
+            this.DigitalClock.Name = "DigitalClock";
+            this.DigitalClock.Size = new System.Drawing.Size(57, 28);
+            this.DigitalClock.TabIndex = 3;
+            this.DigitalClock.Text = "Time";
+            this.DigitalClock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -540,10 +540,10 @@
             this.SidebarPanel.ResumeLayout(false);
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
-            this.PanelHeader.ResumeLayout(false);
-            this.PanelHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
+            this.PanelHeader.ResumeLayout(false);
+            this.PanelHeader.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

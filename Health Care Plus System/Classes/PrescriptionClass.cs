@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms.Suite;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -146,7 +147,7 @@ namespace Health_Care_Plus_System.Classes
 
 
         // MEDICATION UPDATE RECCORD METHOD
-        public bool UpdatePrescription(PrescriptionClass prescription)
+        public bool UpdatePrescription()
         {
             try
             {
@@ -156,26 +157,25 @@ namespace Health_Care_Plus_System.Classes
                     string query = "UPDATE Prescription " +
                                    "SET PatID = @PatID, MedicationName = @MedicationName, Dosage = @Dosage, " +
                                    "Frequently = @Frequently, StartDate = @StartDate, EndDate = @EndDate, " +
-                                   "Instruction = @Instruction, Prescriped_Doctor = @Prescriped_Doctor, " +
-                                 
+                                   "Instruction = @Instruction, Prescriped_Doctor = @Prescriped_Doctor " +
                                    "WHERE MedicationID = @MedicationID";
 
                     SqlCommand cmd = new SqlCommand(query, connection);
-                    cmd.Parameters.AddWithValue("@MedicationID", prescription.MedicationID);
-                    cmd.Parameters.AddWithValue("@PatID", prescription.PatID);
-                    cmd.Parameters.AddWithValue("@MedicationName", prescription.MedicationName);
-                    cmd.Parameters.AddWithValue("@Dosage", prescription.Dosage);
-                    cmd.Parameters.AddWithValue("@Frequently", prescription.Frequently);
-                    cmd.Parameters.AddWithValue("@StartDate", prescription.StartDate);
-                    cmd.Parameters.AddWithValue("@EndDate", prescription.EndDate);
-                    cmd.Parameters.AddWithValue("@Instruction", prescription.Instruction);
-                    cmd.Parameters.AddWithValue("@Prescriped_Doctor", prescription.Prescriped_Doctor);
+                    cmd.Parameters.AddWithValue("@MedicationID", MedicationID);
+                    cmd.Parameters.AddWithValue("@PatID", PatID);
+                    cmd.Parameters.AddWithValue("@MedicationName", MedicationName);
+                    cmd.Parameters.AddWithValue("@Dosage", Dosage);
+                    cmd.Parameters.AddWithValue("@Frequently", Frequently);
+                    cmd.Parameters.AddWithValue("@StartDate", StartDate);
+                    cmd.Parameters.AddWithValue("@EndDate", EndDate);
+                    cmd.Parameters.AddWithValue("@Instruction", Instruction);
+                    cmd.Parameters.AddWithValue("@Prescriped_Doctor", Prescriped_Doctor);
 
                     int rowsAffected = cmd.ExecuteNonQuery();
                     return rowsAffected > 0;
                 }
             }
-            catch (Exception)
+            catch (Exception )
             {
                 return false;
             }
@@ -184,9 +184,38 @@ namespace Health_Care_Plus_System.Classes
 
 
 
+        // DELETE APPOINTMENT METHOD
+        public bool DeletePrescriptionecord()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string deleteQuery = "DELETE FROM Prescription WHERE MedicationID = @MedicationID";
+
+                    using (SqlCommand command = new SqlCommand(deleteQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@MedicationID", MedicationID);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+                return false;
+            }
+        }
 
 
-        // Search Appointment Method From DB
+
+
+
+        // Search Medication Method From DB
         public DataTable SearchPrescription(string searchQuery)
         {
             try
@@ -194,10 +223,10 @@ namespace Health_Care_Plus_System.Classes
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string query = "SELECT * FROM Prescription WHERE PatID LIKE @SearchQuery " +
-                        "OR MedicationName LIKE @SearchQuery " +
-                        "OR PatientName LIKE @SearchQuery " +
-                        "OR Prescriped_Doctor LIKE @SearchQuery ";
+                    string query = "SELECT * FROM Prescription WHERE " +
+                                   "MedicationID LIKE @SearchQuery OR " +
+                                   "PatID LIKE @SearchQuery OR " +
+                                   "Prescriped_Doctor LIKE @SearchQuery";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -213,9 +242,6 @@ namespace Health_Care_Plus_System.Classes
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while searching: " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-
-
                 return null;
             }
         }
@@ -226,45 +252,46 @@ namespace Health_Care_Plus_System.Classes
 
 
 
-        //Get Retrieve All Prescription Records From The DB
-        public List<PrescriptionClass> LoadPrescriptRecord()
+        // This method to display retrieve the update medication form record in Table
+        public bool LoadPrescriptRecord()
         {
-            List<PrescriptionClass> prescriptions = new List<PrescriptionClass>();
-
-            try
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                try
                 {
                     connection.Open();
-                    string query = "SELECT * FROM Prescription";
+
+                    string query = "SELECT * FROM Prescription WHERE MedicationID = @MedicationID";
+
                     SqlCommand cmd = new SqlCommand(query, connection);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (reader.Read())
                         {
-                            prescriptions.Add(new PrescriptionClass
-                            {
-                                MedicationID = (int)reader["MedicationID"],
-                                PatID = (int)reader["PatID"],
-                                MedicationName = reader["MedicationName"].ToString(),
-                                Dosage = reader["Dosage"].ToString(),
-                                Frequently = reader["Frequently"].ToString(),
-                                StartDate = (DateTime)reader["StartDate"],
-                                EndDate = (DateTime)reader["EndDate"],
-                                Instruction = reader["Instruction"].ToString(),
-                                Prescriped_Doctor = reader["Prescriped_Doctor"].ToString(),
-                            });
-                        }
+                            MedicationID = Convert.ToInt32(reader["MedicationID"]);
+                            PatID = Convert.ToInt32(reader["PatID"]);
+                            MedicationName = reader["MedicationName"].ToString();
+                            Dosage = reader["Dosage"].ToString();
+
+                            Frequently = reader["Frequently"].ToString();
+                            StartDate = Convert.ToDateTime(reader["StartDate"].ToString());
+                            EndDate = Convert.ToDateTime(reader["EndDate"].ToString());
+                            Instruction = reader["Instruction"].ToString();
+                            Prescriped_Doctor = reader["Prescriped_Doctor"].ToString();
+
+                            return true;
+                        }                     
                     }
                 }
-
-                return prescriptions;
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred while loading appointment data: " + ex.Message);
+                }
             }
-            catch (Exception)
-            {
-                return null;
-            }
+            return false;          
         }
+
+
     }
 }

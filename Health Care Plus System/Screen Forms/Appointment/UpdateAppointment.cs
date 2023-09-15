@@ -20,6 +20,8 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
             appointmentClass = new AppointmentClass();
         }
 
+
+
         private void LoadAppointmentRecord()
         {
             AppointmentClass appointment = AppointmentClass.GetAppointmentByID(appointmentID);
@@ -159,6 +161,11 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
                 dv.RowFilter = $"Specialization = '{selectedSpecialization}'";
                 DoctorDataGrideView.DataSource = dv;
             }
+        }
+
+        private void DoctorgroupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
