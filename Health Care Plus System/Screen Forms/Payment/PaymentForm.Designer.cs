@@ -28,29 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.RoomDataGridview = new System.Windows.Forms.DataGridView();
+            this.PaymentDataGridview = new System.Windows.Forms.DataGridView();
             this.DeleteButton = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.SearchBtn = new Guna.UI2.WinForms.Guna2Button();
             this.SearchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.Addbutton = new Guna.UI2.WinForms.Guna2Button();
             this.Updatebutton = new Guna.UI2.WinForms.Guna2Button();
-            ((System.ComponentModel.ISupportInitialize)(this.RoomDataGridview)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PaymentDataGridview)).BeginInit();
             this.SuspendLayout();
             // 
-            // RoomDataGridview
+            // PaymentDataGridview
             // 
-            this.RoomDataGridview.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.RoomDataGridview.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.RoomDataGridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RoomDataGridview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.RoomDataGridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RoomDataGridview.Location = new System.Drawing.Point(29, 162);
-            this.RoomDataGridview.Name = "RoomDataGridview";
-            this.RoomDataGridview.RowHeadersWidth = 51;
-            this.RoomDataGridview.RowTemplate.Height = 24;
-            this.RoomDataGridview.Size = new System.Drawing.Size(944, 502);
-            this.RoomDataGridview.TabIndex = 63;
+            this.PaymentDataGridview.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PaymentDataGridview.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.PaymentDataGridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PaymentDataGridview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.PaymentDataGridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PaymentDataGridview.Location = new System.Drawing.Point(29, 162);
+            this.PaymentDataGridview.Name = "PaymentDataGridview";
+            this.PaymentDataGridview.RowHeadersWidth = 51;
+            this.PaymentDataGridview.RowTemplate.Height = 24;
+            this.PaymentDataGridview.Size = new System.Drawing.Size(944, 502);
+            this.PaymentDataGridview.TabIndex = 63;
+            this.PaymentDataGridview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PaymentDataGridview_CellContentClick);
             // 
             // DeleteButton
             // 
@@ -172,13 +173,14 @@
             this.Updatebutton.Size = new System.Drawing.Size(100, 39);
             this.Updatebutton.TabIndex = 57;
             this.Updatebutton.Text = "UPDATE";
+            this.Updatebutton.Click += new System.EventHandler(this.Updatebutton_Click);
             // 
             // PaymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(995, 711);
-            this.Controls.Add(this.RoomDataGridview);
+            this.Controls.Add(this.PaymentDataGridview);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.SearchBtn);
@@ -190,7 +192,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PaymentForm";
             this.Load += new System.EventHandler(this.PaymentForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.RoomDataGridview)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PaymentDataGridview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,7 +200,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView RoomDataGridview;
+        private System.Windows.Forms.DataGridView PaymentDataGridview;
         private Guna.UI2.WinForms.Guna2Button DeleteButton;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Button SearchBtn;

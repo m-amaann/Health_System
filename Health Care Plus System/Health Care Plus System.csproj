@@ -274,6 +274,7 @@
     <Compile Include="Classes\BookingRoomClass.cs" />
     <Compile Include="Classes\DashboardCount.cs" />
     <Compile Include="Classes\DoctorClass.cs" />
+    <Compile Include="Classes\EMRClass.cs" />
     <Compile Include="Classes\PatientClass.cs" />
     <Compile Include="Classes\PatientProfileClass.cs" />
     <Compile Include="Classes\PaymentClass.cs" />

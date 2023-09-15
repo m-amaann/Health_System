@@ -37,6 +37,7 @@
             this.DeleteButton = new Guna.UI2.WinForms.Guna2Button();
             this.DataGridView1 = new System.Windows.Forms.DataGridView();
             this.PatientProfileBtn = new System.Windows.Forms.PictureBox();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatientProfileBtn)).BeginInit();
             this.SuspendLayout();
@@ -174,7 +175,7 @@
             this.DataGridView1.Name = "DataGridView1";
             this.DataGridView1.RowHeadersWidth = 51;
             this.DataGridView1.RowTemplate.Height = 24;
-            this.DataGridView1.Size = new System.Drawing.Size(970, 515);
+            this.DataGridView1.Size = new System.Drawing.Size(970, 451);
             this.DataGridView1.TabIndex = 34;
             this.DataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
@@ -189,12 +190,34 @@
             this.PatientProfileBtn.TabStop = false;
             this.PatientProfileBtn.Click += new System.EventHandler(this.PatientProfileBtn_Click);
             // 
+            // guna2Button1
+            // 
+            this.guna2Button1.Animated = true;
+            this.guna2Button1.BorderRadius = 5;
+            this.guna2Button1.CustomBorderThickness = new System.Windows.Forms.Padding(5);
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(130)))), ((int)(((byte)(234)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.guna2Button1.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.ImageSize = new System.Drawing.Size(15, 15);
+            this.guna2Button1.Location = new System.Drawing.Point(12, 639);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(182, 39);
+            this.guna2Button1.TabIndex = 58;
+            this.guna2Button1.Text = "VIEW EMR RECORD";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
             // PatientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(996, 690);
+            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.PatientProfileBtn);
             this.Controls.Add(this.DataGridView1);
             this.Controls.Add(this.DeleteButton);
@@ -223,5 +246,6 @@
         private Guna.UI2.WinForms.Guna2Button DeleteButton;
         private System.Windows.Forms.DataGridView DataGridView1;
         private System.Windows.Forms.PictureBox PatientProfileBtn;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

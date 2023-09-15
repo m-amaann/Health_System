@@ -1,4 +1,5 @@
 ﻿using Health_Care_Plus_System.Classes;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +7,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,14 +17,19 @@ namespace Health_Care_Plus_System.Screen_Forms.Payment
 {
     public partial class AddPayment : Form
     {
-        private string connectionString = Properties.Settings.Default.DBConnectionString; // connecting DB string statement
+        // connecting DB string statement
+        private string connectionString = Properties.Settings.Default.DBConnectionString;
 
         //initialize instance reference class
-        PaymentClass paymentClass = new PaymentClass();
+        private PaymentClass paymentClass = new PaymentClass();
 
 
-        private int currentInvoiceNumber; // Initialize with the starting invoice number
+        // Initialize with the starting invoice number
+        private int currentInvoiceNumber; 
 
+
+        //initialize and declare table
+        private DataTable patientappointmentTable;
 
 
         public AddPayment()
@@ -39,10 +47,13 @@ namespace Health_Care_Plus_System.Screen_Forms.Payment
             GenerateInvoiceNumber();
 
 
-            LoadPatientAndAppointment(); //call the method to show data's in Datagridtable
+            //called the method for display in DatagridTable
+            LoadPatientAndAppointment();
+
+
         }
 
-
+        //This method for generate invoice Numbers
         private void GenerateInvoiceNumber()
         {
             currentInvoiceNumber++;
@@ -53,37 +64,105 @@ namespace Health_Care_Plus_System.Screen_Forms.Payment
         }
 
 
+        //This method for displaying and align in Data grid table show
+        private void LoadPatientAndAppointment()
+        {
+            patientappointmentTable = paymentClass.GetPatientAndAppointment();
+
+            //DataTable to display patient and appointment column
+
+            DataTable filteredPatientsTable = new DataTable();
+            filteredPatientsTable.Columns.Add("PatID", typeof(int));
+            filteredPatientsTable.Columns.Add("FullName", typeof(string));
+            filteredPatientsTable.Columns.Add("Appointment_ID", typeof(int));
+            filteredPatientsTable.Columns.Add("TotalFee", typeof(string));
+
+
+            foreach (DataRow row in patientappointmentTable.Rows)
+            {
+                filteredPatientsTable.Rows.Add(row["PatID"], row["FullName"], row["Appointment_ID"], row["TotalFee"]);
+
+
+                PatAndAppointDataTable.DataSource = filteredPatientsTable;
+            }
+        }
+
+
+
+
+
+
         private void InvoiceNumberTextBox_TextChanged(object sender, EventArgs e)
         {
      
         }
 
 
-        private void LoadPatientAndAppointment()
+       
+        //Data Gride Table
+        private void PatAndAppointDataTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            // Check if a row is selected 
+            if (e.RowIndex >= 0 && e.RowIndex < PatAndAppointDataTable.Rows.Count - 1)
             {
-                connection.Open();
+                DataGridViewRow selectedRow = PatAndAppointDataTable.Rows[e.RowIndex];
 
-                string query = @"
-                    SELECT A.Appointment_ID, P.PatID, P.FullName, A.TotalFee
-                    FROM Appointment A
-                    LEFT JOIN Patient P ON A.PatID = P.PatID";
+                // Get the patient name, patient ID, appointment ID, and appointment fees from the selected row
+                string PatientName = selectedRow.Cells["FullName"].Value.ToString();
+                string PatientID = selectedRow.Cells["PatID"].Value.ToString();
+                string AppointmentID = selectedRow.Cells["Appointment_ID"].Value.ToString(); // Change int to string
+                string AppointmentTotalCharge = selectedRow.Cells["TotalFee"].Value.ToString();
 
-                SqlCommand command = new SqlCommand(query, connection);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
 
-                // Bind the DataTable to DataGridView
-                PatAndAppointDataTable.DataSource = dataTable;
+                //Called the Text boxes
+                PatientNameTextbox.Text = PatientName;
+                PatientIDTextBox.Text = PatientID;
+                AppointmentIDTextBox.Text = AppointmentID;
+                AppointmentchargeTextBox.Text = AppointmentTotalCharge;
             }
+        }
+
+
+        private void CalculateAndDisplayTotal()
+        {
+            try
+            {
+                double appointmentCharge = double.Parse(AppointmentchargeTextBox.Text);
+                double roomCharge = double.Parse(RoomTextBox.Text);
+                double resourceCharge = double.Parse(ResourceTextBox.Text);
+
+                double totalCharge = appointmentCharge + roomCharge + resourceCharge;
+
+                // Display the total charge with "Rs."
+                TotalBillingTextBox.Text = "Rs." + totalCharge.ToString("0.00");
+            }
+            catch (FormatException ex)
+            {
+                // Handle invalid input gracefully and print the exception message for debugging
+                TotalBillingTextBox.Text = "Rs.0.00";
+                Console.WriteLine("Exception: " + ex.Message);
+            }
+        }
+
+        private void AppointmentchargeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            CalculateAndDisplayTotal();
+        }
+
+        private void RoomTextBox_TextChanged(object sender, EventArgs e)
+        {
+            CalculateAndDisplayTotal();
 
         }
 
-        private void PatAndAppointDataTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ResourceTextBox_TextChanged(object sender, EventArgs e)
+        {
+            CalculateAndDisplayTotal();
         }
     }
 }

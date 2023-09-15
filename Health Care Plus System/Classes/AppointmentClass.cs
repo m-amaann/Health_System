@@ -220,44 +220,43 @@ namespace Health_Care_Plus_System.Classes
             {
                 try
                 {
+                    connection.Open();
 
+                    string updateQuery = @"
+                UPDATE Appointment SET 
+                    Specialization = @Specialization, 
+                    DoctorName = @DoctorName, 
+                    PatID = @PatID, 
+                    PatientName = @PatientName, 
+                    Appoint_Date = @Appoint_Date, 
+                    Appoint_Time = @Appoint_Time, 
+                    Note = @Note, 
+                    Sender_Name = @Sender_Name,
+                    HospitalCharge = @HospitalCharge,
+                    DoctorCharge = @DoctorCharge,
+                    TotalFee = @TotalFee
+                WHERE Appointment_ID = @Appointment_ID";
+
+                    using (SqlCommand cmd = new SqlCommand(updateQuery, connection))
                     {
-                        connection.Open();
+                        cmd.Parameters.AddWithValue("@Appointment_ID", Appointment_ID);
+                        cmd.Parameters.AddWithValue("@Specialization", Specialization);
+                        cmd.Parameters.AddWithValue("@DoctorName", DoctorName);
+                        cmd.Parameters.AddWithValue("@PatID", PatID);
+                        cmd.Parameters.AddWithValue("@PatientName", PatientName);
+                        cmd.Parameters.AddWithValue("@Appoint_Date", Appoint_Date);
+                        cmd.Parameters.AddWithValue("@Appoint_Time", Appoint_Time);
+                        cmd.Parameters.AddWithValue("@Note", Note);
+                        cmd.Parameters.AddWithValue("@Sender_Name", Sender_Name);
+                        cmd.Parameters.AddWithValue("@HospitalCharge", HospitalCharge);
+                        cmd.Parameters.AddWithValue("@DoctorCharge", DoctorCharge);
+                        cmd.Parameters.AddWithValue("@TotalFee", TotalFee);
 
-                        string updateQuery = @"
-                            UPDATE Appointment SET 
-                                Specialization = @Specialization, 
-                                DoctorName = @DoctorName, 
-                                PatID = @PatID, 
-                                PatientName = @PatientName, 
-                                Appoint_Date = @Appoint_Date, 
-                                Appoint_Time = @Appoint_Time, 
-                                Note = @Note, 
-                                Sender_Name = @Sender_Name,
-                                HospitalCharge = @HospitalCharge,
-                                DoctorCharge = @DoctorCharge,
-                                TotalFee = @TotalFee
-                            WHERE Appointment_ID = @Appointment_ID";
+                        int rowsAffected = cmd.ExecuteNonQuery();
 
-                        using (SqlCommand cmd = new SqlCommand(updateQuery, connection))
-                        {
-                            cmd.Parameters.AddWithValue("@Appointment_ID", Appointment_ID);
-                            cmd.Parameters.AddWithValue("@Specialization", Specialization);
-                            cmd.Parameters.AddWithValue("@DoctorName", DoctorName);
-                            cmd.Parameters.AddWithValue("@PatID", PatID);
-                            cmd.Parameters.AddWithValue("@PatientName", PatientName);
-                            cmd.Parameters.AddWithValue("@Appoint_Date", Appoint_Date);
-                            cmd.Parameters.AddWithValue("@Appoint_Time", Appoint_Time);
-                            cmd.Parameters.AddWithValue("@Note", Note);
-                            cmd.Parameters.AddWithValue("@Sender_Name", Sender_Name);
-                            cmd.Parameters.AddWithValue("@HospitalCharge", HospitalCharge);
-                            cmd.Parameters.AddWithValue("@DoctorCharge", DoctorCharge);
-                            cmd.Parameters.AddWithValue("@TotalFee", TotalFee);
+                        Console.WriteLine($"Rows Affected: {rowsAffected}");
 
-                            int rowsAffected = cmd.ExecuteNonQuery();
-
-                            return rowsAffected > 0;
-                        }
+                        return rowsAffected > 0;
                     }
                 }
                 catch (Exception ex)
@@ -269,8 +268,9 @@ namespace Health_Care_Plus_System.Classes
                 {
                     connection.Close();
                 }
-            }                 
+            }
         }
+
 
 
 

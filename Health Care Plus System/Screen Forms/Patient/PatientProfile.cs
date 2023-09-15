@@ -75,9 +75,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Patient
 
         private void EMRecordBtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            AddEMR addEMR = new AddEMR();
-            addEMR.ShowDialog();
+          
         }
 
         private void AppointmentBtn_Click(object sender, EventArgs e)

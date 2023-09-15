@@ -133,8 +133,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            AddEMR addEMR = new AddEMR();
-            addEMR.ShowDialog();
+           
         }
     }
 }
