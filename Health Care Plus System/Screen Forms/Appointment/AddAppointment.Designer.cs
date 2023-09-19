@@ -100,6 +100,7 @@
             this.TotalTextBox.ShadowDecoration.BorderRadius = 5;
             this.TotalTextBox.Size = new System.Drawing.Size(209, 36);
             this.TotalTextBox.TabIndex = 278;
+            this.TotalTextBox.TextChanged += new System.EventHandler(this.TotalTextBox_TextChanged);
             // 
             // label13
             // 

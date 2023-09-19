@@ -7,9 +7,8 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
 {
     public partial class UpdateAppointment : Form
     {
-        private string connectionString = Properties.Settings.Default.DBConnectionString; // connecting DB string statement
-
         private int appointmentID;
+        private int selectedPatientID; // Added
         private AppointmentClass appointmentClass;
 
         private DataTable doctorsTable;
@@ -18,6 +17,7 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
         public UpdateAppointment(int appointmentID)
         {
             InitializeComponent();
+
             this.appointmentID = appointmentID;
             appointmentClass = new AppointmentClass();
         }
@@ -32,8 +32,10 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
 
                 if (appointment != null)
                 {
-                    SpecializationComboBox2.SelectedItem = appointment.Specialization;
+                    // Populate form fields with appointment data
+                    SpecializationComboBox2.Text = appointment.Specialization;
                     DoctorNameText.Text = appointment.DoctorName;
+                    selectedPatientID = appointment.PatID;
                     PatientTextBox1.Text = appointment.PatientName;
                     AppointmentDateTimePicker.Value = appointment.Appoint_Date;
                     AvalableTimeComboBox.Text = appointment.Appoint_Time;
@@ -56,34 +58,50 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
             }
         }
 
+
+       
+
+
+
+
+
         private void Updatebutton_Click(object sender, EventArgs e)
         {
-
             try
             {
-                AppointmentClass updatedAppointment = new AppointmentClass()
+                // Validate input data before updating
+                if (ValidateInput())
                 {
-                    Appointment_ID = appointmentID,
-                    Specialization = SpecializationComboBox2.Text,
-                    DoctorName = DoctorNameText.Text,
-                    PatientName = PatientTextBox1.Text,
-                    Appoint_Date = AppointmentDateTimePicker.Value,
-                    Appoint_Time = AvalableTimeComboBox.Text,
-                    Note = NoteTextbox.Text,
-                    HospitalCharge = hospitalChargeTextBox.Text,
-                    Sender_Name = SenderNameComboBox.Text,
-                    DoctorCharge = DoctorChargeTextBox.Text,
-                    TotalFee = TotalTextBox.Text
-                };
+                    AppointmentClass updatedAppointment = new AppointmentClass()
+                    {
+                        Appointment_ID = appointmentID,
+                        Specialization = SpecializationComboBox2.Text,
+                        DoctorName = DoctorNameText.Text,
+                        PatID = selectedPatientID, // Use the selectedPatientID as PatID
+                        PatientName = PatientTextBox1.Text,
+                        Appoint_Date = AppointmentDateTimePicker.Value,
+                        Appoint_Time = AvalableTimeComboBox.Text,
+                        Note = NoteTextbox.Text,
+                        Sender_Name = SenderNameComboBox.Text,
+                        HospitalCharge = hospitalChargeTextBox.Text,
+                        DoctorCharge = DoctorChargeTextBox.Text,
+                        TotalFee = TotalTextBox.Text,
+                    };
 
-                if (updatedAppointment.UpdateAppointmentRecord())
-                {
-                    MessageBox.Show("Appointment Record Updated Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    if (updatedAppointment.UpdateAppointmentRecord())
+                    {
+                        MessageBox.Show("Appointment Record Updated Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error occurred while updating appointment record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Error occurred while updating appointment record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Invalid input data. Please check your entries.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -92,9 +110,42 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
             }
         }
 
+
+
+
+
+        // Check N validate the input fields
+        private bool ValidateInput()
+        {
+            // Check if Specialization is selected
+            if (string.IsNullOrEmpty(SpecializationComboBox2.Text))
+            {
+                MessageBox.Show("Please select a specialization.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Check if Doctor Name is entered
+            if (string.IsNullOrEmpty(DoctorNameText.Text))
+            {
+                MessageBox.Show("Please enter the doctor's name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }        
+
+            // Check if Patient Name is entered
+            if (string.IsNullOrEmpty(PatientTextBox1.Text))
+            {
+                MessageBox.Show("Please enter the patient's name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
+        }
+
+
         private void UpdateAppointment_Load(object sender, EventArgs e)
         {
             LoadAppointmentRecord();
+
             LoadDoctors();
             LoadPatients();
             LoadSpecializationComboBox();

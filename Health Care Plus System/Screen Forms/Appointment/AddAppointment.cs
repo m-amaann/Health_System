@@ -281,5 +281,9 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
             return true; // If all validations passed
         }
 
+        private void TotalTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

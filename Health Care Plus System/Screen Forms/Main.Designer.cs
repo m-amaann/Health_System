@@ -137,6 +137,7 @@
             this.ReportGenerateBtn.TabIndex = 12;
             this.ReportGenerateBtn.Text = "       Report Generate";
             this.ReportGenerateBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ReportGenerateBtn.Click += new System.EventHandler(this.ReportGenerateBtn_Click);
             // 
             // guna2Separator1
             // 

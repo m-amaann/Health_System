@@ -115,7 +115,6 @@ namespace Health_Care_Plus_System.Classes
 
 
         // Room Update Record Method
-        // Room Update Record Method
         public bool UpdateRoomsRecord()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -190,9 +189,6 @@ namespace Health_Care_Plus_System.Classes
             }
 
         }
-
-
-
 
 
 

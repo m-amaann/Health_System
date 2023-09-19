@@ -10,6 +10,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Policy;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -110,14 +111,12 @@ namespace Health_Care_Plus_System.Screen_Forms.Payment
                 // Get the patient name, patient ID, appointment ID, and appointment fees from the selected row
                 string PatientName = selectedRow.Cells["FullName"].Value.ToString();
                 string PatientID = selectedRow.Cells["PatID"].Value.ToString();
-                string AppointmentID = selectedRow.Cells["Appointment_ID"].Value.ToString(); // Change int to string
                 string AppointmentTotalCharge = selectedRow.Cells["TotalFee"].Value.ToString();
 
 
                 //Called the Text boxes
                 PatientNameTextbox.Text = PatientName;
                 PatientIDTextBox.Text = PatientID;
-                AppointmentIDTextBox.Text = AppointmentID;
                 AppointmentchargeTextBox.Text = AppointmentTotalCharge;
             }
         }
@@ -134,12 +133,13 @@ namespace Health_Care_Plus_System.Screen_Forms.Payment
                 double totalCharge = appointmentCharge + roomCharge + resourceCharge;
 
                 // Display the total charge with "Rs."
-                TotalBillingTextBox.Text = "Rs." + totalCharge.ToString("0.00");
+                TotalBillingText.Text = "Rs." + totalCharge.ToString("0.00");
+                ToalTextBox1.Text = "Rs." + totalCharge;
             }
             catch (FormatException ex)
             {
                 // Handle invalid input gracefully and print the exception message for debugging
-                TotalBillingTextBox.Text = "Rs.0.00";
+                TotalBillingText.Text = "Rs.0.00";
                 Console.WriteLine("Exception: " + ex.Message);
             }
         }
@@ -163,6 +163,46 @@ namespace Health_Care_Plus_System.Screen_Forms.Payment
         private void ResourceTextBox_TextChanged(object sender, EventArgs e)
         {
             CalculateAndDisplayTotal();
+        }
+
+        private void DiscountTextBox_TextChanged(object sender, EventArgs e)
+        {
+            CalculateDiscountedTotal();
+        }
+
+
+
+
+        //This calculates the discount method
+        private void CalculateDiscountedTotal()
+        {
+            try
+            {
+                double totalFee = double.Parse(ToalTextBox1.Text);
+
+                // Extract the percentage value from the DiscountTextBox using regular expressions
+                Match match = Regex.Match(DiscountTextBox.Text, @"\d+(\.\d+)?%");
+
+                if (match.Success)
+                {
+                    string percentageStr = match.Value.TrimEnd('%');
+                    double discountPercentage = double.Parse(percentageStr);
+
+                    // Calculate the discounted total amount based on the percentage
+                    double discountAmount = (totalFee * discountPercentage) / 100;
+                    double discountedTotalAmount = totalFee - discountAmount;
+
+                    // Display the discounted total amount with "Rs."
+                    TotalBillingText.Text = "Rs." + discountedTotalAmount.ToString("0.00");
+                }
+               
+            }
+            catch (FormatException ex)
+            {
+                // Handle invalid input gracefully and print the exception message for debugging
+                TotalBillingText.Text = "Invalid input";
+                Console.WriteLine("Exception: " + ex.Message);
+            }
         }
     }
 }

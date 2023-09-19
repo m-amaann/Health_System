@@ -70,6 +70,9 @@ namespace Health_Care_Plus_System.Screen_Forms.Appointment
                 // Pass the appointmentID to the UpdateAppointment form
                 UpdateAppointment updateAppointment = new UpdateAppointment(Appointment_ID);
                 updateAppointment.ShowDialog();
+
+
+                LoadAppointmentRecord();
             }
             else
             {

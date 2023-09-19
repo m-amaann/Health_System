@@ -223,19 +223,19 @@ namespace Health_Care_Plus_System.Classes
                     connection.Open();
 
                     string updateQuery = @"
-                UPDATE Appointment SET 
-                    Specialization = @Specialization, 
-                    DoctorName = @DoctorName, 
-                    PatID = @PatID, 
-                    PatientName = @PatientName, 
-                    Appoint_Date = @Appoint_Date, 
-                    Appoint_Time = @Appoint_Time, 
-                    Note = @Note, 
-                    Sender_Name = @Sender_Name,
-                    HospitalCharge = @HospitalCharge,
-                    DoctorCharge = @DoctorCharge,
-                    TotalFee = @TotalFee
-                WHERE Appointment_ID = @Appointment_ID";
+                        UPDATE Appointment SET 
+                        Specialization = @Specialization, 
+                        DoctorName = @DoctorName, 
+                        PatID = @PatID, 
+                        PatientName = @PatientName, 
+                        Appoint_Date = @Appoint_Date, 
+                        Appoint_Time = @Appoint_Time, 
+                        Note = @Note, 
+                        Sender_Name = @Sender_Name,
+                        HospitalCharge = @HospitalCharge,
+                        DoctorCharge = @DoctorCharge,
+                        TotalFee = @TotalFee
+                        WHERE Appointment_ID = @Appointment_ID";
 
                     using (SqlCommand cmd = new SqlCommand(updateQuery, connection))
                     {
@@ -254,19 +254,18 @@ namespace Health_Care_Plus_System.Classes
 
                         int rowsAffected = cmd.ExecuteNonQuery();
 
-                        Console.WriteLine($"Rows Affected: {rowsAffected}");
-
                         return rowsAffected > 0;
                     }
                 }
-                catch (Exception ex)
+                catch (SqlException ex)
                 {
-                    Console.WriteLine("An error occurred while updating a appointment record: " + ex.Message);
+                    MessageBox.Show("SQL Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-                finally
+                catch (Exception ex)
                 {
-                    connection.Close();
+                    MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
                 }
             }
         }
@@ -304,7 +303,6 @@ namespace Health_Care_Plus_System.Classes
                 return false;
             }
         }
-
 
 
 

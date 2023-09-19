@@ -5,6 +5,7 @@ using Health_Care_Plus_System.Screen_Forms.Doctor;
 using Health_Care_Plus_System.Screen_Forms.Employee;
 using Health_Care_Plus_System.Screen_Forms.Medication;
 using Health_Care_Plus_System.Screen_Forms.Payment;
+using Health_Care_Plus_System.Screen_Forms.Report;
 using Health_Care_Plus_System.Screen_Forms.Resources;
 using Health_Care_Plus_System.Screen_Forms.Room;
 using System;
@@ -235,6 +236,11 @@ namespace Health_Care_Plus_System
         private void MedicationBtn_Click(object sender, EventArgs e)
         {
             loadform(new PrescriptionForm());
+        }
+
+        private void ReportGenerateBtn_Click(object sender, EventArgs e)
+        {
+            loadform(new ReportForm());
         }
     }
 }

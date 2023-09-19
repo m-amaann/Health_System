@@ -173,7 +173,6 @@ namespace Health_Care_Plus_System.Classes
 
 
 
-
         // DELETE RESOURCES METHODS
         public static bool DeleteResourceRecord(int resourceID)
         {
@@ -201,10 +200,6 @@ namespace Health_Care_Plus_System.Classes
                 }
             }
         }
-
-
-
-
 
 
 
