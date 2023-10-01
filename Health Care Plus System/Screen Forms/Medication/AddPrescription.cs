@@ -53,8 +53,9 @@ namespace Health_Care_Plus_System.Screen_Forms.Medication
             {
                 filteredPatientsTable.Rows.Add(row["PatID"], row["PatientName"], row["DoctorName"]);
             }
-
             PatientDataTable.DataSource = filteredPatientsTable;
+
+
         }
 
 

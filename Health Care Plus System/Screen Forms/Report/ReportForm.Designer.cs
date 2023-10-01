@@ -159,11 +159,8 @@
 
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox SearchTextBox;
-        private Guna.UI2.WinForms.Guna2Button Addbutton;
-        private Guna.UI2.WinForms.Guna2DateTimePicker DOBDateTimePicker;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
         private Guna.UI2.WinForms.Guna2ComboBox GenderComboBox;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2DataGridView DataGrideTable;

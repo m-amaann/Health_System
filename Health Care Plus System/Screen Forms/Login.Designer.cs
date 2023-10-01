@@ -54,7 +54,7 @@
             this.Usertxtbox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.Usertxtbox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.Usertxtbox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Usertxtbox.Font = new System.Drawing.Font("Poppins", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Usertxtbox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Usertxtbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Usertxtbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Usertxtbox.IconLeft = ((System.Drawing.Image)(resources.GetObject("Usertxtbox.IconLeft")));
@@ -79,7 +79,7 @@
             this.PasstxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.PasstxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.PasstxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PasstxtBox.Font = new System.Drawing.Font("Poppins", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasstxtBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasstxtBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.PasstxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.PasstxtBox.IconLeft = ((System.Drawing.Image)(resources.GetObject("PasstxtBox.IconLeft")));
@@ -102,15 +102,16 @@
             this.LoginBtn1.Animated = true;
             this.LoginBtn1.BackColor = System.Drawing.Color.Transparent;
             this.LoginBtn1.BorderColor = System.Drawing.Color.Transparent;
-            this.LoginBtn1.BorderRadius = 20;
+            this.LoginBtn1.BorderRadius = 10;
             this.LoginBtn1.CustomBorderThickness = new System.Windows.Forms.Padding(5);
             this.LoginBtn1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.LoginBtn1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.LoginBtn1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.LoginBtn1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.LoginBtn1.FillColor = System.Drawing.Color.RoyalBlue;
             this.LoginBtn1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold);
             this.LoginBtn1.ForeColor = System.Drawing.Color.White;
-            this.LoginBtn1.Location = new System.Drawing.Point(396, 365);
+            this.LoginBtn1.Location = new System.Drawing.Point(409, 364);
             this.LoginBtn1.Name = "LoginBtn1";
             this.LoginBtn1.Size = new System.Drawing.Size(114, 46);
             this.LoginBtn1.TabIndex = 4;

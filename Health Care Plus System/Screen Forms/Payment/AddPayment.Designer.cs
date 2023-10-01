@@ -43,9 +43,8 @@
             this.ResourceTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.AppointmentchargeTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.PatAndAppointDataTable = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.PatientIDTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.InvoiceNumberDatePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.PatientNameTextbox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.PatientNameTxtBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -62,6 +61,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.TotalBillingText = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.AppointmentIDComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.PatIDTextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.PatAndAppointDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.guna2GradientPanel1.SuspendLayout();
@@ -85,7 +87,7 @@
             this.InvoiceNumberTextBox.Font = new System.Drawing.Font("Poppins", 9F);
             this.InvoiceNumberTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(104)))), ((int)(((byte)(112)))));
             this.InvoiceNumberTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.InvoiceNumberTextBox.Location = new System.Drawing.Point(35, 488);
+            this.InvoiceNumberTextBox.Location = new System.Drawing.Point(380, 309);
             this.InvoiceNumberTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.InvoiceNumberTextBox.Name = "InvoiceNumberTextBox";
             this.InvoiceNumberTextBox.Padding = new System.Windows.Forms.Padding(1);
@@ -96,7 +98,6 @@
             this.InvoiceNumberTextBox.ShadowDecoration.BorderRadius = 5;
             this.InvoiceNumberTextBox.Size = new System.Drawing.Size(299, 36);
             this.InvoiceNumberTextBox.TabIndex = 359;
-            this.InvoiceNumberTextBox.TextChanged += new System.EventHandler(this.InvoiceNumberTextBox_TextChanged);
             // 
             // label11
             // 
@@ -104,7 +105,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.label11.Location = new System.Drawing.Point(34, 465);
+            this.label11.Location = new System.Drawing.Point(379, 286);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(128, 20);
             this.label11.TabIndex = 358;
@@ -126,7 +127,7 @@
             this.MethodComboBox.Items.AddRange(new object[] {
             "Phone",
             "Email"});
-            this.MethodComboBox.Location = new System.Drawing.Point(35, 309);
+            this.MethodComboBox.Location = new System.Drawing.Point(35, 401);
             this.MethodComboBox.Name = "MethodComboBox";
             this.MethodComboBox.Size = new System.Drawing.Size(300, 35);
             this.MethodComboBox.TabIndex = 357;
@@ -143,10 +144,10 @@
             this.ServiceTextbox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.ServiceTextbox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.ServiceTextbox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ServiceTextbox.Font = new System.Drawing.Font("Poppins", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ServiceTextbox.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ServiceTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(104)))), ((int)(((byte)(112)))));
             this.ServiceTextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ServiceTextbox.Location = new System.Drawing.Point(380, 310);
+            this.ServiceTextbox.Location = new System.Drawing.Point(380, 402);
             this.ServiceTextbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ServiceTextbox.Multiline = true;
             this.ServiceTextbox.Name = "ServiceTextbox";
@@ -165,7 +166,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.label7.Location = new System.Drawing.Point(33, 286);
+            this.label7.Location = new System.Drawing.Point(33, 378);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(133, 20);
             this.label7.TabIndex = 355;
@@ -221,7 +222,7 @@
             this.RoomTextBox.Font = new System.Drawing.Font("Poppins", 9F);
             this.RoomTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(104)))), ((int)(((byte)(112)))));
             this.RoomTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.RoomTextBox.Location = new System.Drawing.Point(715, 310);
+            this.RoomTextBox.Location = new System.Drawing.Point(727, 402);
             this.RoomTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.RoomTextBox.Name = "RoomTextBox";
             this.RoomTextBox.Padding = new System.Windows.Forms.Padding(1);
@@ -252,7 +253,7 @@
             this.ResourceTextBox.Font = new System.Drawing.Font("Poppins", 9F);
             this.ResourceTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(104)))), ((int)(((byte)(112)))));
             this.ResourceTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ResourceTextBox.Location = new System.Drawing.Point(715, 396);
+            this.ResourceTextBox.Location = new System.Drawing.Point(727, 488);
             this.ResourceTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.ResourceTextBox.Name = "ResourceTextBox";
             this.ResourceTextBox.Padding = new System.Windows.Forms.Padding(1);
@@ -282,7 +283,7 @@
             this.AppointmentchargeTextBox.Font = new System.Drawing.Font("Poppins", 9F);
             this.AppointmentchargeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(104)))), ((int)(((byte)(112)))));
             this.AppointmentchargeTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.AppointmentchargeTextBox.Location = new System.Drawing.Point(380, 488);
+            this.AppointmentchargeTextBox.Location = new System.Drawing.Point(725, 309);
             this.AppointmentchargeTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.AppointmentchargeTextBox.Name = "AppointmentchargeTextBox";
             this.AppointmentchargeTextBox.Padding = new System.Windows.Forms.Padding(1);
@@ -351,35 +352,6 @@
             this.PatAndAppointDataTable.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.PatAndAppointDataTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatAndAppointDataTable_CellContentClick);
             // 
-            // PatientIDTextBox
-            // 
-            this.PatientIDTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PatientIDTextBox.Animated = true;
-            this.PatientIDTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.PatientIDTextBox.BorderRadius = 3;
-            this.PatientIDTextBox.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.PatientIDTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.PatientIDTextBox.DefaultText = "";
-            this.PatientIDTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.PatientIDTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.PatientIDTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.PatientIDTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.PatientIDTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PatientIDTextBox.Font = new System.Drawing.Font("Poppins", 9F);
-            this.PatientIDTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(104)))), ((int)(((byte)(112)))));
-            this.PatientIDTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PatientIDTextBox.Location = new System.Drawing.Point(33, 217);
-            this.PatientIDTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.PatientIDTextBox.Name = "PatientIDTextBox";
-            this.PatientIDTextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.PatientIDTextBox.PasswordChar = '\0';
-            this.PatientIDTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(176)))), ((int)(((byte)(185)))));
-            this.PatientIDTextBox.PlaceholderText = "Enter Patient ID";
-            this.PatientIDTextBox.SelectedText = "";
-            this.PatientIDTextBox.ShadowDecoration.BorderRadius = 5;
-            this.PatientIDTextBox.Size = new System.Drawing.Size(302, 36);
-            this.PatientIDTextBox.TabIndex = 341;
-            // 
             // InvoiceNumberDatePicker
             // 
             this.InvoiceNumberDatePicker.BackColor = System.Drawing.Color.White;
@@ -391,7 +363,7 @@
             this.InvoiceNumberDatePicker.Font = new System.Drawing.Font("Poppins", 9F);
             this.InvoiceNumberDatePicker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(104)))), ((int)(((byte)(112)))));
             this.InvoiceNumberDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.InvoiceNumberDatePicker.Location = new System.Drawing.Point(35, 396);
+            this.InvoiceNumberDatePicker.Location = new System.Drawing.Point(35, 488);
             this.InvoiceNumberDatePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.InvoiceNumberDatePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.InvoiceNumberDatePicker.Name = "InvoiceNumberDatePicker";
@@ -399,34 +371,34 @@
             this.InvoiceNumberDatePicker.TabIndex = 337;
             this.InvoiceNumberDatePicker.Value = new System.DateTime(2023, 9, 15, 0, 0, 0, 0);
             // 
-            // PatientNameTextbox
+            // PatientNameTxtBox
             // 
-            this.PatientNameTextbox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PatientNameTextbox.Animated = true;
-            this.PatientNameTextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.PatientNameTextbox.BorderRadius = 3;
-            this.PatientNameTextbox.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.PatientNameTextbox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.PatientNameTextbox.DefaultText = "";
-            this.PatientNameTextbox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.PatientNameTextbox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.PatientNameTextbox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.PatientNameTextbox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.PatientNameTextbox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PatientNameTextbox.Font = new System.Drawing.Font("Poppins", 9F);
-            this.PatientNameTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(104)))), ((int)(((byte)(112)))));
-            this.PatientNameTextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PatientNameTextbox.Location = new System.Drawing.Point(33, 128);
-            this.PatientNameTextbox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.PatientNameTextbox.Name = "PatientNameTextbox";
-            this.PatientNameTextbox.Padding = new System.Windows.Forms.Padding(1);
-            this.PatientNameTextbox.PasswordChar = '\0';
-            this.PatientNameTextbox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(176)))), ((int)(((byte)(185)))));
-            this.PatientNameTextbox.PlaceholderText = "Enter Patient Name";
-            this.PatientNameTextbox.SelectedText = "";
-            this.PatientNameTextbox.ShadowDecoration.BorderRadius = 5;
-            this.PatientNameTextbox.Size = new System.Drawing.Size(302, 36);
-            this.PatientNameTextbox.TabIndex = 336;
+            this.PatientNameTxtBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PatientNameTxtBox.Animated = true;
+            this.PatientNameTxtBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.PatientNameTxtBox.BorderRadius = 3;
+            this.PatientNameTxtBox.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.PatientNameTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.PatientNameTxtBox.DefaultText = "";
+            this.PatientNameTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.PatientNameTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.PatientNameTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.PatientNameTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.PatientNameTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.PatientNameTxtBox.Font = new System.Drawing.Font("Poppins", 9F);
+            this.PatientNameTxtBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(104)))), ((int)(((byte)(112)))));
+            this.PatientNameTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.PatientNameTxtBox.Location = new System.Drawing.Point(33, 128);
+            this.PatientNameTxtBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.PatientNameTxtBox.Name = "PatientNameTxtBox";
+            this.PatientNameTxtBox.Padding = new System.Windows.Forms.Padding(1);
+            this.PatientNameTxtBox.PasswordChar = '\0';
+            this.PatientNameTxtBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(176)))), ((int)(((byte)(185)))));
+            this.PatientNameTxtBox.PlaceholderText = "Enter Patient Name";
+            this.PatientNameTxtBox.SelectedText = "";
+            this.PatientNameTxtBox.ShadowDecoration.BorderRadius = 5;
+            this.PatientNameTxtBox.Size = new System.Drawing.Size(302, 36);
+            this.PatientNameTxtBox.TabIndex = 336;
             // 
             // pictureBox1
             // 
@@ -445,7 +417,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(394, 9);
+            this.label1.Location = new System.Drawing.Point(405, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(274, 29);
             this.label1.TabIndex = 334;
@@ -480,7 +452,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.label4.Location = new System.Drawing.Point(32, 373);
+            this.label4.Location = new System.Drawing.Point(32, 465);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 20);
             this.label4.TabIndex = 340;
@@ -492,7 +464,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.label6.Location = new System.Drawing.Point(384, 287);
+            this.label6.Location = new System.Drawing.Point(384, 379);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(104, 20);
             this.label6.TabIndex = 343;
@@ -504,7 +476,7 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.label9.Location = new System.Drawing.Point(379, 466);
+            this.label9.Location = new System.Drawing.Point(724, 287);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(135, 20);
             this.label9.TabIndex = 347;
@@ -516,7 +488,7 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.label10.Location = new System.Drawing.Point(711, 288);
+            this.label10.Location = new System.Drawing.Point(723, 380);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(111, 20);
             this.label10.TabIndex = 350;
@@ -528,7 +500,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.label5.Location = new System.Drawing.Point(713, 373);
+            this.label5.Location = new System.Drawing.Point(725, 465);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(138, 20);
             this.label5.TabIndex = 339;
@@ -669,6 +641,65 @@
             this.TotalBillingText.TabIndex = 500;
             this.TotalBillingText.Text = "0";
             // 
+            // AppointmentIDComboBox
+            // 
+            this.AppointmentIDComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.AppointmentIDComboBox.BorderRadius = 3;
+            this.AppointmentIDComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.AppointmentIDComboBox.DropDownHeight = 90;
+            this.AppointmentIDComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AppointmentIDComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.AppointmentIDComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.AppointmentIDComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.AppointmentIDComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.AppointmentIDComboBox.IntegralHeight = false;
+            this.AppointmentIDComboBox.ItemHeight = 29;
+            this.AppointmentIDComboBox.Location = new System.Drawing.Point(35, 309);
+            this.AppointmentIDComboBox.Name = "AppointmentIDComboBox";
+            this.AppointmentIDComboBox.Size = new System.Drawing.Size(300, 35);
+            this.AppointmentIDComboBox.TabIndex = 364;
+            this.AppointmentIDComboBox.SelectedIndexChanged += new System.EventHandler(this.AppointmentIDComboBox_SelectedIndexChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.label14.Location = new System.Drawing.Point(33, 286);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(124, 20);
+            this.label14.TabIndex = 363;
+            this.label14.Text = "Appointment ID";
+            // 
+            // PatIDTextBox1
+            // 
+            this.PatIDTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PatIDTextBox1.Animated = true;
+            this.PatIDTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.PatIDTextBox1.BorderRadius = 3;
+            this.PatIDTextBox1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.PatIDTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.PatIDTextBox1.DefaultText = "";
+            this.PatIDTextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.PatIDTextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.PatIDTextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.PatIDTextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.PatIDTextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.PatIDTextBox1.Font = new System.Drawing.Font("Poppins", 9F);
+            this.PatIDTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(104)))), ((int)(((byte)(112)))));
+            this.PatIDTextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.PatIDTextBox1.Location = new System.Drawing.Point(35, 220);
+            this.PatIDTextBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.PatIDTextBox1.Name = "PatIDTextBox1";
+            this.PatIDTextBox1.Padding = new System.Windows.Forms.Padding(1);
+            this.PatIDTextBox1.PasswordChar = '\0';
+            this.PatIDTextBox1.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(176)))), ((int)(((byte)(185)))));
+            this.PatIDTextBox1.PlaceholderText = "Enter Patient Name";
+            this.PatIDTextBox1.SelectedText = "";
+            this.PatIDTextBox1.ShadowDecoration.BorderRadius = 5;
+            this.PatIDTextBox1.Size = new System.Drawing.Size(302, 36);
+            this.PatIDTextBox1.TabIndex = 365;
+            // 
             // AddPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -676,6 +707,9 @@
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1056, 705);
+            this.Controls.Add(this.PatIDTextBox1);
+            this.Controls.Add(this.AppointmentIDComboBox);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.guna2GradientPanel1);
             this.Controls.Add(this.InvoiceNumberTextBox);
             this.Controls.Add(this.label11);
@@ -686,9 +720,8 @@
             this.Controls.Add(this.ResourceTextBox);
             this.Controls.Add(this.AppointmentchargeTextBox);
             this.Controls.Add(this.PatAndAppointDataTable);
-            this.Controls.Add(this.PatientIDTextBox);
             this.Controls.Add(this.InvoiceNumberDatePicker);
-            this.Controls.Add(this.PatientNameTextbox);
+            this.Controls.Add(this.PatientNameTxtBox);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
@@ -723,9 +756,8 @@
         private Guna.UI2.WinForms.Guna2TextBox ResourceTextBox;
         private Guna.UI2.WinForms.Guna2TextBox AppointmentchargeTextBox;
         private Guna.UI2.WinForms.Guna2DataGridView PatAndAppointDataTable;
-        private Guna.UI2.WinForms.Guna2TextBox PatientIDTextBox;
         private Guna.UI2.WinForms.Guna2DateTimePicker InvoiceNumberDatePicker;
-        private Guna.UI2.WinForms.Guna2TextBox PatientNameTextbox;
+        private Guna.UI2.WinForms.Guna2TextBox PatientNameTxtBox;
         protected internal System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
@@ -742,5 +774,8 @@
         private System.Windows.Forms.Label label12;
         private Guna.UI2.WinForms.Guna2HtmlLabel TotalBillingText;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2ComboBox AppointmentIDComboBox;
+        private System.Windows.Forms.Label label14;
+        private Guna.UI2.WinForms.Guna2TextBox PatIDTextBox1;
     }
 }

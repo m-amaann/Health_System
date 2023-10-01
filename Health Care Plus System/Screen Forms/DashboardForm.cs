@@ -4,6 +4,7 @@ using LiveCharts;
 using LiveCharts.Wpf;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
@@ -12,6 +13,8 @@ namespace Health_Care_Plus_System.Screen_Forms
 {
     public partial class DashboardForm : Form
     {
+        private string connectionString = Properties.Settings.Default.DBConnectionString;
+
         private DashboardCount dashboardCount; // This instance of DashboardCount.
 
         public DashboardForm()
@@ -22,7 +25,7 @@ namespace Health_Care_Plus_System.Screen_Forms
          
             UpdateTotalCounts();    // Call the method to update the total counts.
 
-
+            LoadAppointmentsForToday(); // Load today's appointments 
         }
 
         // Method to update the total counts and display them on the form.
@@ -51,30 +54,43 @@ namespace Health_Care_Plus_System.Screen_Forms
             }
         }
 
+
+        // Method to load today's appointments into the DataGridView.
+        private void LoadAppointmentsForToday()
+        {
+            try
+            {
+                // Get today's date.
+                DateTime today = DateTime.Today;
+
+                // Get appointments for today using the GetAppointmentsForDate method.
+                DataTable appointmentsToday = dashboardCount.GetAppointmentsForDate(today);
+
+                // Bind the DataTable to the DataGridView.
+                TodayAppointmentGrideTable.DataSource = appointmentsToday;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while loading today's appointments: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+
+        private void TodayAppointmentGrideTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         private void DashboardForm_Load(object sender, EventArgs e)
         {
-
+            LoadAppointmentsForToday();
         }
 
-        private void RefreshBtn_Click(object sender, EventArgs e)
-        {
-          
-            
-        }
-
-        private void label3_Click(object sender, EventArgs e)
+        private void cartesianChart1_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
         {
 
-        }
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

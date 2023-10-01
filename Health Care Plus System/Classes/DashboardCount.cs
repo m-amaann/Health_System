@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -155,5 +156,37 @@ namespace Health_Care_Plus_System.Classes
                 return -1; // Return -1 to indicate an error.
             }
         }
+
+
+
+        // Method to get appointments created on a specific date (e.g., today)
+        public DataTable GetAppointmentsForDate(DateTime date)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Customize the query to select only specific columns
+                string query = "SELECT Appointment_ID, DoctorName, PatientName FROM Appointment WHERE CONVERT(DATE, created_at) = @CreationDate";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    // Add the parameter for the creation date
+                    command.Parameters.AddWithValue("@CreationDate", date.Date);
+
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    dataAdapter.Fill(dataTable);
+
+                    return dataTable;
+                }
+            }
+        }
+
+
+
+
+
+
     }
 }

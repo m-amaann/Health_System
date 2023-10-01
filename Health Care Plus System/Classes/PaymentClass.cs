@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
@@ -27,28 +27,82 @@ namespace Health_Care_Plus_System.Classes
         public string RoomCharge { get; set; }
         public string ResourceCharge { get; set; }
         public string TotalFee { get; set; }
+        public string Discount { get; set; }
+        public string TotalAmount { get; set; }
+
 
 
         // Constructor
         public PaymentClass()
         {
+
         }
 
 
 
-        //This method for Get and displayed patient and appointment in Data Grid Table
-        public DataTable GetPatientAndAppointment()
+        // Method to get a payment by its ID from the DB
+        public PaymentClass GetPaymentByID(int BillingID)
+        {
+            PaymentClass payment = null;
+            SqlConnection con = new SqlConnection(connectionString);
+
+            try
+            {
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT * FROM Payment WHERE BillingID = @BillingID";
+                cmd.Parameters.AddWithValue("@BillingID", BillingID);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        payment = new PaymentClass
+                        {
+                            BillingID = Convert.ToInt32(reader["BillingID"]),
+                            PatientName = reader["PatientName"].ToString(),
+                            PatID = Convert.ToInt32(reader["PatID"]),
+                            Appointment_ID = Convert.ToInt32(reader["Appointment_ID"]),
+                            Method = reader["Method"].ToString(),
+                            INV_Date = Convert.ToDateTime(reader["INV_Date"]),
+                            INV_No = reader["INV_No"].ToString(),
+                            ServiceNote = reader["ServiceNote"].ToString(),
+                            Appoinement_Fee = reader["Appoinement_Fee"].ToString(),
+                            RoomCharge = reader["RoomCharge"].ToString(),
+                            ResourceCharge = reader["ResourceCharge"].ToString(),
+                            TotalFee = reader["TotalFee"].ToString(),
+                            Discount = reader["Discount"].ToString(),
+                            TotalAmount = reader["TotalAmount"].ToString()
+                        };
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while retrieving a payment invoice record: " + ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return payment;
+        }
+
+
+
+
+        //This method for Get and displayed patient Rectd in Data Grid Table in Addpayment Form 
+        public DataTable GetPatientRecord()
         {
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
+                    string query = @"SELECT PatID, FullName, ContactNo FROM Patient";
 
-                    string query = @"
-                    SELECT A.Appointment_ID, P.PatID, P.FullName, A.TotalFee
-                    FROM Appointment A
-                    LEFT JOIN Patient P ON A.PatID = P.PatID";
+                    
 
                     SqlCommand command = new SqlCommand(query, connection);
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -71,8 +125,8 @@ namespace Health_Care_Plus_System.Classes
 
 
 
-     /*   // Appointment Add Record Method
-        public bool AddPayment()
+        // Payment Invoice Add Record Method
+        public bool AddPaymentInvoice()
         {
             try
             {
@@ -81,22 +135,24 @@ namespace Health_Care_Plus_System.Classes
                     connection.Open();
 
                     string insertQuery = @"
-                INSERT INTO Appointment (Specialization, DoctorName, PatID, PatientName, Appoint_Date, Appoint_Time, Note, Sender_Name, HospitalCharge, DoctorCharge, TotalFee)
-                VALUES (@Specialization, @DoctorName, @PatID, @PatientName, @Appoint_Date, @Appoint_Time, @Note, @Sender_Name, @HospitalCharge, @DoctorCharge, @TotalFee)";
+                        INSERT INTO Appointment (PatientName, PatID, Appointment_ID, Method, INV_Date, INV_No, ServiceNote, Appoinement_Fee, RoomCharge, ResourceCharge, TotalFee, Discount, TotalAmount )
+                        VALUES (@PatientName, @PatID, @Appointment_ID, @Method, @INV_Date, @INV_No, @ServiceNote, @Appoinement_Fee, @RoomCharge, @ResourceCharge, @TotalFee, @Discount, @TotalAmount)";
 
                     using (SqlCommand cmd = new SqlCommand(insertQuery, connection))
                     {
-                        cmd.Parameters.AddWithValue("@Specialization", Specialization);
-                        cmd.Parameters.AddWithValue("@DoctorName", DoctorName);
-                        cmd.Parameters.AddWithValue("@PatID", PatID);
                         cmd.Parameters.AddWithValue("@PatientName", PatientName);
-                        cmd.Parameters.AddWithValue("@Appoint_Date", Appoint_Date);
-                        cmd.Parameters.AddWithValue("@Appoint_Time", Appoint_Time);
-                        cmd.Parameters.AddWithValue("@Note", Note);
-                        cmd.Parameters.AddWithValue("@Sender_Name", Sender_Name);
-                        cmd.Parameters.AddWithValue("@HospitalCharge", HospitalCharge);
-                        cmd.Parameters.AddWithValue("@DoctorCharge", DoctorCharge);
+                        cmd.Parameters.AddWithValue("@PatID", PatID);
+                        cmd.Parameters.AddWithValue("@Appointment_ID", Appointment_ID);
+                        cmd.Parameters.AddWithValue("@Method", Method);
+                        cmd.Parameters.AddWithValue("@INV_Date", INV_Date);
+                        cmd.Parameters.AddWithValue("@INV_No", INV_No);
+                        cmd.Parameters.AddWithValue("@ServiceNote", ServiceNote);
+                        cmd.Parameters.AddWithValue("@Appoinement_Fee", Appoinement_Fee);
+                        cmd.Parameters.AddWithValue("@RoomCharge", RoomCharge);
+                        cmd.Parameters.AddWithValue("@ResourceCharge", ResourceCharge);
                         cmd.Parameters.AddWithValue("@TotalFee", TotalFee);
+                        cmd.Parameters.AddWithValue("@Discount", Discount);
+                        cmd.Parameters.AddWithValue("@TotalAmount", TotalAmount);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
 
@@ -106,7 +162,7 @@ namespace Health_Care_Plus_System.Classes
                         }
                         else
                         {
-                            MessageBox.Show("Failed to add a appointment. No rows affected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Failed to add a payment invoice. No rows affected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return false;
                         }
                     }
@@ -122,6 +178,89 @@ namespace Health_Care_Plus_System.Classes
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-        }*/
+        }
+
+
+
+
+
+
+
+        // This method to display retrieve the update billing form record in Table
+        public bool LoadPaymentRecord()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string query = "SELECT * FROM Payment WHERE BillingID = @BillingID";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@BillingID", BillingID);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                BillingID = Convert.ToInt32(reader["BillingID"]);
+                                PatientName = reader["PatientName"].ToString();
+                                PatID = Convert.ToInt32(reader["PatID"]);
+                                Appointment_ID = Convert.ToInt32(reader["Appointment_ID"]);
+                                Method = reader["Method"].ToString();
+                                INV_Date = Convert.ToDateTime(reader["INV_Date"].ToString());
+                                INV_No = reader["INV_No"].ToString();
+                                ServiceNote = reader["ServiceNote"].ToString();
+                                Appoinement_Fee = reader["Appoinement_Fee"].ToString();
+                                RoomCharge = reader["RoomCharge"].ToString();
+                                ResourceCharge = reader["ResourceCharge"].ToString();
+                                TotalFee = reader["TotalFee"].ToString();
+                                Discount = reader["Discount"].ToString();
+                                TotalAmount = reader["ResourTotalAmountceCharge"].ToString();
+
+                                Console.WriteLine("Payment Invoice Record Has Been Loaded Successful.");
+                                return true;
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred while loading payment invoce record: " + ex.Message);
+                }
+            }
+            return false;
+        }
+
+        public DataTable GetPatientAndAppointment()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = @"
+                    SELECT A.Appointment_ID, P.PatID, P.FullName, A.TotalFee
+                    FROM Appointment A
+                    LEFT JOIN Patient P ON A.PatID = P.PatID";
+
+                    SqlCommand command = new SqlCommand(query, connection);
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+
+                    return dataTable;
+
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

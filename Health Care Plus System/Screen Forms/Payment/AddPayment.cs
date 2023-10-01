@@ -1,5 +1,6 @@
 ﻿using Health_Care_Plus_System.Classes;
 using Newtonsoft.Json.Linq;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,21 +17,22 @@ using System.Windows.Forms;
 
 namespace Health_Care_Plus_System.Screen_Forms.Payment
 {
+
     public partial class AddPayment : Form
     {
-        // connecting DB string statement
-        private string connectionString = Properties.Settings.Default.DBConnectionString;
+        private string connectionString = Properties.Settings.Default.DBConnectionString; // connecting DB string statement
 
         //initialize instance reference class
         private PaymentClass paymentClass = new PaymentClass();
 
 
         // Initialize with the starting invoice number
-        private int currentInvoiceNumber; 
+        private int currentInvoiceNumber;
 
 
         //initialize and declare table
         private DataTable patientappointmentTable;
+
 
 
         public AddPayment()
@@ -38,11 +40,11 @@ namespace Health_Care_Plus_System.Screen_Forms.Payment
             InitializeComponent();
 
 
-    }
+        }
 
 
 
-    private void AddPayment_Load(object sender, EventArgs e)
+        private void AddPayment_Load(object sender, EventArgs e)
         {
             // Generate and display a new invoice number in ascending order when the form loads
             GenerateInvoiceNumber();
@@ -51,8 +53,11 @@ namespace Health_Care_Plus_System.Screen_Forms.Payment
             //called the method for display in DatagridTable
             LoadPatientAndAppointment();
 
-
         }
+
+
+
+
 
         //This method for generate invoice Numbers
         private void GenerateInvoiceNumber()
@@ -63,6 +68,8 @@ namespace Health_Care_Plus_System.Screen_Forms.Payment
             string invoiceNumber = $"INV{currentInvoiceNumber:000}";
             InvoiceNumberTextBox.Text = invoiceNumber;
         }
+
+
 
 
         //This method for displaying and align in Data grid table show
@@ -90,16 +97,13 @@ namespace Health_Care_Plus_System.Screen_Forms.Payment
 
 
 
-
-
-
         private void InvoiceNumberTextBox_TextChanged(object sender, EventArgs e)
         {
-     
+
         }
 
 
-       
+
         //Data Gride Table
         private void PatAndAppointDataTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -109,36 +113,38 @@ namespace Health_Care_Plus_System.Screen_Forms.Payment
                 DataGridViewRow selectedRow = PatAndAppointDataTable.Rows[e.RowIndex];
 
                 // Get the patient name, patient ID, appointment ID, and appointment fees from the selected row
-                string PatientName = selectedRow.Cells["FullName"].Value.ToString();
                 string PatientID = selectedRow.Cells["PatID"].Value.ToString();
-                string AppointmentTotalCharge = selectedRow.Cells["TotalFee"].Value.ToString();
+                string PatientName = selectedRow.Cells["FullName"].Value.ToString();
 
 
                 //Called the Text boxes
-                PatientNameTextbox.Text = PatientName;
-                PatientIDTextBox.Text = PatientID;
-                AppointmentchargeTextBox.Text = AppointmentTotalCharge;
+                PatientNameTxtBox.Text = PatientName;
+                PatIDTextBox1.Text = PatientID;
+
+                LoadAppointmentIDsIntoComboBox(AppointmentIDComboBox);
             }
         }
-
 
         private void CalculateAndDisplayTotal()
         {
             try
             {
-                double appointmentCharge = double.Parse(AppointmentchargeTextBox.Text);
-                double roomCharge = double.Parse(RoomTextBox.Text);
-                double resourceCharge = double.Parse(ResourceTextBox.Text);
+                if (double.TryParse(AppointmentchargeTextBox.Text, out double appointmentCharge) &&
+                    double.TryParse(RoomTextBox.Text, out double roomCharge) &&
+                    double.TryParse(ResourceTextBox.Text, out double resourceCharge))
+                {
+                    double totalCharge = appointmentCharge + roomCharge + resourceCharge;
 
-                double totalCharge = appointmentCharge + roomCharge + resourceCharge;
-
-                // Display the total charge with "Rs."
-                TotalBillingText.Text = "Rs." + totalCharge.ToString("0.00");
-                ToalTextBox1.Text = "Rs." + totalCharge;
+                    TotalBillingText.Text = "Rs." + totalCharge.ToString("0.00");
+                    ToalTextBox1.Text = "Rs." + totalCharge.ToString("0.00");
+                }
+                else
+                {
+                    TotalBillingText.Text = "Rs.0.00";
+                }
             }
             catch (FormatException ex)
             {
-                // Handle invalid input gracefully and print the exception message for debugging
                 TotalBillingText.Text = "Rs.0.00";
                 Console.WriteLine("Exception: " + ex.Message);
             }
@@ -155,9 +161,10 @@ namespace Health_Care_Plus_System.Screen_Forms.Payment
 
         }
 
+        //Add button click Even handler 
         private void AddButton_Click(object sender, EventArgs e)
         {
-
+   
         }
 
         private void ResourceTextBox_TextChanged(object sender, EventArgs e)
@@ -169,9 +176,6 @@ namespace Health_Care_Plus_System.Screen_Forms.Payment
         {
             CalculateDiscountedTotal();
         }
-
-
-
 
         //This calculates the discount method
         private void CalculateDiscountedTotal()
@@ -188,21 +192,60 @@ namespace Health_Care_Plus_System.Screen_Forms.Payment
                     string percentageStr = match.Value.TrimEnd('%');
                     double discountPercentage = double.Parse(percentageStr);
 
-                    // Calculate the discounted total amount based on the percentage
                     double discountAmount = (totalFee * discountPercentage) / 100;
                     double discountedTotalAmount = totalFee - discountAmount;
 
-                    // Display the discounted total amount with "Rs."
                     TotalBillingText.Text = "Rs." + discountedTotalAmount.ToString("0.00");
                 }
-               
+                else
+                {
+                    TotalBillingText.Text = "Invalid input";
+                }
             }
             catch (FormatException ex)
             {
-                // Handle invalid input gracefully and print the exception message for debugging
                 TotalBillingText.Text = "Invalid input";
                 Console.WriteLine("Exception: " + ex.Message);
             }
         }
-    }
+
+        public void LoadAppointmentIDsIntoComboBox(ComboBox comboBox)
+        {
+            try
+            {
+                // Clear the ComboBox before adding new items
+                comboBox.Items.Clear();
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT Appointment_ID FROM Appointment WHERE PatID = @PatID";
+                    Console.WriteLine("SQL Query: " + query); // Log the query
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@PatID", PatIDTextBox1.Text); // Replace with the actual patient ID
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                AppointmentIDComboBox.Items.Add(reader["Appointment_ID"].ToString());
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+        }
+
+        private void AppointmentIDComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+    }   
 }
