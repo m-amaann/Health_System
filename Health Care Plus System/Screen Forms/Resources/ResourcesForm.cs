@@ -115,5 +115,10 @@ namespace Health_Care_Plus_System.Screen_Forms.Resources
                 MessageBox.Show("Please select a row to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void ResourceDataGridview_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

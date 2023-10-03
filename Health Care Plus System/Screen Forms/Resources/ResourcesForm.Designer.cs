@@ -51,6 +51,7 @@
             this.ResourceDataGridview.RowTemplate.Height = 24;
             this.ResourceDataGridview.Size = new System.Drawing.Size(970, 523);
             this.ResourceDataGridview.TabIndex = 48;
+            this.ResourceDataGridview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ResourceDataGridview_CellContentClick);
             // 
             // DeleteButton
             // 

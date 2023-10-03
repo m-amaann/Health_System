@@ -34,7 +34,6 @@
             this.SearchBtn = new Guna.UI2.WinForms.Guna2Button();
             this.SearchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.Addbutton = new Guna.UI2.WinForms.Guna2Button();
-            this.Updatebutton = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.PaymentDataGridview)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,6 +71,7 @@
             this.DeleteButton.Size = new System.Drawing.Size(100, 39);
             this.DeleteButton.TabIndex = 62;
             this.DeleteButton.Text = "DELETE";
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // label2
             // 
@@ -131,6 +131,7 @@
             this.SearchTextBox.SelectedText = "";
             this.SearchTextBox.Size = new System.Drawing.Size(258, 43);
             this.SearchTextBox.TabIndex = 59;
+            this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
             // 
             // Addbutton
             // 
@@ -147,33 +148,12 @@
             this.Addbutton.ForeColor = System.Drawing.Color.White;
             this.Addbutton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Addbutton.ImageSize = new System.Drawing.Size(17, 17);
-            this.Addbutton.Location = new System.Drawing.Point(649, 100);
+            this.Addbutton.Location = new System.Drawing.Point(751, 100);
             this.Addbutton.Name = "Addbutton";
             this.Addbutton.Size = new System.Drawing.Size(102, 39);
             this.Addbutton.TabIndex = 58;
             this.Addbutton.Text = "ADD";
             this.Addbutton.Click += new System.EventHandler(this.Addbutton_Click);
-            // 
-            // Updatebutton
-            // 
-            this.Updatebutton.Animated = true;
-            this.Updatebutton.BorderRadius = 5;
-            this.Updatebutton.CustomBorderThickness = new System.Windows.Forms.Padding(5);
-            this.Updatebutton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Updatebutton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Updatebutton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Updatebutton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Updatebutton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(130)))), ((int)(((byte)(234)))));
-            this.Updatebutton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.Updatebutton.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.Updatebutton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.Updatebutton.ImageSize = new System.Drawing.Size(15, 15);
-            this.Updatebutton.Location = new System.Drawing.Point(762, 100);
-            this.Updatebutton.Name = "Updatebutton";
-            this.Updatebutton.Size = new System.Drawing.Size(100, 39);
-            this.Updatebutton.TabIndex = 57;
-            this.Updatebutton.Text = "UPDATE";
-            this.Updatebutton.Click += new System.EventHandler(this.Updatebutton_Click);
             // 
             // PaymentForm
             // 
@@ -186,7 +166,6 @@
             this.Controls.Add(this.SearchBtn);
             this.Controls.Add(this.SearchTextBox);
             this.Controls.Add(this.Addbutton);
-            this.Controls.Add(this.Updatebutton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PaymentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -206,6 +185,5 @@
         private Guna.UI2.WinForms.Guna2Button SearchBtn;
         private Guna.UI2.WinForms.Guna2TextBox SearchTextBox;
         private Guna.UI2.WinForms.Guna2Button Addbutton;
-        private Guna.UI2.WinForms.Guna2Button Updatebutton;
     }
 }

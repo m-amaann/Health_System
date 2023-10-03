@@ -43,11 +43,8 @@
             this.ResourceTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.AppointmentchargeTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.PatAndAppointDataTable = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.InvoiceNumberDatePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.PatientNameTxtBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,7 +52,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.PrintInvoiceBtn = new Guna.UI2.WinForms.Guna2Button();
             this.ToalTextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.DiscountTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -64,8 +61,10 @@
             this.AppointmentIDComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.PatIDTextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.InvoiceNumberDatePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.GenerateBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PatAndAppointDataTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.guna2GradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,7 +86,7 @@
             this.InvoiceNumberTextBox.Font = new System.Drawing.Font("Poppins", 9F);
             this.InvoiceNumberTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(104)))), ((int)(((byte)(112)))));
             this.InvoiceNumberTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.InvoiceNumberTextBox.Location = new System.Drawing.Point(380, 309);
+            this.InvoiceNumberTextBox.Location = new System.Drawing.Point(368, 309);
             this.InvoiceNumberTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.InvoiceNumberTextBox.Name = "InvoiceNumberTextBox";
             this.InvoiceNumberTextBox.Padding = new System.Windows.Forms.Padding(1);
@@ -96,7 +95,7 @@
             this.InvoiceNumberTextBox.PlaceholderText = "Invoice No";
             this.InvoiceNumberTextBox.SelectedText = "";
             this.InvoiceNumberTextBox.ShadowDecoration.BorderRadius = 5;
-            this.InvoiceNumberTextBox.Size = new System.Drawing.Size(299, 36);
+            this.InvoiceNumberTextBox.Size = new System.Drawing.Size(311, 36);
             this.InvoiceNumberTextBox.TabIndex = 359;
             // 
             // label11
@@ -105,7 +104,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.label11.Location = new System.Drawing.Point(379, 286);
+            this.label11.Location = new System.Drawing.Point(367, 286);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(128, 20);
             this.label11.TabIndex = 358;
@@ -147,7 +146,7 @@
             this.ServiceTextbox.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ServiceTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(104)))), ((int)(((byte)(112)))));
             this.ServiceTextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ServiceTextbox.Location = new System.Drawing.Point(380, 402);
+            this.ServiceTextbox.Location = new System.Drawing.Point(368, 421);
             this.ServiceTextbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ServiceTextbox.Multiline = true;
             this.ServiceTextbox.Name = "ServiceTextbox";
@@ -158,7 +157,7 @@
             this.ServiceTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.ServiceTextbox.SelectedText = "";
             this.ServiceTextbox.ShadowDecoration.BorderRadius = 5;
-            this.ServiceTextbox.Size = new System.Drawing.Size(296, 122);
+            this.ServiceTextbox.Size = new System.Drawing.Size(311, 103);
             this.ServiceTextbox.TabIndex = 356;
             // 
             // label7
@@ -352,25 +351,6 @@
             this.PatAndAppointDataTable.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.PatAndAppointDataTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatAndAppointDataTable_CellContentClick);
             // 
-            // InvoiceNumberDatePicker
-            // 
-            this.InvoiceNumberDatePicker.BackColor = System.Drawing.Color.White;
-            this.InvoiceNumberDatePicker.BorderColor = System.Drawing.SystemColors.ActiveCaption;
-            this.InvoiceNumberDatePicker.BorderRadius = 3;
-            this.InvoiceNumberDatePicker.Checked = true;
-            this.InvoiceNumberDatePicker.FillColor = System.Drawing.Color.White;
-            this.InvoiceNumberDatePicker.FocusedColor = System.Drawing.Color.White;
-            this.InvoiceNumberDatePicker.Font = new System.Drawing.Font("Poppins", 9F);
-            this.InvoiceNumberDatePicker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(104)))), ((int)(((byte)(112)))));
-            this.InvoiceNumberDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.InvoiceNumberDatePicker.Location = new System.Drawing.Point(35, 488);
-            this.InvoiceNumberDatePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.InvoiceNumberDatePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.InvoiceNumberDatePicker.Name = "InvoiceNumberDatePicker";
-            this.InvoiceNumberDatePicker.Size = new System.Drawing.Size(300, 36);
-            this.InvoiceNumberDatePicker.TabIndex = 337;
-            this.InvoiceNumberDatePicker.Value = new System.DateTime(2023, 9, 15, 0, 0, 0, 0);
-            // 
             // PatientNameTxtBox
             // 
             this.PatientNameTxtBox.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -400,17 +380,6 @@
             this.PatientNameTxtBox.Size = new System.Drawing.Size(302, 36);
             this.PatientNameTxtBox.TabIndex = 336;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(11, 43);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 28);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 335;
-            this.pictureBox1.TabStop = false;
-            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -423,17 +392,6 @@
             this.label1.TabIndex = 334;
             this.label1.Text = "ADD BILLING INVOICE";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.label3.Location = new System.Drawing.Point(29, 104);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 20);
-            this.label3.TabIndex = 338;
-            this.label3.Text = "Patient Name";
             // 
             // label2
             // 
@@ -464,7 +422,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.label6.Location = new System.Drawing.Point(384, 379);
+            this.label6.Location = new System.Drawing.Point(367, 397);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(104, 20);
             this.label6.TabIndex = 343;
@@ -510,7 +468,7 @@
             // 
             this.guna2GradientPanel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2GradientPanel1.BorderRadius = 20;
-            this.guna2GradientPanel1.Controls.Add(this.guna2Button1);
+            this.guna2GradientPanel1.Controls.Add(this.PrintInvoiceBtn);
             this.guna2GradientPanel1.Controls.Add(this.ToalTextBox1);
             this.guna2GradientPanel1.Controls.Add(this.DiscountTextBox);
             this.guna2GradientPanel1.Controls.Add(this.label8);
@@ -525,26 +483,27 @@
             this.guna2GradientPanel1.Size = new System.Drawing.Size(1055, 168);
             this.guna2GradientPanel1.TabIndex = 360;
             // 
-            // guna2Button1
+            // PrintInvoiceBtn
             // 
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderColor = System.Drawing.Color.RoyalBlue;
-            this.guna2Button1.BorderRadius = 5;
-            this.guna2Button1.BorderThickness = 2;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.Location = new System.Drawing.Point(864, 109);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(179, 36);
-            this.guna2Button1.TabIndex = 359;
-            this.guna2Button1.Text = "     Print Invoice";
+            this.PrintInvoiceBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PrintInvoiceBtn.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.PrintInvoiceBtn.BorderRadius = 5;
+            this.PrintInvoiceBtn.BorderThickness = 2;
+            this.PrintInvoiceBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.PrintInvoiceBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.PrintInvoiceBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.PrintInvoiceBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.PrintInvoiceBtn.FillColor = System.Drawing.Color.Transparent;
+            this.PrintInvoiceBtn.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrintInvoiceBtn.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.PrintInvoiceBtn.Image = ((System.Drawing.Image)(resources.GetObject("PrintInvoiceBtn.Image")));
+            this.PrintInvoiceBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.PrintInvoiceBtn.Location = new System.Drawing.Point(864, 109);
+            this.PrintInvoiceBtn.Name = "PrintInvoiceBtn";
+            this.PrintInvoiceBtn.Size = new System.Drawing.Size(179, 36);
+            this.PrintInvoiceBtn.TabIndex = 359;
+            this.PrintInvoiceBtn.Text = "     Print Invoice";
+            this.PrintInvoiceBtn.Click += new System.EventHandler(this.PrintInvoiceBtn_Click);
             // 
             // ToalTextBox1
             // 
@@ -574,6 +533,7 @@
             this.ToalTextBox1.ShadowDecoration.BorderRadius = 5;
             this.ToalTextBox1.Size = new System.Drawing.Size(294, 36);
             this.ToalTextBox1.TabIndex = 358;
+            this.ToalTextBox1.TextChanged += new System.EventHandler(this.ToalTextBox1_TextChanged);
             // 
             // DiscountTextBox
             // 
@@ -640,6 +600,7 @@
             this.TotalBillingText.Size = new System.Drawing.Size(19, 36);
             this.TotalBillingText.TabIndex = 500;
             this.TotalBillingText.Text = "0";
+            this.TotalBillingText.Click += new System.EventHandler(this.TotalBillingText_Click);
             // 
             // AppointmentIDComboBox
             // 
@@ -658,7 +619,6 @@
             this.AppointmentIDComboBox.Name = "AppointmentIDComboBox";
             this.AppointmentIDComboBox.Size = new System.Drawing.Size(300, 35);
             this.AppointmentIDComboBox.TabIndex = 364;
-            this.AppointmentIDComboBox.SelectedIndexChanged += new System.EventHandler(this.AppointmentIDComboBox_SelectedIndexChanged);
             // 
             // label14
             // 
@@ -700,6 +660,53 @@
             this.PatIDTextBox1.Size = new System.Drawing.Size(302, 36);
             this.PatIDTextBox1.TabIndex = 365;
             // 
+            // InvoiceNumberDatePicker
+            // 
+            this.InvoiceNumberDatePicker.BackColor = System.Drawing.Color.White;
+            this.InvoiceNumberDatePicker.BorderColor = System.Drawing.SystemColors.ActiveCaption;
+            this.InvoiceNumberDatePicker.BorderRadius = 3;
+            this.InvoiceNumberDatePicker.Checked = true;
+            this.InvoiceNumberDatePicker.FillColor = System.Drawing.Color.White;
+            this.InvoiceNumberDatePicker.FocusedColor = System.Drawing.Color.White;
+            this.InvoiceNumberDatePicker.Font = new System.Drawing.Font("Poppins", 9F);
+            this.InvoiceNumberDatePicker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(104)))), ((int)(((byte)(112)))));
+            this.InvoiceNumberDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.InvoiceNumberDatePicker.Location = new System.Drawing.Point(35, 488);
+            this.InvoiceNumberDatePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.InvoiceNumberDatePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.InvoiceNumberDatePicker.Name = "InvoiceNumberDatePicker";
+            this.InvoiceNumberDatePicker.Size = new System.Drawing.Size(295, 36);
+            this.InvoiceNumberDatePicker.TabIndex = 366;
+            this.InvoiceNumberDatePicker.Value = new System.DateTime(2023, 8, 22, 22, 8, 20, 402);
+            // 
+            // GenerateBtn
+            // 
+            this.GenerateBtn.BorderRadius = 3;
+            this.GenerateBtn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.ToogleButton;
+            this.GenerateBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.GenerateBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.GenerateBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.GenerateBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.GenerateBtn.Font = new System.Drawing.Font("Poppins", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GenerateBtn.ForeColor = System.Drawing.Color.White;
+            this.GenerateBtn.Location = new System.Drawing.Point(557, 353);
+            this.GenerateBtn.Name = "GenerateBtn";
+            this.GenerateBtn.Size = new System.Drawing.Size(122, 34);
+            this.GenerateBtn.TabIndex = 367;
+            this.GenerateBtn.Text = "Generate";
+            this.GenerateBtn.Click += new System.EventHandler(this.GenerateBtn_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.label3.Location = new System.Drawing.Point(29, 104);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(108, 20);
+            this.label3.TabIndex = 338;
+            this.label3.Text = "Patient Name";
+            // 
             // AddPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -707,6 +714,8 @@
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1056, 705);
+            this.Controls.Add(this.GenerateBtn);
+            this.Controls.Add(this.InvoiceNumberDatePicker);
             this.Controls.Add(this.PatIDTextBox1);
             this.Controls.Add(this.AppointmentIDComboBox);
             this.Controls.Add(this.label14);
@@ -720,9 +729,7 @@
             this.Controls.Add(this.ResourceTextBox);
             this.Controls.Add(this.AppointmentchargeTextBox);
             this.Controls.Add(this.PatAndAppointDataTable);
-            this.Controls.Add(this.InvoiceNumberDatePicker);
             this.Controls.Add(this.PatientNameTxtBox);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -735,7 +742,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.AddPayment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PatAndAppointDataTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -756,11 +762,8 @@
         private Guna.UI2.WinForms.Guna2TextBox ResourceTextBox;
         private Guna.UI2.WinForms.Guna2TextBox AppointmentchargeTextBox;
         private Guna.UI2.WinForms.Guna2DataGridView PatAndAppointDataTable;
-        private Guna.UI2.WinForms.Guna2DateTimePicker InvoiceNumberDatePicker;
         private Guna.UI2.WinForms.Guna2TextBox PatientNameTxtBox;
-        protected internal System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
@@ -773,9 +776,12 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label12;
         private Guna.UI2.WinForms.Guna2HtmlLabel TotalBillingText;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button PrintInvoiceBtn;
         private Guna.UI2.WinForms.Guna2ComboBox AppointmentIDComboBox;
         private System.Windows.Forms.Label label14;
         private Guna.UI2.WinForms.Guna2TextBox PatIDTextBox1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker InvoiceNumberDatePicker;
+        private Guna.UI2.WinForms.Guna2Button GenerateBtn;
+        private System.Windows.Forms.Label label3;
     }
 }

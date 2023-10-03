@@ -14,7 +14,7 @@ namespace Health_Care_Plus_System.Classes
         private string connectionString = Properties.Settings.Default.DBConnectionString; // connecting DB string statement
 
 
-        //  fields in the Payment table
+        // fields in the Payment table
         public int BillingID { get; set; }
         public string PatientName { get; set; }
         public int PatID { get; set; }
@@ -50,7 +50,7 @@ namespace Health_Care_Plus_System.Classes
             {
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT * FROM Payment WHERE BillingID = @BillingID";
+                cmd.CommandText = "SELECT * FROM Payments WHERE BillingID = @BillingID";
                 cmd.Parameters.AddWithValue("@BillingID", BillingID);
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -135,7 +135,7 @@ namespace Health_Care_Plus_System.Classes
                     connection.Open();
 
                     string insertQuery = @"
-                        INSERT INTO Appointment (PatientName, PatID, Appointment_ID, Method, INV_Date, INV_No, ServiceNote, Appoinement_Fee, RoomCharge, ResourceCharge, TotalFee, Discount, TotalAmount )
+                        INSERT INTO Payments (PatientName, PatID, Appointment_ID, Method, INV_Date, INV_No, ServiceNote, Appoinement_Fee, RoomCharge, ResourceCharge, TotalFee, Discount, TotalAmount)
                         VALUES (@PatientName, @PatID, @Appointment_ID, @Method, @INV_Date, @INV_No, @ServiceNote, @Appoinement_Fee, @RoomCharge, @ResourceCharge, @TotalFee, @Discount, @TotalAmount)";
 
                     using (SqlCommand cmd = new SqlCommand(insertQuery, connection))
@@ -168,11 +168,6 @@ namespace Health_Care_Plus_System.Classes
                     }
                 }
             }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("SQL Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -180,6 +175,76 @@ namespace Health_Care_Plus_System.Classes
             }
         }
 
+
+
+
+
+
+
+        // Search Payment Method From DB
+        public DataTable SearchPaymentInvoice(string searchQuery)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "SELECT * FROM Payments WHERE BillingID LIKE @SearchQuery " +
+                        "OR PatientName LIKE @SearchQuery " +
+                        "OR PatID LIKE @SearchQuery " +
+                        "OR Appointment_ID LIKE @SearchQuery " +
+                        "OR INV_No LIKE @SearchQuery";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@SearchQuery", "%" + searchQuery + "%");
+                        SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                        DataTable dataTable = new DataTable();
+                        dataAdapter.Fill(dataTable);
+
+                        return dataTable;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while searching: " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return null;
+            }
+        }
+
+
+
+
+
+
+        // DELETE PAYMENT INVOICE RECORD METHOD
+        public bool DeletePaymentInvoiceRecord()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string deleteQuery = "DELETE FROM Payments WHERE BillingID = @BillingID";
+
+                    using (SqlCommand command = new SqlCommand(deleteQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@BillingID", BillingID);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+        }
 
 
 
@@ -205,7 +270,6 @@ namespace Health_Care_Plus_System.Classes
                         {
                             if (reader.Read())
                             {
-                                BillingID = Convert.ToInt32(reader["BillingID"]);
                                 PatientName = reader["PatientName"].ToString();
                                 PatID = Convert.ToInt32(reader["PatID"]);
                                 Appointment_ID = Convert.ToInt32(reader["Appointment_ID"]);
@@ -218,7 +282,7 @@ namespace Health_Care_Plus_System.Classes
                                 ResourceCharge = reader["ResourceCharge"].ToString();
                                 TotalFee = reader["TotalFee"].ToString();
                                 Discount = reader["Discount"].ToString();
-                                TotalAmount = reader["ResourTotalAmountceCharge"].ToString();
+                                TotalAmount = reader["TotalAmount"].ToString();
 
                                 Console.WriteLine("Payment Invoice Record Has Been Loaded Successful.");
                                 return true;

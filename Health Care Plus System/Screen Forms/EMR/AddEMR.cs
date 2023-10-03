@@ -32,6 +32,7 @@ namespace Health_Care_Plus_System.Screen_Forms.EMR
             LoadPatientRecord();
             LoadPatientAppointmentRecords();
             LoadPatientMedicationsRecords();
+            LoadPaymentInvoiceRecords();
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -108,7 +109,7 @@ namespace Health_Care_Plus_System.Screen_Forms.EMR
             {
                 connection.Open();
 
-                string query = "SELECT * FROM Appointment where PatID = @PatID"; // Change this query as needed
+                string query = "SELECT * FROM Appointment where PatID = @PatID"; 
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -118,7 +119,7 @@ namespace Health_Care_Plus_System.Screen_Forms.EMR
                     DataTable dataTable = new DataTable();
                     dataAdapter.Fill(dataTable);
 
-                    PatientDataGrideView.DataSource = dataTable; // Assuming dataGridView1 is the name of your DataGridView control
+                    PatientDataGrideView.DataSource = dataTable; //  dataGridView1 is the name of your DataGridView control
                 }
             }
         }
@@ -129,7 +130,7 @@ namespace Health_Care_Plus_System.Screen_Forms.EMR
             {
                 connection.Open();
 
-                string query = "SELECT * FROM Prescription where PatID = @PatID"; // Change this query as needed
+                string query = "SELECT * FROM Prescription where PatID = @PatID"; 
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -139,7 +140,29 @@ namespace Health_Care_Plus_System.Screen_Forms.EMR
                     DataTable dataTable = new DataTable();
                     dataAdapter.Fill(dataTable);
 
-                    MedicationGridTable.DataSource = dataTable; // Assuming dataGridView1 is the name of your DataGridView control
+                    MedicationGridTable.DataSource = dataTable; 
+                }
+            }
+        }
+
+
+        private void LoadPaymentInvoiceRecords()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT * FROM Payments where PatID = @PatID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@PatID", selectedPatID);
+
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    dataAdapter.Fill(dataTable);
+
+                    PaymentInvoiceDataGridView1.DataSource = dataTable; 
                 }
             }
         }
